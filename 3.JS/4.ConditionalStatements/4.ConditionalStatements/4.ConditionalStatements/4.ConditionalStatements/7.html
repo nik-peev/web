@@ -1,0 +1,73 @@
+﻿<html>
+<head>
+	<title>Conditional Statements</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>7.Write a script that finds the greatest of given 5 variables.</p>
+    </div>
+    <div>
+		<span>
+			<label for="n1">a: </label>
+			<input type="text" id="n1";/>
+            <label for="n2">b: </label>
+			<input type="text" id="n2"/>
+            <label for="n3">c: </label>
+			<input type="text" id="n3"/>
+            <label for="n4">d: </label>
+			<input type="text" id="n4"/>
+            <label for="c">e: </label>
+			<input type="text" id="c"/>
+		</span>
+		<a href="#" onclick="findBiggestOfFiveNumbers()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="6.html">Previous task</a>
+    <a href="8.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function findBiggestOfFiveNumbers() {
+	        var n1 = jsConsole.readFloat("#n1");
+	        var n2 = jsConsole.readFloat("#n2");
+	        var n3 = jsConsole.readFloat("#n3");
+	        var n4 = jsConsole.readFloat("#n4");
+	        var c = jsConsole.readFloat("#c");
+	        var a;
+	        var b;
+	        if (n1 > n2)
+	            a = n1;
+	        else
+	            a = n2;
+	        if (n3 > n4)
+	            b = n3;
+	        else
+	            b = n4;
+	        if (isNaN(n1) || isNaN(n2) || isNaN(n3) || isNaN(n4) || isNaN(c))
+	            jsConsole.writeLine("no five numbers to calculate!")
+	        else {
+	            if (a >= b) {
+	                if ((b >= c) || (a >= c)) {
+	                    max = a;
+	                }
+	                else //a>=b (b<c or a<c)
+	                {
+	                    max = c;
+	                }
+	            }
+	            else //a < b
+	            {
+	                if ((b >= c) || (a >= c)) {
+	                    max = b;
+	                }
+	                else //b<c i a<c
+	                {
+	                    max = c;
+	                }
+	            }
+	            jsConsole.writeLine(max);
+	        }
+	    }
+	</script>
+</body>
+</html>

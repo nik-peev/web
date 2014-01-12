@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>    
+	<div id="js-console"></div>	
+	<script src="scripts/js-console.js"></script>
+	<script>
+	    var array = [-3, 4, 5, -3, 7];
+        
+
+	    for (var i = 0; i < array.length - 1; i++) {
+	        var temp = array[i];
+	        var min_index =  getMinIndexFromPos(i + 1, array);
+	        array[i] = array[min_index];
+	        array[min_index] = temp;
+	    }
+
+	    function getMinIndexFromPos(index, array) {
+	        var min_index = index;
+	        for (var i = index + 1; i < array.length; i++) {
+	            if ((array[i]) < (array[min_index])) {
+	                min_index = i;
+	            }
+	        }
+	        return min_index;
+	    }
+
+	    jsConsole.writeLine("Sorted array: ");
+	    for (var i = 0; i < array.length; i++) {
+	        jsConsole.writeLine(array[i]);
+	    }
+
+	</script>
+</body>
+</html>

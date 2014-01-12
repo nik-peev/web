@@ -1,0 +1,36 @@
+﻿<html>
+<head>
+	<title>Strings</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>11.Write a function that formats a string using placeholders.</p>
+    </div>
+     <div>
+		<a href="#" onclick="execute()" id="Execute">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="10.html">Previous task</a>
+    <a href="01.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function stringFormat() {
+	        var result = arguments[0];
+	        var length = arguments.length;
+	        for (var i = 0; i < length - 1; i++){
+	            var pattern = '\\{' + i + '\\}';
+	            result = result.replace(new RegExp(pattern, "g"), arguments[i + 1]);
+	        }
+	        return result;
+	    }
+
+	    function execute() {
+	        var input = 'stringFormat("{0}, {1}, {0} text {2}",1,"Pesho","Gosho");';
+	        var output = stringFormat("{0}, {1}, {0} text {2}", 1, "Pesho", "Gosho");
+	        jsConsole.writeLine('string to format:  ' + input);
+	        jsConsole.writeLine('formatted string:  ' + output);
+	    }
+	</script>
+</body>
+</html>

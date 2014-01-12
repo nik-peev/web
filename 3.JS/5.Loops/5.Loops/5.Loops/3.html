@@ -1,0 +1,42 @@
+﻿<html>
+<head>
+	<title>Loops</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>3.Write a script that finds the max and min number from a sequence of numbers</p>
+    </div>
+     <div>
+         <span>
+			<label for="sequence">sequence: </label>
+			<input type="text" placeholder ="1,2,3,4" id="sequence"/>
+		</span>
+		<a href="#" onclick="findMinMaxInSequence()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="2.html">Previous task</a>
+    <a href="4.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function findMinMaxInSequence() {
+	        var min = Number.MAX_VALUE, max = Number.MIN_VALUE;
+	        var sequence = jsConsole.read('#sequence');
+	        var array = sequence.split(',');
+	        var i = 0;
+	        for (; i < array.length; i++) {
+	            if (isNaN(array[i]) || array[i] == null || array[i] == "") {
+	                jsConsole.writeLine("No valid number!")
+	                return;
+	            }
+	            if (min > parseFloat(array[i]))
+	                min = array[i];
+	            if (max < parseFloat(array[i]))
+	                max = array[i];
+	            }
+	            jsConsole.writeLine('Min: ' + min);
+	            jsConsole.writeLine('Max: ' + max);
+	        }
+	</script>
+</body>
+</html>

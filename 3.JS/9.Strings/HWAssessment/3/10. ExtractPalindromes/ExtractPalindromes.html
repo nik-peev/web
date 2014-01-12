@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Extract all palindromes</title>
+</head>
+<body>
+    <p>This script will extract all palindromes from a given text.</p>
+    <label for="input">Please enter the text to get the palindromes from: </label>
+    <textarea  rows="6", cols="50", id="input"></textarea>
+    <br />
+    <input type="submit" id="extractPalndromes" onclick="produceOutput()" value="Submit" />
+    <div id="result"></div>
+
+    <script type="text/javascript">
+        function produceOutput() {
+            var input = document.getElementById("input").value;
+            var palindromes = getPalindromes(input);
+            for (var i in palindromes) {
+                document.getElementById("result").innerHTML += palindromes[i];
+            }
+        }
+
+        function getPalindromes(input) {
+            // Get each word
+            var words = input.match(/\w+/gi);
+            var palindromes = [];
+
+            // For each word, check whether the current word is palindrome and if it is, push it in the array of palindromes
+            for (var i in words) {
+                var isPalindrome = true;
+                for (var index = 0; index < Math.floor(words[i].length / 2); index++) {
+                    if (words[i].charAt(index) !== words[i].charAt(words[i].length - index - 1)) {
+                        isPalindrome = false;
+                    }
+                }
+                if (isPalindrome) {
+                    palindromes.push(words[i]);
+                }
+            }
+            return palindromes;
+        }
+    </script>
+</body>
+</html>

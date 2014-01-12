@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Write an expression that checks if given positive integer number n (n ≤ 100) is prime. E.g. 37 is prime.</title>
+		<meta name="author" content="Petya Gergova" />
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <header>
+            <h1>
+                Check if a number is prime
+            </h1>
+            <h3>
+                Enter an interger for a check:
+            </h3>
+        </header>
+        <section>
+            <input type="text"
+				name="integer-input"
+				id="integer-input"
+				required="required"
+				placeholder="Enter an interger for a check" />
+		<button type="button"
+				id="result"
+				onclick="checkIfPrime()">Check prime</button>
+        </section>
+        <script>
+            function checkIfPrime() {
+                var x = document.getElementById("integer-input").value;
+                var num = parseInt(x);
+                var c = Math.sqrt(num);
+                var result = true;
+
+                if (num == 1) {
+                    result = false;
+                }
+
+                if (num > 100) {
+                    alert("Enter a number smaller than 100!");
+                }
+
+                for (var i = 2; i <= c; i++) {
+                    if ((num % i) == 0) {
+                        result = false;
+                    }
+                }
+
+                alert(result);
+            }
+		</script>
+    </body>
+</html>
+

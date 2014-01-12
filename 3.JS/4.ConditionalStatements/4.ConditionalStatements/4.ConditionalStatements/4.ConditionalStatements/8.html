@@ -1,0 +1,75 @@
+﻿<html>
+<head>
+	<title>Conditional Statements</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>8.Write a script that converts a number in the range [0...999] to a text corresponding to its English pronunciation.</p>
+    </div>
+    <div>
+		<span>
+			<label for="number">Please enter a number (0-999): </label>
+			<input type="text" id="number"/>
+		</span>
+		<a href="#" onclick="numberToText()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="7.html">Previous task</a>
+    <a href="1.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+//four arrays with the used words, the empty strings in the beginning are for eaier work with the index (i.e.Tens[3] should respond to Thirty), \b = backspace 
+	    var Ones = [ "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", 
+                               "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+	    var ones = [ "\b ", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", 
+                                   "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" ];
+	    var Tens = [ "", "", "Twenty", "Thirty", "Fourty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" ];
+	    var tens = [ "", "", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety" ];
+	    function numberToText() {
+	        var n = jsConsole.readFloat("#number");
+
+//if the number is from 0 to 19 we print the corresponding element from the Ones[] array 
+	        if (n >= 0 && n <= 19) {
+	            jsConsole.writeLine(Ones[n]);
+	        }
+
+//if the number is between 20 and 99 first we find the first digit (2-9) using Math.floor or parseInt (number/10) which takes only the integer part of the result
+// and print the corresponding number from Tens[]
+//after that we find the number in the ones using n%10 which returns the remainder and add the dash  "-" and the corresponding word from ones[] (with small letter)
+            if (n >= 20 && n <= 99)
+            {
+                jsConsole.write(Tens[Math.floor(n / 10)]);
+                if (n % 10 != 0)
+                    jsConsole.write("-" + ones[n % 10]);
+                jsConsole.writeLine();
+            }
+
+//if the number is bigger than 100 we follow the same logic as from 20 to 99 - first find the first digit of the number print the word from Ones[]
+            if (n >= 100)
+            {
+
+                if (Math.floor(n / 100) >= 0 && Math.floor(n / 100) <= 19)
+                {
+                    jsConsole.write(Ones[Math.floor(n / 100)]);
+                }
+//after that we extract the second digit (of tens) as we find the remainder from dividing the number to 100, 200.. etc and if it is between 1 and 19 we print 
+// and after hundred (i.e. one hundred and ten, three hundrer and twelve and so on)
+                if ((n % (Math.floor(n / 100) * 100) <= 19) && (n % (Math.floor(n / 100) * 100) >= 1))
+                {
+                    jsConsole.write(" hundred and ");
+                    jsConsole.writeLine(ones[n - Math.floor(n / 100) * 100]);
+                }
+//check 1)if the remainder is 0 which means that we have 100, 200..etc or 2) the remainder is between  20 and 99 and we print only "hundred" without "and"
+//for example Three hundred or Four hundred fourty five
+                if ((n % (Math.floor(n / 100) * 100) == 0) || (n % (Math.floor(n / 100) * 100) >= 20) && (n % (Math.floor(n / 100) * 100) <= 99))
+                {
+                    jsConsole.write(" hundred ");
+                    jsConsole.write(tens[Math.floor(n / 10) % 10]);
+                    jsConsole.writeLine(" " + ones[n % 10]);
+                }
+            }
+        }
+	</script>
+</body>
+</html>

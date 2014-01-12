@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Check Expression</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+
+</head>
+<body>
+    <p>Write a JavaScript function to check if in a given expression the brackets are put correctly.</p>
+    <p>Example of correct expression: ((a+b)/5-d).</p>
+    <p>Example of incorrect expression: )(a+b))</p>
+	<br />							 
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js"></script>		  r
+	<script>
+	    var strToCheck;
+	    function checkBrackets(strToCheck) {
+	        var nesting = true;
+	        var leftN = 0;
+	        var rightN = 0;
+	        var len = strToCheck.length;
+	        if (strToCheck.charAt(0) == ')' || strToCheck.charAt(len - 1) == '(')
+	        {
+	            nesting = false;
+	            return nesting;
+	        }
+	        for (var i = 0; i < len; i++)
+	        {
+	            var c = strToCheck.charAt(i);
+	            if(c=='(')
+	            {
+	                leftN++; 
+	            }  
+	            else if (c == ')')
+	            {
+	                rightN++; 
+	            }
+	        }
+	        if (leftN != rightN)
+	        {
+	            nesting = false;
+	        }
+	            return nesting; 
+	    }
+	    //  test brackets
+//jsConsole.writeLine('left  ' + leftN + '  right  ');
+	    jsConsole.writeLine("The brackets in the expression  '((a+b)/5-d)' are correct? "
+            + checkBrackets('((a+b)/5-d)') + '<br />');
+	    jsConsole.writeLine("The brackets in the expression  ')(a+b))' are correct? "
+            + checkBrackets('())((a+b)') + '<br />');
+	    jsConsole.writeLine("The brackets in the expression  '((a+b))/5-d)(' are correct? "
+            + checkBrackets('((a+b))/5-d)(') + '<br />');
+	    jsConsole.writeLine("The brackets in the expression  '((((a+b)/5-d)' are correct? "
+            + checkBrackets('((((a+b)/5-d)') + '<br />');
+	    jsConsole.writeLine("The brackets in the expression  '(a+b)/(5-d)' are correct? "
+            + checkBrackets('(a+b)/(5-d)') + '<br />');
+	</script>			  
+</body>
+</html>

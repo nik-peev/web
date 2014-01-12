@@ -1,0 +1,40 @@
+﻿<html>
+<head>
+	<title>Operators and expressions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>6.Write an expression that checks if given print (x,  y) is within a circle K(O, 5).</p>
+    </div>
+    <div>
+		<span>
+			<label for="x">x: </label>
+			<input type="text" id="x"/>
+            <label for="y">y: </label>
+			<input type="text" id="y"/>
+		</span>
+		<a href="#" onclick="checkIfInCircle()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="5.html">Previous task</a>
+    <a href="7.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function checkIfInCircle() {
+	        var x = jsConsole.read("#x");
+	        var y = jsConsole.read("#y");
+	        if (isNaN(x) || x == null || x == "" || isNaN(y) || y == null || y == "")
+	            jsConsole.writeLine("no two number to calculate!")
+	        else {
+	            if (x * x + y * y < 25) {
+	                jsConsole.writeLine("The point is inside the circle!");
+	            }
+	            else {
+	                jsConsole.writeLine("The point is outside the circle!");
+	            }
+	        }
+	    }
+	</script>
+</body>
+</html>

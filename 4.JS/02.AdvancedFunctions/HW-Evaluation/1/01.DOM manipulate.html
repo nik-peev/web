@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+    <title>1. DOM Manipulation module</title>
+    <script src="work-withDOM.js"></script>
+</head>
+<body onload="onLoad()">
+    <div id="wrapper">
+        <ul id="items">
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2.</a></li>
+            <li><a href="#">Item 3.</a></li>
+            <li><a href="#">Item 4</a></li>
+        </ul>
+        
+    </div>
+    <button>Click me!</button>
+    <script>
+        function onLoad() {
+            var attributes = {
+            	"id" : "item5",
+            	"class" : "items"
+            };
+
+            domModule.appendChild("#items", "li", attributes, "<a href='#'>Added by dom module.</a>");
+            domModule.removeChild("ul", "li:first-child");
+            domModule.addHandler("button", "click", function () {
+            	alert("Button with attached event.");
+            });
+
+            for (var i = 0; i < 50; i++) {
+            	domModule.appendToBuffer("#wrapper", "div", null, "Element div by buffer" + i);
+            }
+        
+        }
+    </script>
+</body>
+</html>

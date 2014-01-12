@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Exam - 16.05.2013 10:00 am - JavaScript Part 2</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="controls.js"></script>
+</head>
+<body>
+    <div id="grid-view-holder"></div>
+    <div id="schools-repository"></div>
+
+    <script>
+        // Task 1:
+        var schoolsGrid = controls.getGridView("#grid-view-holder");
+        schoolsGrid.addHeader("Name", "Location", "Total Students", "Specialty");
+        schoolsGrid.addRow("PMG", "Burgas", 400, "Math");
+        schoolsGrid.addRow("TUES", "Sofia", 500, "IT");
+        schoolsGrid.addRow("Telerik Academy", "Sofia", 5000, "IT");
+        //schoolsGrid.render();
+        
+        // Task 2:
+        var academyRow = schoolsGrid.addRow("Telerik Academy", "Sofia", 5000, "IT");
+        var academyGrid = academyRow.getNestedGridView();
+        academyGrid.addHeader("Title", "Start Date", "Total Students");
+        academyGrid.addRow("<br/>JS 2", "11-april-2013", 400);
+        academyGrid.addRow("SEO", "11-april-2013", 1300);
+        academyGrid.addRow("SnD", "11-april-2013", 500);
+		var academyRow2 = academyGrid.addRow("1111", "88888", 7890);
+		
+        var academyGrid2 = academyRow2.getNestedGridView();
+        academyGrid2.addHeader("Title", "Start Date", "Total Students");
+        academyGrid2.addRow("<br/>JS 2", "11-april-2013", 400);
+        academyGrid2.addRow("SEO", "11-april-2013", 1300);
+        academyGrid2.addRow("SnD", "11-april-2013", 500);
+		var academyRow3 = academyGrid2.addRow("1111", "88888", 7890);
+		
+		var academyGrid3 = academyRow3.getNestedGridView();
+        academyGrid3.addHeader("Title", "Start Date", "Total Students");
+        academyGrid3.addRow("<br/>JS 2", "11-april-2013", 400);
+        academyGrid3.addRow("SEO", "11-april-2013", 1300);
+        academyGrid3.addRow("SnD", "11-april-2013", 500);
+		academyGrid3.addRow("1111", "88888", 7890);
+		
+		
+        schoolsGrid.render();
+
+        // Task 4
+        var schoolsData = [
+            {
+                school:
+                  {
+                      name: "FirstSchool",
+                      location: "Location",
+                      numberOfCourses: "2",
+                      specialty: "IT",
+                      courses: [
+                          {
+                              title: "C#",
+                              startDate: "01.01.2013",
+                              totalStudents: 2,
+                              students: [
+                                  {
+                                      firstName: "Pe6o",
+                                      lastName: "Petr0ff",
+                                      grade: 2,
+                                      mark: 2,
+                                  },
+                                  {
+                                      firstName: "Pe6o",
+                                      lastName: "Petr0ff",
+                                      grade: 2,
+                                      mark: 2,
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+            },
+            {
+                school:
+                {
+                    name: "SecondSchool",
+                    location: "Location",
+                    numberOfCourses: "2",
+                    specialty: "IT",
+                    courses: [
+                        {
+                            title: "C#",
+                            startDate: "01.01.2013",
+                            totalStudents: 2,
+                            students: [
+                                {
+                                    firstName: "Pe6o",
+                                    lastName: "Petr0ff",
+                                    grade: 2,
+                                    mark: 2,
+                                },
+                                {
+                                    firstName: "Pe6o",
+                                    lastName: "Petr0ff",
+                                    grade: 2,
+                                    mark: 2,
+                                }
+                            ]
+                        }
+                    ]
+                },
+            }
+        ];
+
+        var schoolsRepository = controls.getSchoolsRepository();
+        schoolsRepository.save("schools-repository", schoolsData);
+        var data = schoolsRepository.load("schools-repository");
+		console.log(data);
+
+        // Task 5:
+        var schoolsData = schoolsGrid.getGridViewData();
+
+        var schoolsRepository = controls.getSchoolsRepository();
+        schoolsRepository.save("schools-repository", schoolsData);
+        var data = schoolsRepository.load("schools-repository");
+
+        // Task 7:
+        var clonedGridView = controls.buildGridView("#schools-repository", data);
+        clonedGridView.render();
+    </script>
+</body>
+</html>

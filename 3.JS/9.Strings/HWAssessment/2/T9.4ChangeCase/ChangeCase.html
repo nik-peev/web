@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Change Case</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <p><em>You are given a text. Write a function that changes the text in all regions:</em></p>
+    <p><em>&lt;upcase&gt;text &lt;/upcase&gt; to uppercase; &lt;lowcase&gt;text&lt;/lowcase&gt; to lowercase</em></p>
+    <p><em>&lt;mixcase&gt;text&lt;/mixcase&gt; to mix casing(random)</em></p>
+    <br />
+    
+    <div id="console"> 
+        <script src="scripts/js-console.js"></script>
+        <script>
+            var str1 = "We are &lt;mixcase&gt;living in a &lt;/mixcase&gt;yellow&lt;upcase&gt; submarine&lt;/upcase&gt;."
+            var str2 = " We &lt;mixcase&gt;are not going  &lt;/mixcase&gt;to do&lt;lowcase&gt;ANYTHING&lt;/lowcase&gt; else. "
+            jsConsole.writeLine(str1+'<br />'+str2);
+            var str = "We are <mixcase>living in a </mixcase>yellow<upcase> submarine</upcase>. We <mixcase>are not going  </mixcase>to do <lowcase>ANYTHING</lowcase> else.";
+
+//  handle the test string
+
+            str = changeCase(str, '<upcase>', '</upcase>', upcase);
+            str = changeCase(str, '<lowcase>', '</lowcase>', lowcase);
+            str = changeCase(str, '<mixcase>', '</mixcase>', mixcase);
+            jsConsole.writeLine(str);
+            
+//  the function to change case according to the tags
+
+            function changeCase(str, opTag, clTag, applyTag) {
+
+//  lastMatch keeps indexes of current and next opening tags, next closing tag, the original and updated blocks:
+                var lastMatch = str.indexOf(opTag), nextOpIndex, nextClosIndex, orgBlock, updBlock;
+// stack is used to push/pop the match data:
+                var opIndexes = [];     
+                if (lastMatch > -1) {
+                    opIndexes.push(lastMatch);      //  a match of a tag is found    
+                }
+                while (opIndexes.length > 0)
+                {
+//  find indexes of the next opening and closing tags
+                    lastMatch = opIndexes[opIndexes.length - 1];
+                    nextOpIndex = str.indexOf(opTag, lastMatch + opTag.length);
+                    nextClosIndex = str.indexOf(clTag, lastMatch + opTag.length);
+//  is the next closing tag matched and corresponding to the current opening tag?
+                    if (nextClosIndex < nextOpIndex || nextOpIndex === -1)
+                    {
+//  yes, handle the block
+                        orgBlock = str.substring(lastMatch, nextClosIndex + clTag.length);  
+                        updBlock = orgBlock.replace(/<.+?case>/ig, '');     //  remove all tags
+                        updBlock = updBlock.replace(/\s{2,}/ig, ' ');     //  remove extra spaces
+                        updBlock = applyTag(updBlock);      //  extract the pure text and apply its tag to it
+
+                        str = str.replace(orgBlock, updBlock);  //  do this into the original string
+                        opIndexes.pop();        //  this element done, pop from the stack           
+
+                        if (nextOpIndex !== -1 && opIndexes.length === 0)
+                        {
+                            opIndexes.push(str.indexOf(opTag, lastMatch + opTag.length));
+                        }
+                    }
+//  no, push into the stack                                                                                      
+                    else
+                    {
+                        opIndexes.push(nextOpIndex);
+                    }
+                }
+//  remove extra spaces
+                str = str.replace(/\s{2,}/ig, ' ').trim();
+                return str;
+            }
+//  handle text blocks according to their tags
+            function upcase(txt) {
+                return txt.toUpperCase();
+            }
+
+            function lowcase(txt) {
+                return txt.toLowerCase();
+            }
+//  random mix
+            function mixcase(txt) {
+                var mix = '';
+                var rand;
+                var l=txt.length
+                for (var i = 0; i < l; ++i) {
+                    rand = parseInt(Math.random() * 3);
+                    if (rand%2 === 0) {
+                        mix += txt[i].toUpperCase();
+                    }
+                    else {
+                        mix += txt[i].toLowerCase();
+                    }
+                }
+                return mix;
+            }
+        </script>
+    </div>
+</body>
+</html>

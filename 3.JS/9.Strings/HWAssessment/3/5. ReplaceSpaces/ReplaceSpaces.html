@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Replace the spaces in a text</title>
+</head>
+<body>
+    <p>This script will replace all spaces in a text with the <strong>&amp;nbsp;</strong> symbol to make them HTML-safe.</p>
+    <label for="input">Please enter the text: </label>
+    <textarea  rows="6", cols="50", id="input"></textarea>
+    <br />
+    <input type="submit" id="replaceSpaces" onclick="produceOutput()" value="Submit" />
+    <span id="result"></span>
+
+    <script type="text/javascript">
+        function produceOutput() {
+            var input = document.getElementById("input").value;
+            // Search for spaces globally and replace them with "&nbsp;"
+            var output = input.replace(/ /g, "&amp;nbsp;");
+            document.getElementById("result").innerHTML = "<pre>" + output + "</pre>";
+        }
+    </script>
+</body>
+</html>

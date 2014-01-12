@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CSS - Presentation Task 4</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    
+    <body>  
+        <div class="calc-buffer">
+            <div class="upper">
+                <div class="title">Calculator</div>
+                <div class="upper-right close-window"></div>
+                <div class="upper-right full-window"></div>
+                <div class="upper-right minimize"></div>
+            </div>
+            
+            <div class="menu-div">
+                <ul>
+                    <li><span>View</span></li>
+                    <li><span>Edit</span></li>
+                    <li><span>Help</span></li>
+                </ul>
+            </div>
+            
+            <div class="calc-body">
+                <div class="values">87</div>
+                
+                <div class="binary-buffer">
+                    <div class="binary">
+                        <table>
+                            <tr>
+                                <td>0000</td>
+                                <td>0000</td>
+                                <td>0000</td>
+                                <td>0000</td>
+                                <td>0000</td>
+                                <td>0000</td>
+                                <td>0000</td>
+                                <td>0000</td>
+                            </tr>
+                            <tr>
+                                <td>63</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>47</td>
+                                <td></td>
+                                <td></td>
+                                <td>32</td>
+                            </tr>
+                            <tr>
+                                <td>0000</td>
+                                <td>0000</td>
+                                <td>0000</td>
+                                <td>0000</td>
+                                <td>0000</td>
+                                <td>0000</td>
+                                <td>0101</td>
+                                <td>0111</td>
+                            </tr>
+                            <tr>
+                                <td>31</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>15</td>
+                                <td></td>
+                                <td></td>
+                                <td>0</td>
+                            </tr>
+                        </table>
+                    </div><!--binary-->
+                </div><!--binary-buffer-->
+                
+                <div class="radio-button-divs">
+                    <span>
+                        <input type="radio" id="Hex" name="first">
+                        <label for="Hex">Hex</label>
+                    </span>
+                    <span>
+                        <input type="radio" id="Dec" name="first" checked="checked">
+                        <label for="Dec">Dec</label>
+                    </span>
+                    <span>
+                        <input type="radio" id="Oct" name="first">
+                        <label for="Oct">Oct</label>
+                    </span>
+                    <span>
+                        <input type="radio" id="Bin" name="first">
+                        <label for="Bin">Bin</label>
+                    </span>
+                </div><!--radio-button-divs 1-->
+                
+                <div class="buttons">
+                    <table>
+                      <tr>
+                        <td>
+                          <div class="disabled"></div>
+                        </td>
+                        <td>
+                          <div>Mod</div>
+                        </td>
+                        <td>
+                          <div class="disabled">A</div>
+                        </td>
+                        <td>
+                          <div class="button-no-bg">MC</div>
+                        </td>
+                        <td>
+                          <div class="button-no-bg">MR</div>
+                        </td>
+                        <td>
+                          <div class="button-no-bg">MS</div>
+                        </td>
+                        <td>
+                          <div class="button-no-bg">M+</div>
+                        </td>
+                        <td>
+                          <div class="button-no-bg">M-</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>(</div>
+                        </td>
+                        <td>
+                          <div>)</div>
+                        </td>
+                        <td>
+                          <div class="disabled">B</div>
+                        </td>
+                        <td>
+                          <div class="arrow">&#8592;</div>
+                        </td>
+                        <td>
+                          <div>CE</div>
+                        </td>
+                        <td>
+                          <div>C</div>
+                        </td>
+                        <td>
+                          <div>&#177;</div>
+                        </td>
+                        <td>
+                          <div class="disabled">&#8730;</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>RoL</div>
+                        </td>
+                        <td>
+                          <div>RoR</div>
+                        </td>
+                        <td>
+                          <div class="disabled">C</div>
+                        </td>
+                        <td>
+                          <div class="number">7</div>
+                        </td>
+                        <td>
+                          <div class="number">8</div>
+                        </td>
+                        <td>
+                          <div class="number">9</div>
+                        </td>
+                        <td>
+                          <div>/</div>
+                        </td>
+                        <td>
+                          <div class="disabled">%</div>
+                        </td>
+                      </tr>
+                    </table>
+                </div><!--buttons-->    
+			
+            <!--Second half-->
+				<div class="radio-button-divs">
+                    <span>
+                        <input type="radio" id="Qword" name="second" checked="checked">
+                        <label for="Qword">Qword</label>
+                    </span>
+                    <span>
+                        <input type="radio" id="Dword" name="second">
+                        <label for="Dword">Dword</label>
+                    </span>
+                    <span>
+                        <input type="radio" id="Word" name="second">
+                        <label for="Word">Word</label>
+                    </span>
+                    <span>
+                        <input type="radio" id="Byte" name="second">
+                        <label for="Byte">Byte</label>
+                    </span>
+                </div><!--radio-button-divs 1-->
+                
+                <div class="buttons">
+                    <table>
+                      <tr>
+                        <td>
+                          <div>Or</div>
+                        </td>
+                        <td>
+                          <div>Xor</div>
+                        </td>
+                        <td>
+                          <div class="disabled">D</div>
+                        </td>
+                        <td>
+                          <div class="number">4</div>
+                        </td>
+                        <td>
+                          <div class="number">5</div>
+                        </td>
+                        <td>
+                          <div class="number">6</div>
+                        </td>
+                        <td>
+                          <div>*</div>
+                        </td>
+                        <td>
+                          <div class="disabled">1/x</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>Lsh</div>
+                        </td>
+                        <td>
+                          <div>Rsh</div>
+                        </td>
+                        <td>
+                          <div class="disabled">E</div>
+                        </td>
+                        <td>
+                          <div class="number">1</div>
+                        </td>
+                        <td>
+                          <div class="number">2</div>
+                        </td>
+                        <td>
+                          <div class="number">3</div>
+                        </td>
+                        <td>
+                          <div>-</div>
+                        </td>
+                        <td rowspan="2">
+                          <div class="number equals">=</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>RoL</div>
+                        </td>
+                        <td>
+                          <div>RoR</div>
+                        </td>
+                        <td>
+                          <div class="disabled">F</div>
+                        </td>
+                        <td colspan="2">
+                          <div class="number zero">0</div>
+                        </td>
+                        <td>
+                          <div>.</div>
+                        </td>
+                        <td>
+                          <div>+</div>
+                        </td>
+                      </tr>
+                    </table>
+                </div><!--buttons--> 
+            </div><!--calc-body-->
+        </div><!--body-->
+	</body>
+</html>

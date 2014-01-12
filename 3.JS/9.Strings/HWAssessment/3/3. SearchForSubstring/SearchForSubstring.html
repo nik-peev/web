@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Search for a given substring in a string</title>
+</head>
+<body>
+    <p>This script will perform a case-insensitive search of a given substring in a string.</p>
+    <label for="input">Please enter the string to search in: </label>
+    <textarea  rows="6", cols="50", id="input"></textarea>
+    <br />
+    <label for="input">Please enter the substring to look for: </label>
+    <input type="text" id="substring" />
+    <br />
+    <input type="submit" id="search" onclick="produceOutput()" value="Submit" />
+    <span id="result"></span>
+
+    <script type="text/javascript">
+        function produceOutput() {
+            var input = document.getElementById("input").value;
+            var substring = document.getElementById("substring").value;
+            document.getElementById("result").innerHTML = "Number of matches: " + caseInsensitiveSearch(input, substring);
+        }
+
+        function caseInsensitiveSearch(expression, key) {
+            // Perform a global (g) case-insensitive (i) search for the given string globally (return all matches) (g)
+            return expression.match(new RegExp(key, "gi")).length;
+        }
+    </script>
+</body>
+</html>

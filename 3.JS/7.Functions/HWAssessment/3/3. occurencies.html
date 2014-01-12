@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Occurencies</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="text">Text: </label>
+	<input type="text" id="text" />
+    <label for="word">Word: </label>
+	<input type="text" id="word" />
+    <label for="check" >Case Sensitive</label>
+    <input type="checkbox" id="check" />
+	<a href="#" id="btn-power" onclick="WordOccurency()">Find Occurencies</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+	<script>
+	    function WordOccurency() {
+	        var bool = document.getElementById("check").checked;
+	        (!bool) ? WordCaseSensitive() : wordCaseInsensitive();
+	        function WordCaseSensitive() {
+	            var text = jsConsole.read("#text");
+	            var word = jsConsole.read("#word");
+	            word = word;
+	            var count = 0;
+	            var index = -1;
+	            while ((index = text.indexOf(word, index + 1)) >= 0) {
+	                count++;
+	            }
+	            jsConsole.write("Occurencies: " + count + " times");
+	        }
+	        function wordCaseInsensitive() {
+	            var text = jsConsole.read("#text").toUpperCase();
+	            var word = jsConsole.read("#word").toUpperCase();
+	            word = word;
+	            var count = 0;
+	            var index = -1;
+	            while ((index = text.indexOf(word, index + 1)) >= 0) {
+	                count++;
+	            }
+	            jsConsole.write("Occurencies: " + count + " times");
+	        }
+	    }
+		
+	</script>
+</body>
+</html>

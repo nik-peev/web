@@ -1,0 +1,10 @@
+C:\S\Google Диск\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\1.SampleLogoGradient\bin\1.SampleLogoGradient.dll
+C:\S\Google Диск\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\1.SampleLogoGradient\bin\1.SampleLogoGradient.pdb
+C:\S\Google Диск\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\1.SampleLogoGradient\obj\Debug\1.SampleLogoGradient.csprojResolveAssemblyReference.cache
+C:\S\Google Диск\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\1.SampleLogoGradient\obj\Debug\1.SampleLogoGradient.dll
+C:\S\Google Диск\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\1.SampleLogoGradient\obj\Debug\1.SampleLogoGradient.pdb
+C:\S\GoogleDrive\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\1.SampleLogoGradient\bin\1.SampleLogoGradient.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\1.SampleLogoGradient\bin\1.SampleLogoGradient.pdb
+C:\S\GoogleDrive\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\1.SampleLogoGradient\obj\Debug\1.SampleLogoGradient.csprojResolveAssemblyReference.cache
+C:\S\GoogleDrive\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\1.SampleLogoGradient\obj\Debug\1.SampleLogoGradient.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\1.SampleLogoGradient\obj\Debug\1.SampleLogoGradient.pdb

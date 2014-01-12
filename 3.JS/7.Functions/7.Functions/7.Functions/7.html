@@ -1,0 +1,57 @@
+﻿<html>
+<head>
+	<title>Functions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>7.Write a Function that returns the index of the first element in array that is bigger than its neighbors, or -1, if there’s no such element.<br />
+        Use the function from the previous exercise.</p>
+    </div>
+     <div>
+         <span>
+			<label for="array">array: </label>
+			<input type="text" placeholder ="1,2,3,4,5,4,5" id="array"/>
+		</span>
+		<a href="#" onclick="execute()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="6.html">Previous task</a>
+    <a href="1.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function read(id) {
+	        return jsConsole.read(id);
+	    }
+
+	    function checkNeighboursAtPosition(array, i) {
+	        if (array[i] > array[i * 1 + 1] && array[i] > array[i - 1]) {
+	            jsConsole.writeLine(i);
+	            return i;
+	        }
+	    }
+
+	    function checkNeighbours(array) {
+	        var i;
+	        for (i = 1; i < array.length - 2; i++) {
+	            if (array[i] == "") {
+	                jsConsole.writeLine("No valid array!")
+	                return;
+	            }
+	            if (checkNeighboursAtPosition(array, i) != null)
+	                return checkNeighboursAtPosition(array, i);
+     
+	        }
+	        if (checkNeighboursAtPosition(array, i) == null) {
+	            jsConsole.writeLine(-1);
+	            return -1
+	        }
+         }
+
+	    function execute() {
+	        var array = read('#array').split(',');
+	        checkNeighbours(array);
+	    }
+	</script>
+</body>
+</html>

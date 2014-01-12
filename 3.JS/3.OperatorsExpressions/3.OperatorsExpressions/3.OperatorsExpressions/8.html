@@ -1,0 +1,39 @@
+﻿<html>
+<head>
+	<title>Operators and expressions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>8.Write an expression that calculates trapezoid's area by given sides a and b and height h.</p>
+    </div>
+    <div>
+		<span>
+			<label for="a">a: </label>
+			<input type="text" id="a"/>
+            <label for="b">b: </label>
+			<input type="text" id="b"/>
+            <label for="h">h: </label>
+			<input type="text" id="h"/>
+		</span>
+		<a href="#" onclick="calculateTrapezoidArea()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="7.html">Previous task</a>
+    <a href="9.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function calculateTrapezoidArea() {
+	        var a = parseFloat(document.getElementById("a").value);
+	        var b = parseFloat(document.getElementById("b").value);
+	        var h = parseFloat(document.getElementById("h").value);
+	        if (isNaN(a) || a == null || a == "" || isNaN(b) || b == null || b == "" || isNaN(h) || h == null || h == "")
+	            jsConsole.writeLine("no three numbers to calculate!")
+	        else {
+	            var area = Math.round(((a + b) * h / 2) * 1000) / 1000;
+	            jsConsole.writeLine("The area is: " + area);
+            }
+	    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>3.DeepCopy</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head> 
+<body>
+    <h1>Deep copy of an object</h1>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+	    //Write a function that makes a deep copy of an object
+	    //The function should work for both primitive and reference types
+
+	    function deepCopy(p, c) {
+	        var c = c || {};
+	        for (var i in p) {
+	            if (typeof p[i] === 'object') {
+	                c[i] = (p[i].constructor === Array) ? [] : {};
+	                deepCopy(p[i], c[i]);
+	            } else c[i] = p[i];
+	        }
+	        return c; 
+	    }
+	    
+	    var arr = [1, 2, 1, 4, 1, 3, 4, 1, 111, 3, 2, 1, "1"];
+	    var arrDC = deepCopy(arr);
+
+	</script>
+</body>
+</html>

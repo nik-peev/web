@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>APIs - Drag and drop high score</title>
+    <link href="styles/1.css" rel="stylesheet" />
+</head>
+<body>
+    <a href="#" onclick="execute()">Start game</a>
+    <a href="1.html">Previuos task</a>
+    <a href="5.html">Next task</a>
+    <p><strong>2.Using the exercise with the bucket implement functionality for high-score:</strong></p>
+    <ul>
+        <li>When the user cleans all the trash, he is asked for a nickname and his score is saved in the local storage</li>
+        <ul>
+            <li>The score of the user is the time that took him to clean the trash</li>
+        </ul>
+        <li>Implement a high-score board, that is visible on page load and shows the top 5 scores </li>
+        <ul>
+            <li>The 5 users that cleaned the trash fastest</li>
+        </ul>
+    </ul>
+    <div id="content"><img id="bin" src="images/RecycleBin_empty.png" ondrop="drop(event)" ondragover="allowDrop(event)" /></div>
+    <fieldset id ="scores"><legend>High scores:</legend></fieldset>
+    <a href="#" onclick="clearStorage()" id="clear">Clear high scores</a>
+    <script src="scripts/2.HighScores.js"></script>
+</body>
+</html>

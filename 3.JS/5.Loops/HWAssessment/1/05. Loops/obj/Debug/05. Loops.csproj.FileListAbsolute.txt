@@ -1,0 +1,5 @@
+C:\Users\Pavel\Documents\GitHub\Academy\JavaScript\05. Loops\05. Loops\bin\_05.Loops.dll
+C:\Users\Pavel\Documents\GitHub\Academy\JavaScript\05. Loops\05. Loops\bin\_05.Loops.pdb
+C:\Users\Pavel\Documents\GitHub\Academy\JavaScript\05. Loops\05. Loops\obj\Debug\05. Loops.csprojResolveAssemblyReference.cache
+C:\Users\Pavel\Documents\GitHub\Academy\JavaScript\05. Loops\05. Loops\obj\Debug\_05.Loops.dll
+C:\Users\Pavel\Documents\GitHub\Academy\JavaScript\05. Loops\05. Loops\obj\Debug\_05.Loops.pdb

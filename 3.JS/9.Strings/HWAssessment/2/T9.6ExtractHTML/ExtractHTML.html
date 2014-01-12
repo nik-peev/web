@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Extract HTML</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <p><em>Write a function that extracts the content of a html page given as text</em></p>
+    <p><em>The function should return anything that is in a tag, without the tags</em></p>
+    <br />
+    <div id="console"> 
+        <script src="scripts/js-console.js"></script>
+        <script src="scripts/string-extensions.js"></script>
+        <script>
+            var str =
+     "<html><head><title>Sample site</title></head><body><div>text<div>more text</div>and more...</div>in body</body></html>";
+            var unTaggedStr =
+     "<html><head><title>Sample site</title></head><body><div>text<div>more text</div>and more...</div>in body</body></html>";
+            jsConsole.writeLine("Initial string:<br />"+str.htmlEscape());
+            unTaggedStr = unTaggedStr.replace(/<(.|\n)*?>/ig, '');
+            jsConsole.writeLine("<br />The result is:<br />" + unTaggedStr);
+        </script>
+    </div>
+</body>
+</html>

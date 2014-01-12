@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+    <p style="color:green">2. Write a script that compares two char arrays lexicographically (letter by letter).</p>
+    <br />
+	<a href="#" onclick="onButtonClick()">Test Script</a>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function onButtonClick() {
+	        function printArray(myArray, number) {
+	            if (number < 2) {
+	                jsConsole.write("1<sup>-st</sup> array is: ");
+	            }
+	            else {
+	                jsConsole.write("2<sup>-nd</sup> array is: ");
+	            }
+	            jsConsole.writeLine(myArray.join(" | "));
+	        }
+	        function testArrays(firstArray, secondArray) {
+	            printArray(firstArray, 1);
+	            printArray(secondArray, 2);
+	            var biggerLength = firstArray.length;
+	            if (biggerLength < secondArray.length) {
+	                biggerLength = secondArray.length;
+	            }
+	            var isEqual = true;
+	            for (var i = 0; i < biggerLength; i++) {
+	                if (firstArray[i] != secondArray[i]) {
+	                    isEqual = false;
+	                    break;
+	                }
+	            }
+	            if (isEqual) {
+	                jsConsole.writeLine("Arrays are equal.");
+	            }
+	            else {
+	                jsConsole.writeLine("Arrays are not equal.");
+	            }
+	            jsConsole.writeLine("------------------------------");
+	        }
+
+	        var array1 = ["a", "d", "g", "q", "z", "r", "t"];
+	        var array2 = ["a", "d", "g", "q", "z", "r", "t", "g"];
+	        testArrays(array1, array2);
+
+	        array1 = ["r", "q", "w", "e", "z", "h", "d"];
+	        array2 = ["r", "q", "w", "t", "z", "h", "d"];
+	        testArrays(array1, array2);
+
+	        array1 = ["a", "b", "c", "d", "e", "f", "g"];
+	        array2 = ["a", "b", "c", "d", "e", "f", "g"];
+	        testArrays(array1, array2);
+	    }
+	</script>	
+</body>
+</html>

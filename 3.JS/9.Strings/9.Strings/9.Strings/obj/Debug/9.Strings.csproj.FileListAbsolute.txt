@@ -1,0 +1,5 @@
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\9.Strings\9.Strings\9.Strings\bin\9.Strings.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\9.Strings\9.Strings\9.Strings\bin\9.Strings.pdb
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\9.Strings\9.Strings\9.Strings\obj\Debug\9.Strings.csprojResolveAssemblyReference.cache
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\9.Strings\9.Strings\9.Strings\obj\Debug\9.Strings.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\9.Strings\9.Strings\9.Strings\obj\Debug\9.Strings.pdb

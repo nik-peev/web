@@ -1,0 +1,48 @@
+﻿<html>
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>3.Write a script that finds the maximal sequence of equal elements in an array. Example: {2,1,1,2,3,3,2,2,2,1} -> {2,2,2}.</p>
+    </div>
+     <div>
+         <span>
+			<label for="array">array: </label>
+			<input type="text" placeholder ="1e,2,d,4,a,b2,b2" id="array"/>
+		</span>
+		<a href="#" onclick="findLongestEqualElementsSequence()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="2.html">Previous task</a>
+    <a href="4.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function findLongestEqualElementsSequence() {
+	        var array = jsConsole.read('#array');
+	        array = array.split(',');
+	        var i = 0, count = 1, maxCount = 0, equalElement;
+	        for (; i < array.length; i++) {
+	            if (array[i] == "") {
+	                jsConsole.writeLine("No valid array!")
+	                return;
+	            }
+	            if (array[i] == array[i + 1])
+	                count++;
+	            else {
+	                if (maxCount < count) {
+	                    maxCount = count;
+	                    equalElement = array[i];
+	                    count = 1;
+	                }
+	            }
+	        }
+	        jsConsole.write("Longest equals elements' sequence: ");
+	        for (i = 0; i < maxCount; i++) {
+	            jsConsole.write(equalElement + ' ');
+	        }
+	    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>06.TheMostFrequentNumber</title>
+    <link href="styles/js-console.min.css" rel="stylesheet" />
+    <script src="scripts/js-console.js"></script>
+    <style>
+		#number  {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body> 	
+    <div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  currFrequency
+    </script>
+ 
+	<script>
+	    var arr = [4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3];
+
+	    var temp = 0;
+	    var currValue = 0;
+	    var bestFrequency = 0;
+	    var currFrequency = 1;
+	    var bestValue = 0;
+
+	    for (var i = 0; i < arr.length - 1; i++) {
+	        temp = arr[i];
+	        for (var j = 1; j < arr.length; j++) {
+	            if (temp == arr[j]) {
+	                currValue = temp;
+	                currFrequency++;
+
+	                if (currFrequency > bestFrequency) {
+	                    bestFrequency = currFrequency;
+	                    bestValue = temp;
+	                }
+	            }
+	        }
+
+	        currFrequency = 0;
+	    }
+
+	    jsConsole.writeLine("The most frequent value is " + bestValue + " and it's repeating " + bestFrequency + " times.");
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div>Please enter numbers separated by space: 3 12 5 8</div>
+	<label for="tb-first">Digit: </label>
+	<input type="text" id="tb-first"/>
+	<br />							  
+	<a href="#" onclick="onFindGreatestButtonClick()">Find Greatest</a>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														
+		function onFindGreatestButtonClick() {
+			var number = jsConsole.read("#tb-first");
+			var myArray = number.split(" ");
+			var max = myArray[0];
+
+			for (var i = 1; i < myArray.length; i++) {
+				if (parseInt(myArray[i])>max) {max = myArray[i]}
+			};
+
+			jsConsole.writeLine("The greatest number is: "+max);
+		}	 
+
+		
+	</script>			  
+</body>
+</html>

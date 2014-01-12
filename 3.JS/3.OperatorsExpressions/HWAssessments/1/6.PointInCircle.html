@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <label for="input-number">Input x coord: </label>
+    <input type="text" id="input-x" />
+    <br />
+    <label for="input-number">Input y coord: </label>
+    <input type="text" id="input-y" />
+    <br />
+    <a href="#" onclick="checkPointInCircle()">Check if point (x,y) is within a circle K(0,5) </a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function checkPointInCircle() {
+            var xCoord = jsConsole.readFloat("#input-x");
+            var yCoord = jsConsole.readFloat("#input-y");
+            if (isNaN(xCoord) || isNaN(yCoord)) {
+                jsConsole.writeLine("Invalid coordinates!");
+            }
+                //(x-center_x)^2 + (y - center_y)^2 < radius^2   ->formula to check if point is in circle
+            else {
+                var distToCenter = parseFloat(xCoord * xCoord) + parseFloat(yCoord * yCoord);
+                if (distToCenter <= 25.0) {
+                    jsConsole.writeLine("The point is within the circle");
+                }
+                else {
+                    jsConsole.writeLine("The point is outside the circle");
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Planar coordinate system!</title>
+    <link href="styles/js-console.css" rel="stylesheet" />    
+	<style>		
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+    <p>Calculate the distance between two points:</p>
+    <a href="#" onclick="onCalc()">Calculate</a>
+    <p>Check if three segment lines can form a triangle</p>
+	<a href="#" onclick="onCheck()">Check</a>
+	<div id="console">
+	</div>	
+    <script src="scripts/js-console.js">	  
+	</script>	
+	<script>
+	    function onCalc() {
+	        jsConsole.Clear();	        
+	        var point1 = getPoint(2, 5);
+	        var point2 = getPoint(10, 15);
+	        var distance = calcDistance(point1, point2);
+	        jsConsole.write("Distance between points (" + point1.x + "," + point1.y + ") and (" + point2.x + "," + point2.y + ") is: " + distance);
+		}
+	    function onCheck() {
+	        jsConsole.Clear();
+	        var line1 = getLine(getPoint(2, 8), getPoint(10, 15));
+	        var line2 = getLine(getPoint(1, 6), getPoint(7, 11));
+	        var line3 = getLine(getPoint(12, 21), getPoint(8, 12));
+	        var length1 = calcDistance(line1.startPoint, line1.endPoint);	        
+	        var length2 = calcDistance(line2.startPoint, line2.endPoint);	        
+	        var length3 = calcDistance(line3.startPoint, line3.endPoint);            
+	        jsConsole.write("The three lines L1{" + line1.toString() + "}, L2{" + line2.toString() + "} and L3{" + line3.toString() + "}");
+	        if (checkLines(length1, length2, length3)) {
+	            jsConsole.write(" can form triangle.")
+	        }
+	        else {
+	            jsConsole.write(" can not form triangle.")
+	        }
+	    }
+	    function getPoint(x, y) {
+	        return {
+	            x: x,
+	            y: y,
+	        }
+	    }
+	    function getLine(point1, point2) {
+	        return {
+	            startPoint: point1,
+	            endPoint: point2,
+	            toString: function () { return "p1(" + this.startPoint.x + "," + this.startPoint.y + "),p2(" + this.endPoint.x + "," + this.endPoint.y + ")"; }
+	        }
+	    }
+	    function calcDistance(point1, point2) {	        
+	        return Math.sqrt(Math.pow((point2.x - point1.x), 2) + Math.pow((point2.y - point1.y), 2));
+	    }
+	    function checkLines(a, b, c) {
+	        if (((a + b) > c) && ((a + c) > b) && ((b + c) > a)) {	            
+	            return true;
+	        }
+	        else {
+	            return false;
+	        }
+	    }
+	</script>		
+</body>
+</html>

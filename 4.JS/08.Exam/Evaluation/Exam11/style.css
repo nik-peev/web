@@ -1,0 +1,31 @@
+th,tr,td,table,div,p,p,body {margin: 0;
+padding: 0;
+}
+table {border-collapse: collapse;
+margin: 10px;
+font-family: 'sans';
+	}
+th {
+color: #FFFFFF;
+background-color: green;
+text-align: left;
+border: 1px solid #4D4D4D;
+padding: 5px 30px 5px 5px;
+}
+table td {
+border-right-style: solid;
+border-right-color: #B2B2B2;
+border-right-width: 1px;
+border-bottom-style: solid;
+border-bottom-color: #B2B2B2;
+border-bottom-width: 1px;
+padding: 5px 30px 5px 5px;
+}
+
+tr.hidden {
+	display: none;
+}
+
+tr.visible {
+	display: table-row;
+}

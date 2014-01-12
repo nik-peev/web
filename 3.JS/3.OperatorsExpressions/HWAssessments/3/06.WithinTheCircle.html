@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Write an expression that checks if given print (x,  y) is within a circle K(O, 5)</title>
+		<meta name="author" content="Petya Gergova" />
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <header>
+            <h1>
+                Check if a point is within a circle K(O, 5)
+            </h1>
+            <h3>
+                Enter intergers for X and Y
+            </h3>
+        </header>
+        <section>
+            <input type="text"
+				name="point-x"
+				id="point-x"
+				required="required"
+				placeholder="Enter point 1" />
+		<input type="text"
+				name="point-y"
+				id="point-y"
+				required="required"
+				placeholder="Enter point 2" />
+		<button type="button"
+				id="result"
+				onclick="checkPrint()">Check print</button>
+        </section>
+        <script>
+            function checkPrint() {
+                var x = document.getElementById("point-x").value;
+                var xNumber = parseInt(x);
+                var a = Math.pow(xNumber, 2);
+                var y = document.getElementById("point-y").value;
+                var yNumber = parseInt(y);
+                var b = Math.pow(yNumber, 2);
+
+                if (a != NaN && b != NaN) {
+                    if ((a + b) < 25) {
+                        alert("Print(x,y) is within the circle");
+                    }
+
+                    else if ((a + b) == 25) {
+                        alert("Print(x,y) is on the circle");
+                    }
+
+                    else if ((a + b) > 25) {
+                        alert("Print(x,y) is out of the circle");
+                    }
+
+                    else {
+                        alert("Enter intergers.");
+                    }
+                }
+
+                else {
+                    alert("Enter intergers.");
+                }
+            }
+		</script>
+    </body>
+</html>

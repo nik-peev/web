@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Format String</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <p><em>Write a function that formats a string using placeholders</em></p>
+    <br />
+    <div id="console"> 
+        <script src="scripts/js-console.js"></script>
+        <script src="scripts/string-extensions.js"></script>
+        <script>
+            function stringFormat() {
+                var result = arguments[0];
+
+                for (var i = 1; i < arguments.length; i++)
+                    result = result.replace(new RegExp('\\{' + (i - 1) + '\\}', "g"), arguments[i]);
+
+                return result;
+            }
+
+            var format = "Hello {0}!";
+            var str = stringFormat(format, "Peter");
+            jsConsole.writeLine(str);
+            //str = "Hello Peter!";
+
+
+            format = "{0}, {1}, {0} text {2}";
+            str = stringFormat(format, 1, "Pesho", "Gosho");
+            jsConsole.writeLine(str);
+            //str = "1, Pesho, 1 text Gosho"
+
+        </script>
+    </div>
+</body>
+</html>

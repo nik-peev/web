@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Calculator</title>
+	<link href="4.Calculator.css" rel="stylesheet" />
+</head>
+<body>
+	<section class="outside-square">
+		<ul class="menu">
+			<li class="menu-li">View</li>
+			<li class="menu-li">Edit</li>
+			<li class="menu-li">Help</li>
+		</ul>
+		<form>
+			<input type="text" class="display inset-border center" value="88544557" />
+		</form>
+		<div class="binary-box inset-border center">
+				<ul class="binary-ul">
+					<li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li>
+				</ul>
+				<ul class="binary-ul">
+					<li>63</li><li>&nbsp&nbsp&nbsp&nbsp&nbsp47</li><li>32</li>
+				</ul>
+				<ul class="binary-ul">
+					<li>0000</li><li>0000</li><li>1000</li><li>0111</li><li>0001</li><li>1011</li><li>1011</li><li>0111</li>
+				</ul>
+				<ul class="binary-ul">
+					<li>31</li><li>&nbsp&nbsp&nbsp&nbsp&nbsp15</li><li>&nbsp0</li>
+				</ul>
+		</div>
+
+		<table class = "table">
+			<tr><td colspan = "2" rowspan = "3">
+					<form class="one-border-box">
+						<ul class="ul-one-border-box">
+							<li><input type="radio" name="numeral" value="hex" /> Hex</li>
+							<li><input type="radio" name="numeral" value="dec" checked /> Dec</li>
+							<li><input type="radio" name="numeral" value="oct" /> Oct</li>
+							<li><input type="radio" name="numeral" value="bin" /> Bin</li>
+						</ul>
+					</form>
+				</td>
+				<td ><input type="button" class="noHover" value="" disabled="true"/></td>
+				<td ><input type="button" class="Hover" value="Mod"/></td>
+				<td ><input type="button" class="noHover" value="A" disabled="disabled"/></td>
+				<td ><input type="button" class="darkHover"  value="MC"/></td>
+				<td ><input type="button" class="darkHover" value="MR"/></td>
+				<td ><input type="button" class="darkHover" value="MS"/></td>
+				<td ><input type="button" class="darkHover" value="M+"/></td>
+				<td ><input type="button" class="darkHover" value="M-"/></td>
+			</tr>
+			<tr>
+				<td ><input type="button" class="Hover" value="("/></td>
+				<td ><input type="button" class="Hover" value=")"/></td>
+				<td ><input type="button" class="noHover" value="B" disabled="disabled"/></td>
+				<td ><input type="button" class="Hover" value="&#8592"/></td>
+				<td ><input type="button" class="Hover" value="CE"/></td>
+				<td ><input type="button" class="Hover" value="C"/></td>
+				<td ><input type="button" class="Hover" value="&#177"/></td>
+				<td ><input type="button" class="noHover" value="&#8730" disabled="true"/></td>
+			</tr>
+			<tr>
+				<td ><input type="button" class="Hover" value="RoL"/></td>
+				<td ><input type="button" class="Hover" value="RoR"/></td>
+				<td ><input type="button" class="noHover" value="C" disabled="disabled"/></td>
+				<td ><input type="button" class="numsHover" value="7"/></td>
+				<td ><input type="button" class="numsHover" value="8"/></td>
+				<td ><input type="button" class="numsHover" value="9"/></td>
+				<td ><input type="button" class="Hover" value="/"/></td>
+				<td ><input type="button" class="noHover" value="%" disabled="disabled"/></td>
+			</tr>
+			<tr>
+				<td colspan = "2" rowspan = "3">
+					<form class="one-border-box">
+						<ul class="ul-one-border-box">
+							<li><input type="radio" name="word" value="qword" checked /> Qword</li>
+							<li><input type="radio" name="word" value="dword" /> Dword</li>
+							<li><input type="radio" name="word" value="word" /> Word</li>
+							<li><input type="radio" name="word" value="byte" /> Byte</li>
+						</ul>
+					</form>
+				</td>
+				<td ><input type="button" class="Hover" value="Or"/></td>
+				<td ><input type="button" class="Hover" value="Xor"/></td>
+				<td ><input type="button" class="noHover" value="D" disabled="disabled"/></td>
+				<td ><input type="button" class="numsHover" value="4"/></td>
+				<td ><input type="button" class="numsHover" value="5"/></td>
+				<td ><input type="button" class="numsHover" value="6"/></td>
+				<td ><input type="button" class="Hover" value="*"/></td>
+				<td ><input type="button" class="noHover" value="1/x" disabled="disabled"/></td>
+			</tr>
+				<tr>
+				<td ><input type="button" class="Hover" value="Lsh"/></td>
+				<td ><input type="button" class="Hover" value="Rsh"/></td>
+				<td ><input type="button" class="noHover" value="E" disabled="disabled"/></td>
+				<td ><input type="button" class="numsHover" value="1"/></td>
+				<td ><input type="button" class="numsHover" value="2"/></td>
+				<td ><input type="button" class="numsHover" value="3"/></td>
+				<td ><input type="button" class="Hover" value="-"/></td>
+				<td rowspan="2"><input type="button" id="equal" class="Hover" value="=" disabled="disabled"/></td>
+			</tr>
+			<tr>
+				<td ><input type="button" class="Hover" value="Not"/></td>
+				<td ><input type="button" class="Hover" value="And"/></td>
+				<td ><input type="button" class="noHover" value="F" disabled="disabled"/></td>
+				<td  colspan="2"><input type="button" id="zero" class="numsHover" value="0"/></td>
+				<td ><input type="button" class="numsHover" value="," disabled="disabled"/></td>
+				<td ><input type="button" class="Hover" value="+"/></td>
+			</tr>
+		</table> 
+	</section>
+</body>
+</html>

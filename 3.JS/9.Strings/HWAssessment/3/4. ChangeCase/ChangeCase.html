@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Change the case of a text</title>
+</head>
+<body>
+    <p>This script will change the case of the text in the regions &lt;upcase&gt;, &lt;lowcase&gt;, and &lt;mixcase&gt;.</p>
+    <label for="input">Please enter the string to process: </label>
+    <textarea  rows="6", cols="50", id="input"></textarea>
+    <br />
+    <label for="input">Please enter the substring to look for: </label>
+    <input type="submit" id="changeCase" onclick="produceOutput()" value="Submit" />
+    <div id="result"></div>
+
+    <script type="text/javascript">
+        function produceOutput() {
+            var input = document.getElementById("input").value;
+            document.getElementById("result").innerHTML = ChangeCase(input);
+        }
+
+        function ChangeCase(input) {
+            // Get each region of tags and search within it for other tags, calling the function recursively
+            input = input.replace(/<upcase>(.*?)<\/upcase>/g, function (match, g1) {
+                if (g1.match(/<upcase>/g) === null && g1.match(/<lowcase>/g) === null && g1.match(/<mixcase>/g) === null) {
+                    return g1.toUpperCase();
+                }
+                else {
+                    return ChangeCase(g1);
+                }
+            });
+            input = input.replace(/<lowcase>(.*?)<\/lowcase>/g, function (match, g1) {
+                if (g1.match(/<upcase>/g) === null && g1.match(/<lowcase>/g) === null && g1.match(/<mixcase>/g) === null) {
+                    return g1.toLowerCase();
+                }
+                else {
+                    return ChangeCase(g1);
+                }
+            });
+            input = input.replace(/<mixcase>(.*?)<\/mixcase>/g, function (match, g1) {
+                if (g1.match(/<upcase>/g) === null && g1.match(/<lowcase>/g) === null && g1.match(/<mixcase>/g) === null) {
+                    return MixedCase(g1);
+                }
+                else {
+                    return ChangeCase(g1);
+                }
+            });
+            return input;
+        }
+
+        function MixedCase(input) {
+            var output = "";
+            for (var i = 0; i < input.length; i++) {
+                if (i % 2 === 0) {
+                    output += input.charAt(i).toLowerCase();
+                }
+                else output += input.charAt(i).toUpperCase();
+            }
+            return output;
+        }
+    </script>
+</body>
+</html>

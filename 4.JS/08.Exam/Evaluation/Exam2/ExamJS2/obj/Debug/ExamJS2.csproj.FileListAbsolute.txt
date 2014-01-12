@@ -1,0 +1,5 @@
+E:\SkyDrive\TelerikAcademy\JavaScript2\ExamJS2\ExamJS2\bin\ExamJS2.dll
+E:\SkyDrive\TelerikAcademy\JavaScript2\ExamJS2\ExamJS2\bin\ExamJS2.pdb
+E:\SkyDrive\TelerikAcademy\JavaScript2\ExamJS2\ExamJS2\obj\Debug\ExamJS2.csprojResolveAssemblyReference.cache
+E:\SkyDrive\TelerikAcademy\JavaScript2\ExamJS2\ExamJS2\obj\Debug\ExamJS2.dll
+E:\SkyDrive\TelerikAcademy\JavaScript2\ExamJS2\ExamJS2\obj\Debug\ExamJS2.pdb

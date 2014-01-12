@@ -1,0 +1,51 @@
+﻿<html>
+<head>
+	<title>UsingObjects</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>2.Write a function that removes all elements with a given value <br />
+           &nbsp; &nbsp; ● Attach it to the array class <br />
+           &nbsp; &nbsp; ● Read about prototype and how to attach methods.</p>
+    </div>
+     <div>
+         <span>
+			<label for="array">array: </label>
+			<input type="text" placeholder ="1,2,3,4,5,4,5" id="array"/>
+            <label for="element">element: </label>
+			<input type="text" placeholder ="4" id="element"/>
+		</span>
+		<a href="#" onclick="execute()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="1.html">Previous task</a>
+    <a href="3.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function read(id) {
+	        return jsConsole.read(id);
+	    }
+
+        Array.prototype.remove = function (element) {
+            var i;
+            var newArray = [];
+            var length = this.length
+	        for (i = 0; i < length; i++) {
+	            if (this[i] !== element) {
+	                newArray.push(this[i]);
+	            }
+	        }
+	        return newArray;
+	    }
+
+        function execute() {
+            var array = read('#array').split(',');
+            var element = read('#element');
+	        var newArray = array.remove(element);
+	        jsConsole.writeLine(newArray.join(', '));
+	    }
+
+	</script>
+</body>
+</html>

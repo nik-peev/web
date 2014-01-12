@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <label for="input-number">Input number: </label>
+    <input type="text" id="input-number" />
+    <br />
+    <a href="#" onclick="find3rdBit()">Check if third bit is 0 or 1 </a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function find3rdBit() {
+            //read input
+            var input = jsConsole.readInteger("#input-number");
+            if (isNaN(input)) {
+                jsConsole.writeLine("Invalid number!");
+            }
+            else {
+                var mask = 1;
+                var number = parseInt((input & (mask << 3)) >> 3)
+                if ((number === 1)) {
+                    jsConsole.writeLine("Third bit is 1");
+                }
+                else {
+                    jsConsole.writeLine("Third bit is 0");
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

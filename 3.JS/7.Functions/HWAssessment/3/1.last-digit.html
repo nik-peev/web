@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Last Digit</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<input type="text" id="tb-number" />
+	<a href="#" id="num" onclick="lastDigit()">ReadNumber</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+	<script>
+	   
+	    function lastDigit() {
+		 num = jsConsole.readInteger("#tb-number");
+	        switch (num % 10) {
+	            case 0: jsConsole.write("zerro"); break;
+	            case 1: jsConsole.write("one"); break;
+	            case 2: jsConsole.write("two"); break;
+	            case 3: jsConsole.write("three"); break;
+	            case 4: jsConsole.write("four"); break;
+	            case 5: jsConsole.write("five"); break;
+	            case 6: jsConsole.write("six"); break;
+	            case 7: jsConsole.write("seven"); break;
+	            case 8: jsConsole.write("eight"); break;
+	            case 9: jsConsole.write("nine"); break;
+	        }
+	    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿<html>
+<head>
+	<title>Strings</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>3.Write a JavaScript function that finds how many times a substring is contained in a given text <br />
+           (perform case insensitive search).</p>
+    </div>
+     <div>
+         <span>
+            <label for="text">text: </label>
+			<textarea placeholder ="We are living in an yellow submarine. We don't have anything else. 
+Inside the submarine is very tight. So we are drinking all the day. 
+We will move out of it in 5 days." id="text"></textarea>
+            <label for="string">string to count: </label>
+			<input type="text" placeholder ="string" id="string"/>
+        </span>
+		<a href="#" onclick="execute()" id="Execute">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="02.html">Previous task</a>
+    <a href="04.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function read(id) {
+	        return jsConsole.read(id);
+	    }
+
+	    function countStringOccurences(text, string) {
+	        return text.match(string).length;
+	    }
+
+        function execute() {
+            var text = read('#text').toLowerCase();
+            var string = read('#string').toLowerCase();
+            string = new RegExp(string, "gi");
+	        if (read('#text') == "") {
+	            jsConsole.writeLine("Invalid string");
+	            return;
+	        }
+	        if (read('#string') == "") {
+	            jsConsole.writeLine("Invalid text");
+	            return;
+	        }
+	        jsConsole.writeLine(countStringOccurences(text, string));
+	    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿li { 
+    list-style-type: none;
+    font-size: 20px;
+    float: left; 
+    clear: left; 
+}
+
+a {
+    text-decoration:none;
+}
+
+    a:hover {
+        text-decoration:underline;
+    }
+
+li:not(:first-child) {
+    display: none;
+}
+
+ul:hover li:not(:first-child) {
+    display:block;
+    margin-left: 15px;
+}
+
+li:first-child a {
+    color: black;
+}
+
+ul:hover li:not(:first-child) a {
+    color: grey;
+}
+
+

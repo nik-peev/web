@@ -1,0 +1,27 @@
+﻿<html>
+<head>
+	<title>Data types and variables - Integer types</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="input-number">Text: </label>
+	<input type="text" id="input-number" />
+	<br />
+	<a href="#" onclick="checkEvenOdd()">Check if prime or odd</a>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		function checkEvenOdd() {
+			var number = jsConsole.readInteger("#input-number");
+			if(number % 2 == 0)
+			{
+				jsConsole.writeLine(number + " is even");
+			}
+			else
+			{
+				jsConsole.writeLine(number + " is odd")
+			}
+		}
+	</script>
+</body>
+</html>

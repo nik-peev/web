@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>APIs - Drag and drop in trash bucket</title>
+    <link href="styles/1.css" rel="stylesheet" />
+</head>
+<body>
+    <a href="#" onclick="execute()">Start game</a>
+    <a href="3.html">Last task</a>
+    <a href="2.html">Next task</a>
+    <p><strong>1.Write a client-side based web application that consists of a trash bucket and lots of trash items in the browser window.
+        Implement the following functionality:</strong></p>
+    <ul>
+        <li>Drag trash items</li>
+        <li>Open the bucket when a trash item is being dragged over it and close when the trash is dragged out of the bucket, or is dropped in the bucket</li>
+        <li>Attach event to given selector by given event type and event handler</li>
+        <li>To throw a trash item into the bucket, i.e. make it disappear from the browser window</li>
+    </ul>
+    <div id="content">
+        <img id="bin" src="images/RecycleBin_empty.png" ondrop="drop(event)" ondragover="allowDrop(event)" />
+    </div>
+    <script src="scripts/1.DNDInTrashBucket.js"></script>
+</body>
+</html>

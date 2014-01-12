@@ -1,0 +1,82 @@
+﻿.js-console {
+    margin: 0;
+}
+
+body .js-console {
+    margin: 0;
+    padding: 5px 10px;
+    background-color: black;
+    width: 800px;
+    height: 500px;
+    font-family: Consolas;
+    font-size: 18px;
+    color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+    body .js-console > p {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: block;
+    }
+
+        body .js-console > p > span {
+            margin: 0;
+            padding: 0;
+        }
+
+        body .js-console > p > br {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+div#js-console {
+    margin-top: 25px;
+}
+
+input{
+	border: 1px solid black;
+	border-radius:5px;
+	background-color:#BCBCBC;
+}
+button{
+	border-top: 1px solid grey;
+	border-left: 1px solid grey;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius:5px;
+	background-color:#DCDCDC;
+	padding:3px;
+}
+button:active{
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid grey;
+	border-bottom: 1px solid grey;
+	background-color:#9C9C9C !important;
+}
+button:hover{
+	background-color:#ACACAC;
+}
+
+div#task{
+	width:800px;
+	height:50px;
+	overflow:auto;
+	padding:10px;
+	background-color:#32CA56;
+	border: 3px solid darkgray;
+	border-radius:10px;
+	margin:5px 0;
+}
+    div#task p {
+        margin:0 0 10px 0;
+    }
+    div#task a{
+        text-decoration:none;
+        color:black;
+    }

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>01.IndexMultipliedBy5</title>
+    <link href="styles/js-console.min.css" rel="stylesheet" />
+    <script src="scripts/js-console.js"></script>
+    <style>
+		#number  {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body> 	
+    <div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+ 
+	<script>
+	    var numbers = new Array();
+	    for (var i = 1; i < 20; i++) {
+	        jsConsole.writeLine(numbers[i] = i * 5);
+	    }
+
+	</script>
+
+</body>
+</html>

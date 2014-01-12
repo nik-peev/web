@@ -1,0 +1,30 @@
+﻿<!--02. Write a function that reverses the digits of given decimal number. Example: 256  652 -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Homework</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        function reverseDigitOrder(numToReverse) {
+            var reversed = new Array();
+
+            for (var i = numToReverse.length - 1; i >= 0; i--) {
+                reversed.push(numStr.charAt(i));
+            }
+
+            return reversed;
+        }
+
+        var num = 256;
+        var numStr = num.toString();
+        var reversedNum = reverseDigitOrder(numStr);
+        
+        for (var i in reversedNum) {
+            console.log(reversedNum[i]);
+        }
+    </script>
+</body>
+</html>

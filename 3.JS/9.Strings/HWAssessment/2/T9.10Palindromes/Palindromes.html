@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Palindromes</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+
+    </style>
+</head>
+<body>
+    <p><em>Write a program that extracts from a given text all palindromes, e.g. "ABBA", "lamal", "exe".</em></p>
+    <br />
+    <div id="console"> 
+        <script src="scripts/js-console.js"></script>
+        <script src="scripts/string-extensions.js"></script>
+        <script>
+            var text = "Is lamal a camel? I listen to the ABBA songs with pleasure and wow,\nI have to write some exe, then go to the swimminglocolgnimmiws";
+            jsConsole.writeLine("Original text: <br /><br />" + text + '<br />');
+            jsConsole.writeLine("The palindromes found are: <br />");
+            
+            text = text.replace(".", " ").replace("!", " ").replace("?", " ").replace(",", " ");
+            text = text.replace("\r", " ").replace("\n", " ");
+            var words=text.split(' ');
+            for(i=0;i<words.length;i++)
+            {
+                var palindrome = true;
+                var halfLength=(words[i].length / 2);
+                for (var j = 0; j < halfLength; j++)
+                {
+                    if (words[i][j] != words[i][words[i].length-1-j])
+                        {
+                            palindrome = false;
+                            break;
+                        }
+                }
+                if (palindrome&&words[i].length>1)
+                {
+                    jsConsole.writeLine(words[i]);
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

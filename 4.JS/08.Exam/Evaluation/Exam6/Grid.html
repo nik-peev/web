@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        tr {
+            border: 1px solid black;
+            padding: 0;
+            margin: 0;
+        }
+
+        td {
+            border: 1px solid green;
+            padding: 3px;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="grid-view-holder">
+    </div>
+
+    <script type="text/javascript">
+        var controls = (function () {
+
+            // Hides previous to the clicked element
+            function hidePrev(row) {
+                var prev = row.previousElementSibling;
+
+                while (prev) {
+                    var sublist = prev.querySelector("table");
+                    if (sublist) {
+                        sublist.style.display = "none";
+                    }
+                    prev = prev.previousElementSibling;
+                }
+            }
+
+            //Hides next to the cklicked element
+            function hideNext(row) {
+                var next = row.nextElementSibling;
+                while (next) {
+                    var sublist = next.querySelector("table");
+                    if (sublist) {
+                        sublist.style.display = "none";
+                    }
+                    next = next.nextElementSibling;
+                }
+            }
+
+            // Creates Grid (table) each row has(should have) columns with the given arguments
+            function GridView(selector) {
+
+                var rows = [];
+                var gridConteiner = document.querySelector(selector);
+
+                gridConteiner.addEventListener("click", function (ev) {
+                    if (!ev) {
+                        ev = window.event;
+                    }
+                    ev.stopPropagation();
+                    ev.preventDefault();
+
+                    var clickedElement = ev.target;
+                    if (!(clickedElement instanceof HTMLAnchorElement)) {
+                        return;
+                    }
+
+                    hidePrev(clickedElement.parentNode);
+                    hideNext(clickedElement.parentNode);
+
+                    var sub = clickedElement.nextElementSibling;
+                    if (!sub) {
+                        return;
+                    }
+                    if (sub.style.display === "none") {
+                        sub.style.display = "";
+                    } else {
+                        sub.style.display = "none";
+                    }
+                }, false);
+
+
+                var rowsConteiner = document.createElement("table");
+
+                this.add = function () {
+                    for (var i = 0; i < arguments.length; i++) {
+                        var row = new Row(arguments[i]);
+                        rows.push(row);
+                    }
+                    return row;
+
+                };
+
+                this.render = function () {
+                    while (gridConteiner.firstChild) {
+                        gridConteiner.removeChild(gridConteiner.firstChild);
+                    }
+
+                    while (rowsConteiner.firstChild) {
+                        rowsConteiner.removeChild(rowsConteiner.firstChild);
+                    }
+
+                    for (var i = 0; i < rows.length; i += 1) {
+                        domItem = rows[i].render();
+                        rowsConteiner.appendChild(domItem);
+                    }
+                    gridConteiner.appendChild(rowsConteiner);
+                    return this;
+                };
+            }
+
+            // Should creates row for the Grid
+            function Row(title) {
+
+                var rows = [];
+
+                this.add = function () {
+                    for (var i = 0; i < arguments.length; i++) {
+                        var row = new Row(arguments[i]);
+                        rows.push(row);
+                    }
+                    return row;
+                }
+
+
+                this.render = function () {
+
+                    var trElement = document.createElement("tr");
+                    var tdElement = document.createElement("td");
+                    var aElement = document.createElement("a");
+                    aElement.innerHTML = title;
+                    aElement.href = "#";
+                    tdElement.appendChild(aElement);
+                    trElement.appendChild(tdElement);
+
+                    if (rows.length > 0) {
+                        var subItem = document.createElement("table");
+                        //subItem.style.display = "none";
+                        for (var i = 0; i < rows.length; i += 1) {
+                            subItem.appendChild(rows[i].render());
+                        }
+                        trElement.appendChild(subItem);
+                    }
+                    return trElement;
+                };
+            }
+
+            return {
+                getGridView: function (selector) {
+                    return new GridView(selector);
+                }
+            }
+
+        }());
+    </script>
+
+    <script type="text/javascript">
+        var schoolsGrid = controls.getGridView("#grid-view-holder");
+        var PMG = schoolsGrid.add("PMG", "Burgas", 400, "Math");
+        var abv = PMG.add("Math1", "15", "300");
+		var bcd = abv.add("Math2231", "11235", "300123");
+		bcd.add("Msfdath2231", "11sdf235", "30sadf0123");
+        schoolsGrid.add("TUES", "<br/>Sofia", 500, "IT");
+        schoolsGrid.add("Telerik Academy", "Sofia", 4000, "IT");
+		schoolsGrid.add("Telerik Academy", "Sofia", 4000, "IT");
+        schoolsGrid.render();
+
+    </script>
+
+</body>
+</html>

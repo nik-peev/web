@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>Grid Control Demo</title>
+  <script type="text/javascript" src="control.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css"></link>
+</head>
+<body>
+  <div id="grid-holder"></div>
+  <script type="text/javascript">
+  // This is demonstration of Task 1
+    var schoolsGrid = controls.getGridView("#grid-holder");
+    schoolsGrid.addHeader("Name", "Location", "Total Students", "Speciality");
+    schoolsGrid.addRow("<br/>PMG", "Burgas", 400, "Math");
+    schoolsGrid.addRow("TUES", "Sofia", 500, "IT");
+	schoolsGrid.addRow("TUsdfs", "Sosdfsda", 53300, "I333T");
+    schoolsGrid.addRow("Telerik Academy", "Sofia", 5000, "IT");
+    schoolsGrid.render();
+
+  // This is demonstration of Task 2
+    var academyRow = schoolsGrid.addRow("Telerik Academy", "Sofia", "5000", "IT");
+    var academyGrid = academyRow.getNestedGridView();
+    academyGrid.addHeader("Title", "Start Date", "Total Students");
+    academyGrid.addRow("JS 2", "11-april-2013", 400);
+    academyGrid.addRow("SEO", "15-may-2013", 1400);
+    var academyRow1 = academyGrid.addRow("Slice and Dice", "05-april-2013", 500);
+    academyGrid.render();
+	
+	var academyGrid1 = academyRow1.getNestedGridView();
+	academyGrid1.addHeader("Title", "Start Date", "Total Students");
+    academyGrid1.addRow("JS 2", "11-april-2013", 400);
+    academyGrid1.addRow("SEO", "15-may-2013", 1400);
+    var academyRow2 = academyGrid1.addRow("Slice and Dice", "05-april-2013", 500);
+    academyGrid1.render();
+	
+	var academyGrid2 = academyRow2.getNestedGridView();
+	academyGrid2.addHeader("Title", "Start Date", "Total Students");
+    academyGrid2.addRow("JS 2", "11-april-2013", 400);
+    academyGrid2.addRow("SEO", "15-may-2013", 1400);
+    var academyRow2 = academyGrid2.addRow("Slice and Dice", "05-april-2013", 500);
+    academyGrid2.render();
+
+    controls.addCollapseRows();
+  </script>
+</body>
+</html>

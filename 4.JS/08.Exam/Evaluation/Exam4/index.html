@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="API.js"></script>
+</head>
+<body>
+    <table border="1" id="grid-view-holder"></table>
+    <table border="1" id="grid-view-holder2"></table>
+    <script>
+
+        //Задача 1,2,3 (взема се id на таблица и се подава масив от параметри на add методите. Всеки add метод връща инстанция от обекта който е създала.)
+        var testGrid = new controls.getGridView("grid-view-holder");
+
+        var row1 = testGrid.addRow(new Array("<br />", "<br />", "<br />"));
+
+        row1.addRow(new Array("col1", "col1", "col1"));
+        row1.addRow(new Array("col1", "col1", "col1"));
+        row1.addRow(new Array("col1", "col1", "col1"));
+        row1.addHeader(new Array("ht1", "ht2", "ht3"));
+
+        var row2 = testGrid.addRow(new Array("col1", "col1", "col1"));
+
+        row2.addRow(new Array("col1", "col1", "col1"));
+        row2.addRow(new Array("col1", "col1", "col1"));
+        row2.addRow(new Array("col1", "col1", "col1"));
+        row2.addHeader(new Array("ht1", "ht2", "ht3"));
+
+        var row3 = testGrid.addRow(new Array("col1", "col1", "col1"));
+
+        row3.addRow(new Array("col1", "col1", "col1"));
+        row3.addRow(new Array("col1", "col1", "col1"));
+        row3.addRow(new Array("col1", "col1", "col1"));
+        row3.addHeader(new Array("ht1", "ht2", "ht3"));
+
+        testGrid.addHeader(new Array("ht1", "ht2", "ht3"));
+        testGrid.render();
+
+        //задача 4 
+        /*
+        var testSchoolRepository = new SchoolsRepository.Schools();
+
+        var student = testSchoolRepository.createNewStudet("Pesho", "Gosho", "12A", 6);
+        var student = testSchoolRepository.createNewCourse("testCourse", "01.01.01", 10, new Array(student));
+        var school = testSchoolRepository.createNewSchool("testNameSchool", "Sofia", 15, "informatioka", new Array(student));
+        
+        SchoolsRepository.save("test",testSchoolRepository);
+        var loadSchool = SchoolsRepository.load("test");
+        console.log(loadSchool);*/
+
+        //Задача 5 
+
+        //var testGrid = new controls.getGridView("grid-view-holder");
+        
+        var school = testGrid.addRow(new Array("name", "location", "totalStudents"));
+        var students = school.addRow(new Array("title", "startdate", "totalStudents"));
+        students.addRow(new Array("firstname", "lastname", "10A",6));
+
+        testGrid.render();
+
+        var getGridTest = testGrid.getGridView();
+        console.log(getGridTest);
+        var testGrid2 = new controls.getGridView("grid-view-holder2");
+        //testGrid2.addGridFromSchoolRepository(getGridTest);
+
+        testGrid2.render();
+
+        //Задача 6
+        /*
+        var testSchoolRepository = new SchoolsRepository.Schools();
+
+        var student = testSchoolRepository.createNewStudet("Pesho", "Gosho", "12A", 6);
+        var student = testSchoolRepository.createNewCourse("testCourse", "01.01.01", 10, new Array(student));
+        var school = testSchoolRepository.createNewSchool("testNameSchool", "Sofia", 15, "informatioka", new Array(student));
+
+        var testGrid = new controls.getGridView("grid-view-holder");
+        testGrid.addGridFromSchoolRepository(testSchoolRepository);
+
+        testGrid.render();
+        */
+    </script>
+</body>
+</html>

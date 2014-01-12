@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+	<title>Loops</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>4.Write a script that finds the lexicographically smallest and largest property in document, window and navigator objects</p>
+    </div>
+     <div>
+		<a href="#" onclick="findLexicogrMinMaxProperties()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="3.html">Previous task</a>
+    <a href="1.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function findLexicogrMinMaxProperties() {
+	        var first;
+	        var last;
+	        var i = 0;
+	        var array = [document, window, navigator]
+	        for (; i < 3; i++) {
+	            first = 'zz';
+	            last = 'AA';
+	            for (var property in array[i]) {
+	                if (property < first)
+	                    first = property;
+	                if (property > last)
+	                    last = property;
+	            }
+	            jsConsole.writeLine('The "smallest" property in ' + array[i] + ' is ' + first);
+	            jsConsole.writeLine('The "biggest" property in ' + array[i] + ' is ' + last);
+	        }
+	    }
+	</script>
+</body>
+</html>

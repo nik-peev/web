@@ -1,0 +1,10 @@
+﻿body {
+}
+
+table, tr, th, td {
+    border: solid #000 1px;
+}
+
+table {
+    margin-bottom: 30px;
+}

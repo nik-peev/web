@@ -1,0 +1,22 @@
+﻿<!--04. Write a function to count the number of divs on the web page
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Homework</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="Div1"></div>
+    <div id="Div2"></div>
+    <script>
+        function countDivElements() {
+            var count = document.getElementsByTagName("div").length;
+            console.log("There are " + count + " div elements on this page");
+        }
+
+        countDivElements();
+    </script>
+</body>
+</html>

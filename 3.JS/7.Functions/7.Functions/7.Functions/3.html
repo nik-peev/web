@@ -1,0 +1,75 @@
+﻿<html>
+<head>
+	<title>Functions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>3.Write a function that finds all the occurrences of word in a text. The search can be case sensitive or case insensitive<br />
+            Use function overloading</p>
+    </div>
+     <div>
+         <span>
+            <label for="text">text: </label>
+			<textarea placeholder ="We do love the sea. We do love the mountains!" id="text"></textarea>
+            <label for="word">word to count: </label>
+			<input type="text" placeholder ="Word" id="word"/>
+        </span>
+        <form>
+            <input type="radio" name="case" value="true" checked="checked">CASE Sensitive</><br />
+            <input type="radio" name="case" value="false" >case insensitive</>
+        </form>
+		<a href="#" onclick="execute()" id="Execute">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="2.html">Previous task</a>
+    <a href="4.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function read(id) {
+	        return jsConsole.read(id);
+	    }
+
+	    function getCaseSensValue() {
+	        var radios = document.getElementsByName("case");
+	        if (radios[0].checked)
+	            return true;
+	        else
+	            return false;
+	    }
+
+	    function countWordOccurences(text, word) {
+	        var count = 0;
+            var index = text.indexOf(word);
+            while (index != -1) {
+                count++;
+	            index = text.indexOf(word, index + 1);
+	        }
+	        return count;
+	    }
+
+	    function execute() {
+	        if (read('#word') == ""){
+	            jsConsole.writeLine("Invalid word");
+	            return;
+	        }
+	        if (read('#text') == ""){
+	            jsConsole.writeLine("Invalid text");
+	            return;
+            }
+	        var word = ' ' + read('#word') + ' ';
+	        var text = ' ' + read('#text') + ' ';
+	        text = text.split(',').join(' ');
+	        text = text.split('.').join(' ');
+	        text = text.split('?').join(' ');
+	        text = text.split('!').join(' ');
+            if (getCaseSensValue()) {
+	            jsConsole.writeLine(countWordOccurences(text, word));
+	        }
+	        if (!getCaseSensValue()) {
+	            jsConsole.writeLine(countWordOccurences(text.toLowerCase(), word.toLowerCase()));
+	        }
+	    }
+	</script>
+</body>
+</html>

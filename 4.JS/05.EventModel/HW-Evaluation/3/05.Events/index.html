@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>01.Carousel</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <a id="leftArrow" href="#" onclick="carousel.previousImage();"></a>
+        <a id="rightArrow" href="#" onclick="carousel.nextImage();"></a>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        carousel.addImage("images/1.jpg");
+        carousel.addImage("images/2.jpg");
+        carousel.addImage("images/3.jpg");
+        carousel.addImage("images/4.jpg");
+        carousel.addImage("images/5.jpg");
+        carousel.start();
+    </script>
+</body>
+</html>

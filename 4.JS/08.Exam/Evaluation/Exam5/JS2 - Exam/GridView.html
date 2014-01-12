@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="GridView.js"></script>
+    <link href="GridStyles.css" rel="stylesheet" />
+</head>
+<body>
+    <table id="GridHolder">
+    </table>
+    <script>
+        function showNested(tdID) {
+            document.getElementById('tdHolder' + tdID).setAttribute('style', 'display: table-cell;');            
+        }
+        HTMLTableRowElement.prototype.GetNestedGrid = function (tdID) {            
+            this.addEventListener("click", function (e) {
+                if (!e) e = window.event;
+                
+                if (document.getElementById('tdHolder' + tdID).style.display == "table-cell") {
+                    document.getElementById('tdHolder' + tdID).setAttribute('style', 'display: none;');
+                }
+                else {
+                    document.getElementById('tdHolder' + tdID).setAttribute('style', 'display: table-cell;');
+                }
+            }, false);
+            this.innerHTML += "<td class='nestedTableHolder' id='tdHolder" + tdID + "'><table id=" + tdID + "></table></td>";
+
+            return new GridView(tdID);
+        }
+
+        var gridView = new GridView('GridHolder');
+
+        var data = ['Name', 'Location', 'Total Students', 'Speciality'];
+        var count = data.length;
+        gridView.addHeader(data, count);
+
+        data = ['PMG', 'Burgas', '400', 'Mathematicss'];
+        count = data.length;
+        gridView.addRow(data, count);
+        data = ['TUES', 'Sofia','500','IT'];
+        count = data.length;
+        gridView.addRow(data, count);
+        data = ['Telerik Academy','Sofia', '5000','IT'];
+        count = data.length;
+        var row = gridView.addRow(data, count);
+
+        var telerikNestedGrid = row.GetNestedGrid('Telerik');
+        data = ['Title', 'Start-Date','Total Students'];
+        count = data.length;
+        telerikNestedGrid.addHeader(data, count);
+        data = ['JS 2','11-April-2013','400'];
+        count = data.length;
+        telerikNestedGrid.addRow(data, count);
+        data = ['SEO','15-May-2013','1300'];
+        count = data.length;
+        telerikNestedGrid.addRow(data, count);
+        data = ['Slice and Dice','5-April','500'];
+        count = data.length;
+        telerikNestedGrid.addRow(data, count);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>07.BinarySearch</title>
+    <link href="styles/js-console.min.css" rel="stylesheet" />
+    <script src="scripts/js-console.js"></script>
+    <style>
+		#number  {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body> 	
+    <div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+ 
+	<script>
+
+	    function BinarySearchAlg(array, value)
+	    {
+            var low = 0, high = array.length - 1, midpoint = 0;
+
+	        while (parseInt(low) <= parseInt(high))
+	        {
+	            midpoint = parseInt(low + (high - low) / 2);
+	            // check to see if value is equal to item in array
+	            if (parseInt(value) == parseInt(array[midpoint]))
+	            {
+	                return midpoint;
+	            }
+	            else if (value < array[midpoint]) {
+	                high = midpoint - 1;
+	            }
+	            else {
+	                low = midpoint + 1;
+	            }
+	    }
+	    // item was not found
+	    return -1;
+	    }
+
+	    var arr = [3, 4, 2, 8, 9];
+
+	    var number = 8;
+
+        arr.sort();
+
+        var index = BinarySearchAlg(arr, number);
+
+        if (parseInt(index) != parseInt(-1))
+	    {
+            jsConsole.writeLine("The index of " + number + " is: " + index);
+	    }
+	    else
+	    {
+            jsConsole.writeLine(number + " is not in the array");
+	    }      
+
+	</script>
+
+</body>
+</html>

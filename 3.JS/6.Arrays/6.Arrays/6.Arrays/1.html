@@ -1,0 +1,28 @@
+﻿<html>
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>1.Write a script that allocates array of 20 integers and initializes each element by its index multiplied by 5.<br /> Print the obtained array on the console.</p>
+    </div>
+     <div>
+		<a href="#" onclick="initializeIndexMultipliedBy5()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="7.html">Previous task</a>
+    <a href="2.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function initializeIndexMultipliedBy5() {
+	        var i;
+	        var array = new Array(20);
+	        for (i = 0; i < 20; i++) {
+	            array[i] = i * 5;
+	            jsConsole.write(array[i] + ' ');
+	        }
+	    }
+	</script>
+</body>
+</html>

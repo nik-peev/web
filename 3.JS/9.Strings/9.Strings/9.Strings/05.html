@@ -1,0 +1,46 @@
+﻿<html>
+<head>
+	<title>Strings</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>5.Write a function that replaces non breaking white-spaces in a text with &amp;nbsp;</p>
+    </div>
+     <div>
+         <span>
+            <label for="text">text: </label>
+			<textarea id="text">We are living in a yellow submarine.</textarea>
+        </span>
+		<a href="#" onclick="execute()" id="Execute">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="04.html">Previous task</a>
+    <a href="06.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function read(id) {
+	        return jsConsole.read(id);
+	    }
+
+	    function changeWhiteSpace(text) {
+	        var i, mixedCase, toReplace = [];
+
+	        toReplace = text.match(/\s/gi);
+	        for (i = 0; i < toReplace.length; i++) {
+	            text = text.replace(toReplace[i], "&amp;nbsp;");//&nbsp; is escaped to see the result better;
+	        }
+	        return text;
+	    }
+
+	    function execute() {
+	        var text = read('#text');
+	        if (text == "") {
+	            jsConsole.writeLine("Invalid text");
+	            return;
+	        }
+	        jsConsole.writeLine(changeWhiteSpace(text));
+	    }
+	</script>
+</body>
+</html>

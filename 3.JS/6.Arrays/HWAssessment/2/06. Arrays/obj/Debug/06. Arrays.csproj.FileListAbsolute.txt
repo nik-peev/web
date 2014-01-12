@@ -1,0 +1,5 @@
+E:\TELERIK\JS-homeworks\06. Arrays\06. Arrays\bin\_06.Arrays.dll
+E:\TELERIK\JS-homeworks\06. Arrays\06. Arrays\bin\_06.Arrays.pdb
+E:\TELERIK\JS-homeworks\06. Arrays\06. Arrays\obj\Debug\06. Arrays.csprojResolveAssemblyReference.cache
+E:\TELERIK\JS-homeworks\06. Arrays\06. Arrays\obj\Debug\_06.Arrays.dll
+E:\TELERIK\JS-homeworks\06. Arrays\06. Arrays\obj\Debug\_06.Arrays.pdb

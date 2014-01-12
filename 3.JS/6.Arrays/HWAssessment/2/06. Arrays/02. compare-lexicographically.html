@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Compare char arrays lexicographically </title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>	
+	<div id="js-console"></div>	
+	<script src="scripts/js-console.js"></script>
+	<script>
+	    var string1 = "ab";
+	    var string2 = "aa";
+
+	    var len = string1.length < string2.length ? string1.length : string2.length;
+	    var equal = true;
+	    for (var i = 0; i < len; i++) {
+	        if (string1[i].toLowerCase() > string2[i].toLowerCase()) {
+	            jsConsole.writeLine(string2 + " < " + string1);
+	            equal = false;
+	            break;
+	        }
+
+	        if (string1[i].toLowerCase() < string2[i].toLowerCase()) {
+	            jsConsole.writeLine(string1 + " < " + string2);
+	            equal = false;
+	            break;
+	        }
+	    }
+
+	    if (equal == true) {
+	        if (string1.length == string2.length) {
+	            jsConsole.writeLine(string1 + " = " + string2);
+	        }
+	        else
+	            if (string1.toLowerCase() > string2.toLowerCase()) jsConsole.writeLine(string2 + " < " + string1)
+	            else jsConsole.writeLine(string1 + " < " + string2);
+	    }
+	</script>
+</body>
+</html>

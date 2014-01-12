@@ -1,0 +1,33 @@
+﻿<html>
+<head>
+	<title>Loops</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>1.Write a script that prints all the numbers from 1 to N</p>
+    </div>
+     <div>
+		<span>
+			<label for="Number">N: </label>
+			<input type="text" id="Number"/>
+		</span>
+		<a href="#" onclick="print1toN()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="4.html">Previous task</a>
+    <a href="2.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function print1toN() {
+	        var N = jsConsole.readInt("#Number");
+	        if (isNaN(N) || N == null || N == "")
+	            jsConsole.writeLine("No valid number!")
+	        var i = 0;
+	        for (; i <= N; i++) {
+	            jsConsole.write(i + ' ');
+	        }
+	    }
+	</script>
+</body>
+</html>

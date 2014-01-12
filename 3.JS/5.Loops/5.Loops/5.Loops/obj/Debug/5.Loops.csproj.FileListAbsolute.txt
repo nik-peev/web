@@ -1,0 +1,5 @@
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\5.Loops\5.Loops\5.Loops\bin\5.Loops.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\5.Loops\5.Loops\5.Loops\bin\5.Loops.pdb
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\5.Loops\5.Loops\5.Loops\obj\Debug\5.Loops.csprojResolveAssemblyReference.cache
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\5.Loops\5.Loops\5.Loops\obj\Debug\5.Loops.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\5.Loops\5.Loops\5.Loops\obj\Debug\5.Loops.pdb

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JavaScriptExam</title>
+    <script src="scripts/extensionScript.js"></script>
+    <script src="scripts/gridView.js"></script>
+    <script src="scripts/script.js"></script>
+    <style>
+
+        #wrapper {
+            width:960px;
+            margin:0 auto;
+        }
+        #schools-repository {
+            float:right;
+        }
+        table {
+            border:1px solid black;
+        }
+            table td {
+                padding:10px;
+            }
+            table th a {
+                color:black;
+                text-decoration:none;
+                padding:10px;
+            }
+            table thead {
+                background:lightgray;
+            }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="grid-view-holder"></div>
+
+        <div id="schools-repository">
+            <p>This is the table generated from localStorage</p>
+            <hr />
+        </div>
+    </div>
+</body>
+</html>

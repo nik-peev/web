@@ -1,0 +1,88 @@
+﻿<html>
+<head>
+	<title>TITLE</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <input type="button" name="task1" value="Task1" onclick="printFromOneTo100()" />
+    <label for="numberTask2">number:</label>
+    <input type="text" id="numberTask2" />
+    <input type="button" name="task2" value="Task2" onclick="funcName()" />
+    <label for="numberTask3">numbers, sep by space:</label>
+    <input type="text" id="numberTask3" />
+    <input type="button" name="task3" value="Task3" onclick="maxMin()" />
+    <input type="button" name="task4" value="Task4" onclick="lex()" />
+	<div id="js-console"></div>				 
+	<script src="scripts/js-console.js"></script>
+	<script>
+	    function printFromOneTo100() {
+	        for (var i = 1; i < 101; i++) {
+	            jsConsole.write(i + " ");
+	        }
+	        jsConsole.writeLine("");
+	    }
+	    function funcName() {
+	        var num = jsConsole.readInteger("#numberTask2");
+	        for (var i = 1; i < num + 1; i++) {
+	            if (i % 21 != 0) {
+	                jsConsole.write(i + " ");
+	            }
+	        }
+	        jsConsole.writeLine("");
+	    }
+	    function maxMin() {
+	        var numbers = jsConsole.read("#numberTask3").split(' ');
+	        var max = Number.MIN_VALUE;
+	        var min = Number.MAX_VALUE;
+	        for (var i = 0; i < numbers.length; i++) {
+	            if (max < parseInt(numbers[i])) {
+	                max = parseInt(numbers[i]);
+	            }
+	            if (min > parseInt(numbers[i])) {
+	                min = parseInt(numbers[i]);
+	            }
+	        }
+	        jsConsole.writeLine("Max: " + max + " Min: " + min);
+	    }
+	    function lex() {
+	        var documentElms = document.getElementsByTagName('*');
+	        var min = documentElms[0].tagName;
+	        var max = documentElms[0].tagName;
+	        for (var i = 1; i < documentElms.length; i++) {
+	            if (max < documentElms[i].tagName) {
+	                max = documentElms[i].tagName;
+	            }
+	            if (min > documentElms[i].tagName) {
+	                min = documentElms[i].tagName;
+	            }
+	        }
+	        jsConsole.writeLine("Largest lexicographically in document: " + max + ", and the smallest: " + min)
+
+	        min = "z";
+	        max = 'a';
+	        for (var prop in navigator) {
+	            if (max < navigator[prop]) {
+	                max = navigator[prop];
+	            }
+	            if (min > navigator[prop] && navigator[prop]) {
+	                min = navigator[prop];
+	            }
+	        }
+	        jsConsole.writeLine("Largest lexicographically in navigator: " + max + ", and the smallest: " + min);
+
+	        min = "z";
+	        max = 'a';
+	        for (var prop in window) {
+	            if (max < window[prop]) {
+	                max = window[prop];
+	            }
+	            if (min > window[prop] && window[prop]) {
+	                min = window[prop];
+	            }
+	        }
+	        jsConsole.writeLine("Largest lexicographically in window: " + max + ", and the smallest: " + min);
+	    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="scripts/jquery.js"></script>
+    <style type="text/css">
+
+    </style>
+        
+        <script>
+
+
+            function trashGen() {
+                
+                for (var i = 0; i < 100; i++) {
+                    
+                    var a = parseInt(Math.random() * i * 5);
+                    var b = parseInt(Math.random() * (i + (i * 10)));
+
+                    var trash = document.createElement('div');
+                    var style = "position: absolute; top: " + a + "px; left: " + b + "px; width: 70px; height: 70px; background: url(images/trash.png) no-repeat 50% 50%;";
+                    trash.setAttribute("id", "trash-" + i);
+                    trash.setAttribute("draggable", "true");
+                    trash.setAttribute("style", style);
+                    trash.setAttribute("ondragstart", "drag(event);");
+                    var trashGround = document.getElementById('trashGround');
+                    trashGround.appendChild(trash);
+                }
+                
+            }
+
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+
+            function drag(ev) {
+                ev.dataTransfer.setData("Text", ev.target.id);
+            }
+
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("Text");
+                ev.target.appendChild(document.getElementById(data));
+
+            }
+        </script>
+        </head>
+        <body>
+
+            <div id="container" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img src="images/trashcan.png" />
+            </div>
+            <button onclick = "trashGen();">Make some trash</button>
+            <div id="trashGround" style="position: relative; width: 100%; height: 100%;"></div>
+</body>
+</html>

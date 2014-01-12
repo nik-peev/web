@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Loops - break operator</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<input type="text" id="tb-number" />
+	<a href="#" id="btn-check-prime" onclick="printElements()">Not divisible</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+	<script>
+		function printElements() {
+		    var N = parseInt(document.getElementById("tb-number").value);
+		    
+		        for (var i = 1; i <= N; i++) {
+		            if (i % 21 == 0) continue;
+		            jsConsole.write(i + " ");
+		        }
+		        jsConsole.writeLine();
+		    
+		}
+
+	</script>
+</body>
+</html>

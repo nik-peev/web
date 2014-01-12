@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<label for="tb-first">Number 'a': </label>
+	<input type="text" id="tb-first"/>
+	<br />							  
+	<label for="tb-second">Number 'b': </label>
+	<input type="text" id="tb-second"/>
+	<br />
+	<label for="tb-third">Number 'c': </label>
+	<input type="text" id="tb-third"/>
+	<br />
+	<a href="#" onclick="onCheckSignClick()">Find Biggest</a>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+		function onCheckSignClick() {
+			
+			var numbers = new Array(3);
+			//getting the elements from the text box
+			numbers[0] = jsConsole.readFloat("#tb-first");
+			numbers[1] = jsConsole.readFloat("#tb-second");
+			numbers[2] = jsConsole.readFloat("#tb-third");
+			var max=0;
+			
+			if (numbers[0] >= numbers[1]) {
+				if (numbers[0]>=numbers[2]) {
+					max = numbers[0];
+				}
+				else{
+					max = numbers[2];
+				}
+			}
+			else{
+				if (numbers[1]>=numbers[2]) {
+					max = numbers[1];
+				}
+				else{
+					max = numbers[2];
+				}
+			}
+			
+			jsConsole.writeLine("The biggest number is: "+max);
+			
+		}											
+	</script>			  
+</body>
+</html>

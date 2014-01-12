@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Calculate rectangle area</title>
+    </head>
+    <body>
+        <section>
+            <input type="text" id="width" placeholder="enter the width"/>
+            <input type="text" id="height" placeholder="enter the height"/>
+            <button type="button" onclick="calculateRectangleArea()">Calculate the area</button>
+        </section>
+        <script>
+            function calculateRectangleArea() {
+                var widthStr = document.getElementById("width").value;
+                var width = parseInt(widthStr);
+                var heightStr = document.getElementById("height").value;
+                var height = parseInt(heightStr);
+                var area = width * height;
+
+                
+                if (width > 0 && height > 0) {
+                    alert("The area of the rectangle is: " + area);
+                }
+                else {
+                    alert("Error! Enter positive integers for the width and height");
+                }
+            }
+        </script>
+    </body>
+</html>

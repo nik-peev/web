@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Extract all emails</title>
+</head>
+<body>
+    <p>This script will extract all emails from a given text.</p>
+    <label for="input">Please enter the text to get the emails from: </label>
+    <textarea  rows="6", cols="50", id="input"></textarea>
+    <br />
+    <input type="submit" id="extractEmails" onclick="produceOutput()" value="Submit" />
+    <div id="result"></div>
+
+    <script type="text/javascript">
+        function produceOutput() {
+            var input = document.getElementById("input").value;
+            var emails = getEmails(input);
+            for (var i in emails) {
+                document.getElementById("result").innerHTML += emails[i];
+            }
+        }
+
+        function getEmails(input) {
+            // Match a word (between two \b's) which contains one or more letters, digits, or symbols, @, some more characters, . and between 2 and 6 characters
+            return input.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}\b/gi);
+        }
+    </script>
+</body>
+</html>

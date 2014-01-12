@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Max sequence of incearing elements</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>	
+	<div id="js-console"></div>	
+	<script src="scripts/js-console.js"></script>
+	<script>
+	    var array = [2, -3, 4, 5, -1, 3, 4, 5, 6];
+
+	    var best_cnt = 0;
+	    var best_seq = "";
+
+	    var current_cnt = 1;
+	    var current_seq = array[0] + ", ";
+
+	    for (var i = 1; i < array.length; i++) {
+	        if (array[i] > array[i - 1]) {
+	            current_cnt++;
+	            current_seq += array[i] + ", ";
+	        }
+	        else {
+	            if (current_cnt > best_cnt) {
+	                best_cnt = current_cnt;
+	                best_seq = current_seq;
+	            }
+	            current_cnt = 1;
+	            current_seq = array[i] + ", ";
+	        }
+	    }
+
+	    if (array[i - 1] > array[i - 2]) {
+	        best_cnt = current_cnt;
+	        best_seq = current_seq;
+	    }
+
+	    best_seq = best_seq.substring(0, best_seq.length - 2);
+	    jsConsole.writeLine("Max sequence of equal elements: " + best_seq);
+	</script>
+</body>
+</html>

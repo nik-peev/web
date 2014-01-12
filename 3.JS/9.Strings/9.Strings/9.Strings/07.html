@@ -1,0 +1,55 @@
+﻿<html>
+<head>
+	<title>Strings</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>7.Write a script that parses an URL address given in the format: [protocol]://[server]/[resource] <br />
+		   and extracts from it the [protocol], [server] and [resource] elements. Return the elements in a JSON object.</p>
+    </div>
+     <div>
+         <span>
+            <label for="URL">URL: </label>
+			<input type="text" placeholder ="http://www.devbg.org/forum/index.php" id="text4"/>
+        </span>
+		<a href="#" onclick="execute()" id="Execute">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="06.html">Previous task</a>
+    <a href="08.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function read(id) {
+	        return jsConsole.read(id);
+	    }
+
+	    function parseURL(url) {
+	        var protocol, server, resource;
+	        var protRegex = new RegExp(/([^:]*)/);
+	        var serverRegex = new RegExp(/\/([^\/\/][\w\.]*)/);
+	        var resourceRegex = new RegExp(/(\b\/[^\/][\w.]*.+)/);
+	        protocol = url.match(protRegex);
+	        server = url.match(serverRegex);
+	        resource = url.match(resourceRegex);
+            return {
+	            protocol: protocol[1],
+	            server: server[1],
+	            resource: resource[1]
+	        };
+	    }
+
+	    function execute() {
+	        var url = read('#text4');
+	        if (url == "") {
+	            jsConsole.writeLine("Invalid URL");
+	            return;
+	        }
+	        var parsedURL = parseURL(url);
+	        for (var prop in parsedURL) {
+	            jsConsole.writeLine(parsedURL[prop]);
+	        }
+     }
+	</script>
+</body>
+</html>

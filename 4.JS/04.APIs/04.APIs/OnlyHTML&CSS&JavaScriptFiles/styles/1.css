@@ -1,0 +1,81 @@
+﻿body {
+  font-family: Arial;
+}
+body textarea {
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: bold;
+  width: 500px;
+  height: 120px;
+}
+body input {
+  display: block;
+  margin-bottom: 10px;
+}
+body #menu > li {
+  font-weight: bold;
+  list-style: none;
+}
+body #scores {
+  width: 200px;
+  margin-top: -5px;
+  left: 820px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  position: absolute;
+}
+body #submenu > li {
+  display: none;
+}
+body a {
+  padding: 5px;
+  border: 1px solid outset;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #007806;
+  background: #ff9c62;
+}
+body a:hover {
+  background: grey;
+  border-color: grey;
+  color: white;
+}
+body a#clear {
+  top: 310px;
+  left: 822px;
+  position: absolute;
+}
+body #content {
+  width: 800px;
+  height: 500px;
+  border: 5px solid darkgrey;
+  background-color: white;
+  position: absolute;
+  z-index: -1;
+}
+body #content div.styled {
+  border: 1px solid black;
+  text-align: center;
+  margin: 5px;
+  display: inline-block;
+  position: absolute;
+}
+body #content div.divToRotate {
+  left: 475px;
+  top: 225px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 40px;
+  color: green;
+  border: 2px solid green;
+  border-radius: 30px;
+  background-color: #ffd800;
+  text-align: center;
+  position: absolute;
+}
+body #content img {
+  display: block;
+  width: 100px;
+  margin-left: 10px;
+}

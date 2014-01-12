@@ -1,0 +1,46 @@
+﻿<html>
+<head>
+	<title>Strings</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>8.Write a JavaScript function that replaces in a HTML document given as string all the tags &lt;a href=&quot;&#x2026;&quot;&gt;&#x2026;&lt;/a&gt; with corresponding tags [URL=&#x2026;]&#x2026;/URL].</p>
+    </div>
+     <div>
+         <span>
+            <label for="text">text: </label>
+			<textarea placeholder ="<p><a href='http://academy.telerik.com'>Telerik Academy</a>aims to provide free real-world practical training for young people who want to turn into skillful .NET software engineers.</p> </body> </html>" id="text"></textarea>
+        </span>
+		<a href="#" onclick="execute()" id="Execute">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="07.html">Previous task</a>
+    <a href="09.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function read(id) {
+	        return jsConsole.read(id);
+	    }
+
+	    function changeLinkTags(text) {
+	        var patternStart = new RegExp(/<a href=\"/gi);
+	        var patternMid = (/\">/gi);
+	        var patternEnd = (/<\/a>/gi);
+	        text = text.replace(patternStart, '[URL=');
+	        text = text.replace(patternMid, ']');
+	        text = text.replace(patternEnd, '[/URL]');
+	        return text;
+	    }
+
+	    function execute() {
+	        var text = read('#text');
+	        if (text == "") {
+	            jsConsole.writeLine("Invalid text");
+	            return;
+	        }
+	        jsConsole.writeLine(changeLinkTags(text));
+	    }
+	</script>
+</body>
+</html>

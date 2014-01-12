@@ -1,0 +1,58 @@
+﻿<html>
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>2.Write a script that compares two char arrays lexicographically (letter by letter).</p>
+    </div>
+     <div>
+         <span>
+			<label for="array1">array 1: </label>
+			<input type="text" placeholder ="a,b,av,45" id="array1"/>
+            <label for="array2">array 2: </label>
+			<input type="text" placeholder ="a,b,av,45" id="array2"/>
+		</span>
+		<a href="#" onclick="compareLexicogrTwoArrays()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="1.html">Previous task</a>
+    <a href="3.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function compareLexicogrTwoArrays() {
+	        var i;
+	        var equal = true;
+	        var array1 = jsConsole.read('#array1');
+	        array1 = array1.split(',');
+	        var array2 = jsConsole.read('#array2');
+	        array2 = array2.split(',');
+	        if (array1.length != array2.length) {
+	            jsConsole.writeLine("The arrays are not equal, because have different length!");
+	            equal = false;
+	            return;
+	        }
+	        for (i = 0; i < array1.length; i++) {
+	            if (array1[i] == "" || array2[i] == "") {
+	                jsConsole.writeLine("No valid array(s)!")
+	                equal = false;
+	                return;
+	            }
+	            if (array1[i] > array2[i]) {
+	                jsConsole.writeLine("arra1 > array2");
+	                equal = false;
+	                return;
+	            }
+	            if (array2[i] > array1[i]) {
+	                jsConsole.writeLine("arra2 > array1");
+	                equal = false;
+	                return;
+	            }
+	        }
+	        if (equal)
+                jsConsole.writeLine("The arrays are equal!")
+	    }
+	</script>
+</body>
+</html>

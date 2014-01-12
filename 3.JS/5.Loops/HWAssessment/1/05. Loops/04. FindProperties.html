@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Loops - for loops</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<button onclick="MinAndMaxProperties()">Run script</button>
+
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        //Write a script that finds the lexicographically smallest and largest
+        //property in document, window and navigator objects
+
+        function MinAndMaxProperties() {
+            var min = 0; // min comparer starts from max value
+            var max = 0; // max comparer starts from 0 cause the length min value is 0
+
+            var minElement;
+            var maxElement;
+            for (var property in document) {
+                if (property.length < min) {
+                    min = property.length;
+                    minElement = property;
+                }
+                if (property.length > max) {
+                    max = property.length;
+                    maxElement = property;
+                }
+            }
+            jsConsole.writeLine("Salest property in document: " + minElement);
+            jsConsole.writeLine("Largest property in document: " + maxElement);
+
+
+            //set values for comparers for the new compare
+            min = Number.MAX_VALUE;
+            max = 0;
+
+            for (var property in window) {
+                if (property.length < min) {
+                    min = property.length;
+                    minElement = property;
+                }
+                if (property.length > max) {
+                    max = property.length;
+                    maxElement = property;
+                }
+            }
+            jsConsole.writeLine("Salest property in window: " + minElement);
+            jsConsole.writeLine("Largest property in window: " + maxElement);
+
+            //set values for comparers for the new compare
+            min = Number.MAX_VALUE;
+            max = 0;
+
+            for (var property in navigator) {
+                if (property.length < min) {
+                    min = property.length;
+                    minElement = property;
+                }
+                if (property.length > max) {
+                    max = property.length;
+                    maxElement = property;
+                }
+            }
+            jsConsole.writeLine("Smallest property in navigator: " + minElement);
+            jsConsole.writeLine("Largest property in navigator: " + maxElement);
+        }
+        </script>
+</body>
+</html>

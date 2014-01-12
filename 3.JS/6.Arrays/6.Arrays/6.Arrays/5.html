@@ -1,0 +1,58 @@
+﻿<html>
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>5.Sorting an array means to arrange its elements in increasing order. Write a script to sort an array. <br />
+            Use the "selection sort" algorithm: Find the smallest element, move it at the first position, <br />
+            find the smallest from the rest, move it at the second position, etc.Hint: Use a second array</p>
+    </div>
+     <div>
+         <span>
+			<label for="array">array: </label>
+			<input type="text" placeholder ="1,2,3,4" id="array"/>
+		</span>
+		<a href="#" onclick="selectionSort()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="4.html">Previous task</a>
+    <a href="6.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function selectionSort() {
+
+	        var array = jsConsole.read('#array');
+	        array = array.split(',');
+	        var i, j, count = 0, temp, smallest = false;
+
+	        for (i = 0; i < array.length; i++) {
+	            if (isNaN(array[i]) || array[i] == "") {
+	                jsConsole.writeLine("No valid array!")
+	                return;
+	            }
+	            for (j = 0 + count; j < array.length; j++)   //count broi kolko nai-malki elementa sa namereni do momenta, 
+	            {                                 //dobavqme kym j, za da proverqva samo ostanalite
+	                smallest = array[i] <= array[j];     //booleva promenliva smallest, koqto e false do namiraneto na nai-malyk element
+	                if (!smallest)           //ako namerim po-golqm ot proverqvaniq element (smallest = false) 
+	                    break;               //izlizame ot vytreshniq cikyl, za da ne se vyrti bez nujda
+	            }
+	            if (smallest)                  //ako ne sme namerili po-malyk element ot proverqvaniq (smallest = true)
+	            {
+	                temp = array[count];         //razmenqme proverqvaniq s pyrviq element array[0]
+	                array[count] = array[i];
+	                array[i] = temp;
+	                count++;            //uvelichavame count s 1 za vseki nameren nai-malyk element
+	                i = count - 1;     //naglasqme osnovniq broqch, taka che da ne proverqva veche sortiranite elementi
+	            }
+	        }
+
+	        jsConsole.write("Sorted array: ");
+	        for (i = 0; i < array.length; i++) {
+	            jsConsole.write(array[i] + ' ');
+	        }
+	    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Parse an URL</title>
+</head>
+<body>
+    <p>This script will parse an URL.</p>
+    <label for="input">Please enter the URL: </label>
+    <input size="30" id="input" />
+    <br />
+    <input type="submit" id="produceOutput" onclick="produceOutput()" value="Submit" />
+    <div id="result"></div>
+
+    <script type="text/javascript">
+        function produceOutput() {
+            var input = document.getElementById("input").value;
+            var url = parseURL(input);
+            document.getElementById("result").innerHTML = "Protocol: " + url.protocol + ", Server: " + url.server + ", Resource: " + url.resource;
+        }
+
+        function parseURL(input) {
+            // Find "//" which denotes the end of the protocol, then find the first "/" after "//", which denotes the end of the server name
+            var protocolEnd = input.indexOf("//");
+            var serverEnd = input.substr(protocolEnd + 2).indexOf("/");
+
+            // Protocol: from the beginning to the first index of "//", inclusive (2 more characters)
+            // Server: from the end of the protocol to the first index of "/"
+            // Resource: the rest of the string
+            return {
+                protocol: input.substr(0, protocolEnd + 2),
+                server: input.substr(protocolEnd + 2, serverEnd),
+                resource: input.substr(protocolEnd + 2 + serverEnd)
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+body, header, section, footer, article, aside, h1, h2, input, label, p, button, fieldset, nav, ul, li, a, span, strong, em, div {
+  margin: 0;
+  padding: 0;
+  border: 0; }
+
+@keyframes mymove {
+  from {
+    right: 0px; }
+
+  to {
+    right: 150px; } }
+
+@-moz-keyframes mymove {
+  from {
+    right: 0px; }
+
+  to {
+    right: 150px; } }
+
+@-webkit-keyframes mymove {
+  from {
+    right: 0px; }
+
+  to {
+    right: 150px; } }
+
+ul {
+  width: 1428px;
+  list-style-type: none;
+  margin-top: 4px;
+  position: relative; }
+  ul li:hover {
+    animation: mymove 3s;
+    /*W3C and Opera*/
+    animation-iteration-count: 1;
+    -moz-animation: mymove 3s;
+    /*Firefox*/
+    -moz-animation-iteration-count: 1;
+    -webkit-animation: mymove 3s;
+    /*Safari and Chrome*/
+    -webkit-animation-iteration-count: 1; }
+  ul li {
+    display: inline;
+    opacity: 0.65; }
+    ul li:hover {
+      opacity: 1; }
+  ul div#big {
+    margin-top: 2%;
+    margin-left: 22%;
+    width: 640px;
+    height: 476px; }
+
+body {
+  background: black; }
+
+#pic1:target ~ #big {
+  background-image: url("images/pic1.jpg"); }
+
+#pic2:target ~ #big {
+  background-image: url("images/pic2.jpg"); }
+
+#pic3:target ~ #big {
+  background-image: url("images/pic3.jpg"); }
+
+#pic4:target ~ #big {
+  background-image: url("images/pic4.jpg"); }
+
+#pic5:target ~ #big {
+  background-image: url("images/pic5.jpg"); }
+
+#pic6:target ~ #big {
+  background-image: url("images/pic6.jpg"); }
+
+#pic7:target ~ #big {
+  background-image: url("images/pic7.jpg"); }
+

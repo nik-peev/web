@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Task12</title>
+</head>
+<body>							  
+    <div data-type="template" id="list-item">
+    <strong>-{name}-</strong> <span>-{age}-</span>
+    </div>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+
+	    var ppl = [
+		{ name: "Ivan Petkov", age: 25 }, 
+		{ name: "Filio Penchev", age: 5 }, 
+		{ name: "Dimitur Talev", age: 36 },
+		{ name: "Dimcho Filipov", age: 26 },
+		{ name: "Asen Kostadinov", age: 55 }
+		];
+		
+	    var InnerText = document.getElementById("list-item").innerHTML;
+	    var arr = Elements(InnerText, ppl);
+
+	    for (var i = 0; i < arr.length; i+=2) {
+	        jsConsole.writeLine("<ul><li><strong>" + arr[i] + "</strong><span> " + arr[i + 1])
+	    }
+
+	    function Elements(temp,people)
+	    {
+	        var holder = temp;
+	        var listOfLi = [];
+
+	        for (var person in people) {
+	            var index = temp.indexOf("{name}");
+	            var index2 = temp.indexOf("{age}");
+	            temp = temp.replace("{name}", people[person].name);
+	            listOfLi.push(temp.substr(index, people[person].name.length));
+	            temp = holder;
+	            temp = temp.replace("{age}", people[person].age);
+	            listOfLi.push(temp.substr(index2, people[person].age.toString().length));
+	            temp = holder;
+	        }
+	        return listOfLi;
+	    }
+	</script>
+
+</body>
+</html>

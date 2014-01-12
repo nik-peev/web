@@ -1,0 +1,62 @@
+h1    
+{ 
+font-size: 18px;
+color: rgb(180,180,180);
+font-weight: normal; 
+}
+    
+body 
+{ 
+font-family: Arial;
+font-size: 12px;
+background-color: rgb(89,89,89); 
+}
+
+a 	
+{ 
+text-decoration: none; 
+}
+
+table, td 
+{ 
+padding-bottom:10px;
+}
+
+tr  > td:first-child 
+{
+color: rgb(239,251,245);
+font-style: italic;
+padding-right:20px 
+}
+
+.yellow 
+{ 
+color: rgb(238,235,190);
+vertical-align: middle;
+}
+		
+.grey
+{ 
+color: rgb(170,170,160);
+}
+
+#orange 
+{ 
+color: rgb(226,107,44);
+font-weight: bold; 
+}
+
+#red  
+{ 
+color: rgb(255,0,0);
+font-weight: bold;
+}
+   
+.circle:before 
+{ 
+content: '\25CF';
+font-size: 24px;
+color:rgb(113,180,122);
+vertical-align: center; 
+margin-right:2px;
+}

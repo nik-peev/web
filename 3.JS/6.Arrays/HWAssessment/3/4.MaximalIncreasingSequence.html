@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+    <p style="color:green">4. Write a script that finds the maximal increasing sequence in an array.<br />
+		Example: {3, 2, 3, 4, 2, 2, 4} =&gt; {2, 3, 4}.</p>
+    <br />
+	<a href="#" onclick="onButtonClick()">Test Script</a>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function onButtonClick() {
+	        function printArray(myArray) {
+	            jsConsole.writeLine(myArray.join(" | "));
+	        }
+	        var bigArray = [3, 2, 3, 4, 2, 2, 4];
+	        var bestIndex = 0;
+	        var bestLength = 1;
+	        var currentSequenceIndex = 0;
+	        var currentSequenceLength = 1;
+	        for (var i = 1; i <= bigArray.length; i++) {    //we go out of index intended in order to catch
+	            if (bigArray[i] > bigArray[i - 1]) {       //the last index if it is part of biggest sequence
+	                currentSequenceLength++;
+	            }
+	            else {
+	                if (currentSequenceLength > bestLength) {
+	                    bestLength = currentSequenceLength;
+	                    bestIndex = currentSequenceIndex;
+	                }
+	                currentSequenceLength = 1;
+	                currentSequenceIndex = i;
+	            }
+	        }
+	        var bestSequenceArray = new Array();
+	        for (var i = bestIndex; i < bestIndex + bestLength; i++) {
+	            bestSequenceArray.push(bigArray[i]);
+	        }
+	        printArray(bigArray);
+	        if (bestSequenceArray.length > 1) {
+	            jsConsole.write("Maximal increasing sequence: ");
+	            printArray(bestSequenceArray);
+	        }
+	        else {
+	            jsConsole.writeLine("No increasing sequences available.");
+	        }
+	    }
+	</script>	
+</body>
+</html>

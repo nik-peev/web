@@ -1,0 +1,37 @@
+﻿<html>
+<head>
+	<title>Operators and expressions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>1.Write an expression that checks if given integer is odd or even.</p>
+    </div>
+    <div>
+		<span>
+			<label for="number">Please enter a number: </label>
+			<input type="text" id="number"/>
+		</span>
+		<a href="#" onclick="checkIfOddOrEven()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="9.html">Previous task</a>
+    <a href="2.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function checkIfOddOrEven() {
+	        var num = jsConsole.read("#number");
+	        if (isNaN(num) || num == null || num == "")
+	            jsConsole.writeLine("no number to evaluate!")
+	        else {
+	            if (num % 2 == 1) {
+	                jsConsole.writeLine(num + " is odd number");
+	            }
+	            else {
+	                jsConsole.writeLine(num + " is even number");
+	            }
+	        }
+	    }
+	</script>
+</body>
+</html>

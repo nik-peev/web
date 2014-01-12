@@ -1,0 +1,197 @@
+﻿.outside-square {
+    border: 1px, solid, #999;
+    margin: 0px 0px 0 0px;
+    padding: 0 0px 0px;
+    width: 407px;
+    height: 350px;
+    border: 1px solid #999; 
+    background: -webkit-linear-gradient(#F0F0F0 0, #D9E4F1 100px);
+    background: -moz-linear-gradient(#F0F0F0 0, #D9E4F1 100px);
+    background: -o-linear-gradient(#F0F0F0 0, #D9E4F1 100px);
+    background: linear-gradient(#F0F0F0 0, #D9E4F1 100px);
+}
+
+.display {
+    padding: 14px 2px 6px 0px;
+    margin-top: 10px;
+    text-align: right;
+    font-size: 24px;
+    font-family: Consolas, monospace;
+    border: 1px solid #B6BCCC;
+    background: #e6effb; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e6effb 0%, #edf4fc 18%, #ffffff 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6effb), color-stop(18%,#edf4fc), color-stop(100%,#ffffff));
+	background: -webkit-linear-gradient(top,  #e6effb 0%,#edf4fc 18%,#ffffff 100%); 
+	background: -o-linear-gradient(top,  #e6effb 0%,#edf4fc 18%,#ffffff 100%); 
+	background: -ms-linear-gradient(top,  #e6effb 0%,#edf4fc 18%,#ffffff 100%);
+	background: linear-gradient(to bottom,  #e6effb 0%,#edf4fc 18%,#ffffff 100%); 
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 381px;
+}
+
+.menu {
+    border-bottom: 1px solid #B6BCCC;
+    background: -webkit-linear-gradient(#FEFEFF 0, #E5EAF5 34%, #D4DBED 35%, #E1E6F6 100%);
+    background: -moz-linear-gradient(#FEFEFF 0, #E5EAF5 34%, #D4DBED 35%, #E1E6F6 100%);
+    background: -o-linear-gradient(#FEFEFF 0, #E5EAF5 34%, #D4DBED 35%, #E1E6F6 100%);
+    background: linear-gradient(#FEFEFF 0, #E5EAF5 34%, #D4DBED 35%, #E1E6F6 100%);
+    padding: 0px 0px 0px 7px;
+    margin: 0px;
+}
+
+.menu-li {
+    display: inline-block;
+    margin-right: 10px;
+    color: #333;
+    font: 12px 'Segoe UI', sans-serif;
+}
+
+li.menu-li:first-letter {
+    text-decoration: underline;
+}
+
+.binary-box {
+    margin-top: 5px;
+    padding-bottom: 7px;
+    border: 1px solid #727F8D;
+    border-radius: 2px;
+    color: #1C3759;
+}
+
+div.binary-box ul li {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 12px;
+    font-family: Consolas, monospace;
+    color: #1C3759;
+}
+
+div.binary-box ul:nth-child(2n) li {
+    margin-right: 143px;
+    color: #666;
+}
+
+    div.binary-box ul li:last-child {
+        margin-right: 0px;
+    }
+
+.binary-ul {
+    padding: 0px 6px 0px 7px;
+    margin-bottom: -7px;
+    margin-top: 0px;
+}
+
+
+.inset-border {
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+.one-border-box {
+    padding-right: 2px;
+    margin-right: 0px;
+    border: 1px solid #727F8D;
+    border-radius: 2px;
+}
+
+.ul-one-border-box {
+    display: inline-block;
+    list-style: none;
+    padding: 3px 7px 5px 0px;
+    margin: 0;
+    font: 12px 'Segoe UI', sans-serif;
+}
+
+    .ul-one-border-box li {
+        margin: 1px 1px 0px 0px;
+    }
+
+.Hover {
+	height: 26px;
+    font-size: 12px;
+	border: 1px solid #aaa;
+	border-radius: 2px;
+    box-shadow: inset 0 0 0 1px #fff;
+    background: -moz-linear-gradient(top,  #f2f7ff 0%, #f4f8ff 48%, #e6ecf2 49%, #ededed 100%); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f7ff), color-stop(48%,#f4f8ff), color-stop(49%,#e6ecf2), color-stop(100%,#ededed)); 
+    background: -webkit-linear-gradient(top,  #f2f7ff 0%,#f4f8ff 48%,#e6ecf2 49%,#ededed 100%);
+    background: -o-linear-gradient(top,  #f2f7ff 0%,#f4f8ff 48%,#e6ecf2 49%,#ededed 100%); 
+    background: -ms-linear-gradient(top,  #f2f7ff 0%,#f4f8ff 48%,#e6ecf2 49%,#ededed 100%); 
+    background: linear-gradient(to bottom,  #f2f7ff 0%,#f4f8ff 48%,#e6ecf2 49%,#ededed 100%); 
+}
+
+.darkHover {
+	height: 26px;
+    font-size: 11px;
+	background: #d9e4f1;
+	border: 1px solid #aaa;
+	border-radius: 2px;
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+.numsHover {
+	height:26px;
+    font-size: 15px;
+	border:1px solid #aaa;
+	border-radius: 2px;
+	box-shadow: inset 0 0 0 1px #fff;
+    background: -webkit-linear-gradient(#F7FBFF 0, #EDF3F8 49%, #E7EDF5 50%, #F3FBFF 100%);
+    background: -moz-linear-gradient(#F7FBFF 0, #EDF3F8 49%, #E7EDF5 50%, #F3FBFF 100%);
+    background: -o-linear-gradient(#F7FBFF 0, #EDF3F8 49%, #E7EDF5 50%, #F3FBFF 100%);
+    background: linear-gradient(#F7FBFF 0, #EDF3F8 49%, #E7EDF5 50%, #F3FBFF 100%);
+}
+
+.noHover {
+	height: 26px;
+    font-size: 15px;
+	background: #d9e4f1;
+	border: 1px solid #aaa;
+	border-radius: 2px;
+}
+
+.numsHover:hover, .Hover:hover {
+    border: 1px solid #f7dd34;
+    border-color: #F5D50F;
+    background: -webkit-linear-gradient(#FEF5EB 0, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    background: -moz-linear-gradient(#FEF5EB 0, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    background: -o-linear-gradient(#FEF5EB 0, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    background: linear-gradient(#FEF5EB 0, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+}
+
+.darkHover:hover {
+    border: 1px solid #F5D50F;
+    background: -webkit-linear-gradient(#FEF5EB 0, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    background: -moz-linear-gradient(#FEF5EB 0, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    background: -o-linear-gradient(#FEF5EB 0, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    background: linear-gradient(#FEF5EB 0, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+}
+
+td {
+    padding: 2px 2px 1px 1px;
+    border-color: #727F8D;
+}
+
+.table {
+    margin: 1px auto 0px auto;
+}
+
+input[type="button"] {
+	font-family: Segoe UI;
+	height: 27px;
+	width: 34px;
+	color: #1E395B;
+}
+
+#zero {
+    width: 73px;
+}
+
+#equal {
+    font-size: 22px;
+    font-weight: bold;
+    height: 59px;
+}

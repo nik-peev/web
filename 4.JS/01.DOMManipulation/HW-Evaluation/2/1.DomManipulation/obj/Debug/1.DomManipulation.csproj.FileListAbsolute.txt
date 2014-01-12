@@ -1,0 +1,5 @@
+D:\Telerik\4.2. JavaScript Part II\Excercises\1.DomManipulation\1.DomManipulation\bin\1.DomManipulation.dll
+D:\Telerik\4.2. JavaScript Part II\Excercises\1.DomManipulation\1.DomManipulation\bin\1.DomManipulation.pdb
+D:\Telerik\4.2. JavaScript Part II\Excercises\1.DomManipulation\1.DomManipulation\obj\Debug\1.DomManipulation.csprojResolveAssemblyReference.cache
+D:\Telerik\4.2. JavaScript Part II\Excercises\1.DomManipulation\1.DomManipulation\obj\Debug\1.DomManipulation.dll
+D:\Telerik\4.2. JavaScript Part II\Excercises\1.DomManipulation\1.DomManipulation\obj\Debug\1.DomManipulation.pdb

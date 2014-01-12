@@ -1,0 +1,48 @@
+﻿<html>
+<head>
+	<title>Strings</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>10.Write a program that extracts from a given text all palindromes, e.g. "ABBA", "lamal", "exe".</p>
+    </div>
+     <div>
+         <span>
+            <label for="text">text: </label>
+			<textarea id="text">ABBA is a top level music band. Anna and Hannah are ABBA fans. They all drive Honda Civic</textarea>
+        </span>
+		<a href="#" onclick="execute()" id="Execute">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="09.html">Previous task</a>
+    <a href="11.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function read(id) {
+	        return jsConsole.read(id);
+	    }
+
+	    function extractPalindromes(text) {
+	        var palindromes = [];
+	        var pattern = new RegExp(/\b\w+\b/gi);
+	        var words = text.match(pattern);
+	        for (var i = 0; i < words.length; i++) {
+	            words[i] = words[i].toLowerCase();
+	            if (words[i] == words[i].split('').reverse().join(''))
+	                palindromes.push(words[i]);
+            }
+	        return palindromes;
+	    }
+
+	    function execute() {
+	        var text = read('#text');
+	        if (text == "") {
+	            jsConsole.writeLine("Invalid text");
+	            return;
+	        }
+	        jsConsole.writeLine(extractPalindromes(text));
+	    }
+	</script>
+</body>
+</html>

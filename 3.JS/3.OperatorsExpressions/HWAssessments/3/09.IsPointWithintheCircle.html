@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+	    <meta name="author" content="Petya Gergova" />
+	    <title>Write an expression that checks for given point (x, y) if it is within the circle K( (1,1), 3) and out of the rectangle R(top=1, left=-1, width=6, height=2).</title>
+    </head>
+    <body>
+        <header>
+            <h1>
+                Check if P(x,y) is within the circle and out of the rectanle:
+            </h1>
+            <h3>
+                Enter the needed values:
+            </h3>
+        </header>
+        <section>
+            <label for="coordinate-x">x:</label>
+		    <input type="text"
+				    name="coordinate-x"
+				    id="coordinate-x"
+				    placeholder="Enter a number for x" />
+		    <label for="coordinate-y">y:</label>
+		    <input type="text"
+				    name="coordinate-y"
+				    id="coordinate-y"
+				    placeholder="Enter a number for y" />
+		    <button type="button"
+				    id="result"
+				    onclick="checkPoint()">Check</button>
+        </section>
+        <script>
+            // Function for checking whether P(x,y) is within the circle and out of the rectanle:
+            function checkPoint() {
+                var x = document.getElementById("coordinate-x").value;
+                var xNumber = parseFloat(x);
+                var y = document.getElementById("coordinate-y").value;
+                var yNumber = parseFloat(y);
+                var a = xNumber - 1;
+                var b = yNumber - 1;
+                var xPoint = Math.pow(a, 2);
+                var yPoint = Math.pow(b, 2);
+                var circle = xPoint + yPoint;
+
+                if (xNumber != NaN && yNumber != NaN) {
+                    if (circle < 9 && xNumber > 5 && yNumber < -1) {
+                        alert("True");
+                    }
+
+                    else if (circle < 9 && xNumber > 5 && yNumber > 1) {
+                        alert("True");
+                    }
+
+                    else if (circle < 9 && xNumber < -1 && yNumber < -1) {
+                        alert("True");
+                    }
+
+                    else if (circle < 9 && xNumber < -1 && yNumber > 1) {
+                        alert("True");
+                    }
+
+                    else if (circle == 9 || circle > 9 || xNumber < 5 || xNumber > -1 || yNumber < 1 || yNumber > -1) {
+                        alert("False");
+                    }
+
+                    else {
+                        alert("Enter numbers for a check!");
+                    }
+                }
+
+                else {
+                    alert("Enter numbers for a check!");
+                }
+            }
+        </script>
+    </body>
+</html>

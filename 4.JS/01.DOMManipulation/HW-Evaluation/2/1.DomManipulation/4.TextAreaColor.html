@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Area Colours</title>
+</head>
+<body>
+  <h1>Choose the colours from the boxes</h1>
+    Background Color:
+    <input type="color" name="background" onchange="setBackground()" />
+    Font Color:
+    <input type="color" name="font" onchange="setFontColor()" />
+    <textarea id="area">
+        Sample Text
+    </textarea>
+    <script>
+        var textarea = document.getElementsByTagName('textarea')[0];
+
+        function setBackground() {
+            return textarea.style.backgroundColor = document.getElementsByName('background')[0].value;
+        }
+        function setFontColor() {
+            return textarea.style.color = document.getElementsByName('font')[0].value;
+
+        }
+    </script>
+</body>
+</html>

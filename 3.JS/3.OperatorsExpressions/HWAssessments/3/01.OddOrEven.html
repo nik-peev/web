@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="Petya Gergova" />
+		<meta name="description" content="On this page you can check whether a number is odd or even" />
+		<meta name="keywords" content="odd, even, number, check" />
+		<title>Check Odd or Even</title>
+	</head>
+	<body>
+		<div id="wrapper">
+			<input type="text"
+					name="num-check"
+					id="num-check"
+					value=""
+					required="required"
+					placeholder="Enter a number for a check" />
+			<button type="button"
+					id="result"
+					onclick="oddOReven()">Check</button>
+		</div>
+		<script>
+		    // This function allows us to check whether a certain number is even or odd.
+
+		    function oddOReven() {
+		        var a = document.getElementById("num-check").value;
+		        var number = parseInt(a);
+
+		        if (number % 2 == 0) {
+		            alert("This number is even!"); // Checks if the number is even.
+		        }
+
+		        else if (number % 2 == 1) {
+		            alert("This number is odd!"); // Checks if the number is odd.
+		        }
+
+		        else {
+		            alert("You need to enter a number for a check!"); // This message is displayed when other than number is entered.
+		        }
+		    }
+		</script>
+	</body>
+</html>

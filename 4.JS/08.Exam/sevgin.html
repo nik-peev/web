@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>GridVeiw</title>
+    <style type="text/css">
+        table, tr, td, th {
+            border: 1px solid #000;
+        }
+    </style>
+    <script type="text/javascript" src="gridview.js"></script>
+    <script type="text/javascript" src="schools-repository.js"></script>
+    <script type="text/javascript" src="school-system.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script type="text/javascript">
+        /* ----- Tests for TASK 1 and TASK 3 -----*/
+        var schoolsGrid = controls.getGridView('#container');
+        schoolsGrid.addHeader('Name', 'Location', 'Total Students', 'Specialty');
+        schoolsGrid.addRow('d', 'a', 400, 'Math');
+        schoolsGrid.addRow('b', 'd', 500, 'Science');
+        schoolsGrid.addRow('c', 'c', 300, 'Engineering');
+
+        var academy = schoolsGrid.addRow('a', 'b', 5000, 'IT')
+        var coll = academy.addCollapsedItem('Nested grid view with escaping <br />');
+        coll.addHeader('asdas', 'asasd');
+        coll.addRow('1', '2')
+        schoolsGrid.render();
+
+        /* ----- Tests for TASK 2 -----*/
+        // Not implemented
+
+        /* ----- Tests for TASK 4 -----*/
+        //var student1 = new schoolSystem.Student("Gosho", "Goshev", 5, 4);
+        //var student2 = new schoolSystem.Student("Pesho", "Peshev", 6, 3);
+        //var student3 = new schoolSystem.Student("Ivan", "Ivanov", 2, 5);
+
+        //var studentsList = [student1, student2, student3];
+        //var course1 = new schoolSystem.Course("Fu*king JavaScript", "16/05/2013", 3, studentsList);
+        
+        //var coursesList = [course1];
+        //var telerikAcademy = new schoolSystem.School("Telerik Academy", "Sofia", 100, "IT", coursesList);
+
+        //var schoolsData = [telerikAcademy];
+        //localStorage.clear();
+        //schoolsRepository.save("schools-repo", schoolsData);
+        //var data = schoolsRepository.load("schools-repo");
+        //console.log(data);
+
+        /* ----- Tests for TASK 5 ----- */
+        // Please click on TH cells for sorting ascending order for strings and descending order for numbers :)
+
+        /* ----- Tests for TASK 6 ----- */
+        //var schoolsData = schoolsGrid.getGridViewData();
+        //localStorage.clear();
+        //schoolsRepository.save("schools-repo", schoolsData);
+
+        /* ----- Tests for TASK 7 ----- */
+        //var schoolsData = schoolsRepository.load('schools-repo');
+        //var schoolsGridView = controls.buildGridView('#container', schoolsData);
+        //console.log(schoolsData);
+        //schoolsGridView.render();
+
+
+          //////////////////////////////////////////////////////////////////////////////////
+         /// Please evaluate my test ignoring the second task that I could not make it. ///
+        //////////////////////////////////////////////////////////////////////////////////
+    </script>
+</body>
+</html>

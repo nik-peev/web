@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+	<label for="input-number">First number: </label>
+	<input type="text" id="input-first-number" />
+	<br />
+	<a href="#" onclick="checkDivided()">Check if number can be divided by 7 and 5 in the same time. </a>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+	    function checkDivided() {
+	        var number = jsConsole.readInteger("#input-first-number");
+	        if (number % 35 == 0) {
+	            jsConsole.writeLine(number + " can be divided by 7 and 5 in the same time.");
+	        }
+	        else {
+	            jsConsole.writeLine(number + " cannot be divided by 7 and 5 in the same time.")
+	        }
+	    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿body,
+header,
+section,
+footer,
+article,
+aside,
+h1,
+h2,
+h3,
+input,
+label,
+p,
+button,
+fieldset,
+nav,
+ul,
+li,
+a,
+span,
+strong,
+em {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+body #wrapper {
+  width: 960px;
+}
+body #wrapper > div {
+  display: inline;
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #ffffff 0%, #f1f2f3 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f1f2f3));
+  background: -webkit-linear-gradient(top, #ffffff 0%, #f1f2f3 100%);
+  background: -o-linear-gradient(top, #ffffff 0%, #f1f2f3 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #f1f2f3 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #f1f2f3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f1f2f3', GradientType=0);
+}

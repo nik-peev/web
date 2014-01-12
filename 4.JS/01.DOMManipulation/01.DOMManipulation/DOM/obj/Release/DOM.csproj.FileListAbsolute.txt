@@ -1,0 +1,5 @@
+C:\S\GoogleDrive\TelerikAcademy\Web\4.JS\01.DOMManipulation\01.DOMManipulation\DOM\bin\DOM.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\4.JS\01.DOMManipulation\01.DOMManipulation\DOM\bin\DOM.pdb
+C:\S\GoogleDrive\TelerikAcademy\Web\4.JS\01.DOMManipulation\01.DOMManipulation\DOM\obj\Release\DOM.csprojResolveAssemblyReference.cache
+C:\S\GoogleDrive\TelerikAcademy\Web\4.JS\01.DOMManipulation\01.DOMManipulation\DOM\obj\Release\DOM.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\4.JS\01.DOMManipulation\01.DOMManipulation\DOM\obj\Release\DOM.pdb

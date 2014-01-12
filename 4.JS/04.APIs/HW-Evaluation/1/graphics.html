@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JavaScript Homework - APIs</title>
+    <script src="scripts/functions.js" type="text/javascript"></script>
+    <style type="text/css">
+        body {
+            background: #1e1e1e;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1200" height="700">
+
+    </canvas>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var canvasContext = canvas.getContext('2d');
+        var canvasX = canvas.width / 5;
+        var canvasY = canvas.height / 2;
+        var canvasX2 = canvasX + 400;
+        var canvasX3 = canvas.width - 160;
+        var r = 100;
+
+        canvasContext.beginPath();
+        canvasContext.arc(canvasX, canvasY, r, 0, 2 * Math.PI, false);
+        canvasContext.fillStyle = '#90cad7';
+        canvasContext.fill();
+        canvasContext.strokeStyle = '#337a8b';
+        canvasContext.stroke();
+
+        canvasContext.beginPath();
+        canvasContext.arc(canvasX2, canvasY, r, 0, 2 * Math.PI, false);
+        canvasContext.fillStyle = '#90cad7';
+        canvasContext.fill();
+        canvasContext.strokeStyle = '#337a8b';
+        canvasContext.stroke();
+
+        canvasContext.beginPath();
+        canvasContext.moveTo(canvasX, canvasY);
+        canvasContext.lineTo(canvasX + 150, canvasY - 20);
+        canvasContext.moveTo(canvasX + 150, canvasY - 20);
+        canvasContext.lineTo(canvasX + 300, canvasY - 180);
+        canvasContext.moveTo(canvasX + 280, canvasY - 220);
+        canvasContext.lineTo(canvasX2, canvasY);
+        canvasContext.moveTo(canvasX + 280, canvasY - 220);
+        canvasContext.lineTo(canvasX + 300, canvasY - 250);
+        canvasContext.moveTo(canvasX + 280, canvasY - 220);
+        canvasContext.lineTo(canvasX + 240, canvasY - 200);
+        canvasContext.moveTo(canvasX + 300, canvasY - 180);
+        canvasContext.lineTo(canvasX + 70, canvasY - 140);
+        canvasContext.moveTo(canvasX + 70, canvasY - 140);
+        canvasContext.lineTo(canvasX, canvasY);
+        canvasContext.moveTo(canvasX + 150, canvasY - 20);
+        canvasContext.lineTo(canvasX + 45, canvasY - 180);
+        canvasContext.moveTo(canvasX + 25, canvasY - 180);
+        canvasContext.lineTo(canvasX + 65, canvasY - 180);
+        canvasContext.moveTo(canvasX + 120, canvasY - 30);
+        canvasContext.lineTo(canvasX + 100, canvasY - 40);
+        canvasContext.moveTo(canvasX + 180, canvasY - 10);
+        canvasContext.lineTo(canvasX + 200, canvasY + 0);
+        canvasContext.strokeStyle = '#337a8b';
+        canvasContext.stroke();
+
+        canvasContext.beginPath();
+        canvasContext.arc(canvasX + 150, canvasY - 20, 30, 2 * Math.PI, false);
+        canvasContext.strokeStyle = '#337a8b';
+        canvasContext.stroke();
+
+        canvasContext.beginPath();
+        canvasContext.arc(canvasX3, canvasY, r, 2 * Math.PI, false);
+        canvasContext.fillStyle = '#90cad7';
+        canvasContext.fill();
+        canvasContext.strokeStyle = '#337a8b';
+        canvasContext.stroke();
+
+        //draw eyes
+        drawEllipse(canvasX3 - 60, canvasY - 20, 30, 15, "none", "#337a8b");
+        drawEllipse(canvasX3 - 0, canvasY - 20, 30, 15, "none", "#337a8b");
+
+        drawEllipse(canvasX3 - 62, canvasY - 20, 7, 15, "#337a8b", "none");
+        drawEllipse(canvasX3 - 2, canvasY - 20, 7, 15, "#337a8b", "none");
+
+        //draw nose 
+
+        canvasContext.beginPath();
+        canvasContext.moveTo(canvasX3 - 30, canvasY - 10);
+        canvasContext.lineTo(canvasX3 - 50, canvasY + 30);
+        canvasContext.moveTo(canvasX3 - 50, canvasY + 30);
+        canvasContext.lineTo(canvasX3 - 20, canvasY + 30);
+        canvasContext.strokeStyle = "#337a8b";
+        canvasContext.stroke();
+        canvasContext.closePath();
+
+        //draw mouth
+
+        drawEllipse(canvasX3 - 30, canvasY + 60, 70, 20, "none", "#337a8b");
+
+        //draw hat
+
+        drawEllipse(canvasX3, canvasY - 80, 300, 40, "#396693", "#252524");
+        drawEllipse(canvasX3, canvasY - 100, 160, 20, "#396693", "#252524");
+        drawRect(canvasX3 - 60, canvasY - 180, 120, 80);
+        drawEllipse(canvasX3, canvasY - 180, 160, 20, "#396693", "#252524");
+    </script>
+</body>
+</html>

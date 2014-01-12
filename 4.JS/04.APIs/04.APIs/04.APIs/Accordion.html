@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="scripts/Accordion.js"></script>
+    <style type = "text/css">
+        #accordion ul{
+            list-style-type: none;
+        }
+
+        #accordion-holder ul li a{
+            color: black;
+            text-decoration: none;
+        }
+
+        #accordion-holder ul li:hover > a{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="accordion-holder"></div>
+    <script type="type/javascript">
+        var accordion = controls.getAccordion("#accordion-holder");
+        var webItem = accordion.add("Web");
+            var htmlItem = webItem.add("HTML");
+                htmlItem.add("html1");
+
+        accordion.add("Mobile");
+        accordion.add("Desktop");
+
+        accordion.render();
+    </script>
+</body>
+</html>

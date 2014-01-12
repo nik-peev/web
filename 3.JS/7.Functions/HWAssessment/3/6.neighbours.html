@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Loops - Triangle</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="tb-numbers">Array: </label>
+	<input type="text" id="tb-numbers" />
+
+    <label for="number">Position: </label>
+	<input type="text" id="number" />
+
+	<a href="#" id="btn-power" onclick="numberCount()">Calc </a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+	<script>
+	    function numberCount() {
+	        var arr = jsConsole.read('#tb-numbers');
+	        var pos = jsConsole.readInteger('#number');
+	        if (pos == 0 && arr[pos] > arr[1]) {
+	            jsConsole.write("true");
+	        }
+	        else if (pos == arr.length-1 && arr[arr.length-1] > arr[arr.length-2]) {
+	            jsConsole.write("true");
+	        }
+	        else if (arr[pos] > arr[pos - 1] && arr[pos] > arr[pos + 1]) {
+	            jsConsole.write("true");
+	        }
+	        else {
+	            jsConsole.write("false");
+	        }
+	    }
+	</script>
+</body>
+</html>

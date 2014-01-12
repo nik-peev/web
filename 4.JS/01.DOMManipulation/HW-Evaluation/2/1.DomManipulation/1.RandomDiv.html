@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Divs</title>
+	<style>
+		body, html {
+			margin:0;
+			padding:0;
+			min-height: 100%;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body id="body">
+	
+	<input type="text" id="count" name="count" />
+	<input type="submit" onclick="createDivs()" value="Generate Random Divs"/>	
+
+	<div id="wrapper">
+	</div>
+	<script>
+        function createDivs(){
+            var count = parseInt(document.getElementById("count").value);
+            var AllElementsColection = document.createDocumentFragment();
+ 
+            for (var i = 0; i < count; i++) {
+                var newDiv = document.createElement("div");
+                newDiv.style.height = generateRandomSize(20,100);
+                newDiv.style.width = generateRandomSize(20,100);
+                newDiv.style.backgroundColor = generateRandomColor();
+                newDiv.style.color = generateRandomColor();
+                newDiv.style.position = "absolute";
+                newDiv.style.top = generateRandomPosition();
+                newDiv.style.left = generateRandomPosition();
+                var newStrongElement = document.createElement("strong");
+                newStrongElement.textContent = "div";
+                newDiv.appendChild(newStrongElement);
+                newDiv.style.borderStyle = "solid";
+                newDiv.style.borderRadius = generateRandomSize(1, 100);
+                newDiv.style.borderColor = generateRandomColor();
+                newDiv.style.borderWidth = generateRandomSize(1, 20);
+                AllElementsColection.appendChild(newDiv);
+            }
+ 
+            var bodyElement = document.getElementById("wrapper");
+            while (bodyElement.firstChild) bodyElement.removeChild(bodyElement.firstChild);
+            bodyElement.appendChild(AllElementsColection);
+        }
+ 
+        function generateRandomColor() {
+            var red = (Math.random() * 256) | 0;
+            var green = (Math.random() * 256) | 0;
+            var blue = (Math.random() * 256) | 0;
+ 
+            return "rgb(" + red + "," + green + "," + blue + ")";
+        }
+ 
+        function generateRandomPosition() {
+            return Math.random() * screen.width + "px";
+        }
+ 
+        function generateRandomSize(min, max) {
+            return ((Math.random() * (max - min) | 0) + min) + "px";
+        }
+ 
+    </script>
+</body>
+</html>

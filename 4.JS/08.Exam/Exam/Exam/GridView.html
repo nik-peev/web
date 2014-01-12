@@ -1,0 +1,62 @@
+﻿<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="scripts/GridView.js"></script>
+  <script type="text/javascript" src="scripts/local-storage-extensions.js"></script>
+  <style type="text/css">
+    #gridview-holder table, th, tr, td{
+        border: 2px solid black;
+        border-collapse: collapse;
+        font-size: 24px;
+        font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    }
+    #gridview-holder table tr:first-child{
+        font-weight: bold;
+        background-color: lightgrey;
+    }
+    #gridview-holder table td:hover{
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="gridview-holder"></div>
+
+  <script type="text/javascript">
+      // tasks 1&2 - you should use [] around the passed school data! 
+      var gridview = controls.getGridview("#gridview-holder");
+      var gridviewHeader = gridview.addHeader(['Name', 'Location', 'TotalStudents', 'Speciality'])
+      var schoolPMG = gridview.addRow(['PMG', '<br/>Burgas', 400, 'Mathematics']);
+      var schoolTUES = gridview.addRow(['TUES', 'Sofia', 500, 'IT']);
+      var schoolTelerikAcademy = gridview.addRow(['TelerikAcademy', 'Sofia', 5000, 'IT']);
+
+      schoolTelerikAcademy.addHeader(['Title', 'Start Date', 'TotalStudents']);
+      schoolTelerikAcademy.addRow(['JS2', '11-april-2013', 400]);
+      schoolTelerikAcademy.addRow(['SEO', '15-may-2013', 1500]);
+      schoolTelerikAcademy.addRow(['Slice and Dice', '05-april-2013', 500]);
+
+      schoolTUES.addHeader(['Title', 'Start Date', 'TotalStudents']);
+      schoolTUES.addRow(['JS2', '11-april-2013', 400]);
+      schoolTUES.addRow(['SEO', '15-may-2013', 1500]);
+      schoolTUES.addRow(['Slice and Dice', '05-april-2013', 500]);
+
+      schoolPMG.addHeader(['Title', 'Start Date', 'TotalStudents']);
+      var inner = schoolPMG.addRow(['JS2', '11-april-2013', 400]);
+      schoolPMG.addRow(['SEO', '15-may-2013', 1500]);
+      schoolPMG.addRow(['Slice and Dice', '05-april-2013', 500]);
+	  
+	  inner.addHeader(['aaaa', 'bbbb', 'cccc']);
+      var inn = inner.addRow(['JS2', '11-april-2013', 400]);
+      inner.addRow(['SEO', '15-may-2013', 1500]);
+      inner.addRow(['Slice and Dice', '05-april-2013', 500]);
+	  
+	  inn.addHeader(['Title', 'Start Date', 'TotalStudents']);
+      inn.addRow(['JS2', '11-april-2013', 400]);
+      inn.addRow(['SEO', '15-may-2013', 1500]);
+      inn.addRow(['Slice and Dice', '05-april-2013', 500]);
+
+      gridview.render();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <label for="input-number">Input x coord: </label>
+    <input type="text" id="input-x" />
+    <br />
+    <label for="input-number">Input y coord: </label>
+    <input type="text" id="input-y" />
+    <br />
+    <a href="#" onclick="checkPointInCircle()">Check if point (x,y) is within a circle K( (1,1), 3)
+         and out of the rectangle R(top=1, left=-1, width=6, height=2). </a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function checkPointInCircle() {
+            var xCoord = jsConsole.readFloat("#input-x");  
+            var yCoord = jsConsole.readFloat("#input-y");
+            if (isNaN(xCoord) || isNaN(yCoord)) {
+                jsConsole.writeLine("Invalid coordinates!");
+            }
+                //(x-center_x)^2 + (y - center_y)^2 < radius^2   ->formula to check if point is in circle
+            else {
+                var isInRectangle = ((xCoord >= -1) && (xCoord <= 5)) && ((yCoord <= -1) && (yCoord >= -3));
+                var distToCenter = parseFloat(xCoord * xCoord) + parseFloat(yCoord * yCoord);
+                var isInCircle = distToCenter <= 25.0;
+                jsConsole.writeLine(isInCircle);
+                jsConsole.writeLine(isInRectangle);
+
+                if ((isInCircle == true) && (isInRectangle == false)) {
+                    jsConsole.writeLine("The point is in the circle and outside the rectangle!");
+                }
+                else {
+                    if (isInCircle == true && isInRectangle == true) {
+                        jsConsole.writeLine("The point is in both the circle and the rectangle!");
+                    }
+                    else {
+                        if (isInRectangle == true) {
+                            jsConsole.writeLine("The point is only in the rectangle!");
+                        }
+                        else {
+                            jsConsole.writeLine("The point is outside the rectangle and outside the circle!");
+                        }
+                    }
+                }
+
+            }
+        }
+    </script>
+
+</body>
+</html>

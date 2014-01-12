@@ -1,0 +1,340 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Trash game</title>
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            border:none;
+        }
+
+        #wrapper {
+            position:relative;
+        }
+
+        #bin {
+            position:absolute;
+            top:310px;
+            left:155px;
+            height: 55px;
+            width: 220px;
+        }
+
+        #result-menu {
+            width:200px;
+            height:100px;
+            border:2px solid black;
+            position:absolute;
+            top:350px;
+            left:500px;
+            padding:10px;
+            border-radius:10px;
+        }
+
+        #result-menu input{
+            padding-left:5px;
+            margin-top: 5px;
+        }
+
+        #result-menu button{
+            margin-top:10px;
+        }
+
+        .trash {
+            position:absolute;
+            width:30px;
+            height:30px;
+            background:-webkit-linear-gradient(top,  #9C9E9D 0%, #F8F8F8 100%);
+            border: 3px solid black;
+            border-radius:10px;
+            vertical-align:central;
+            font-weight:bold;
+            text-align:center;
+            cursor: move;
+        }
+
+        #start-game {
+            position:absolute;
+            top:200px;
+            left:50px;
+        }
+
+        #scoreboard {
+            height:200px;
+            width:300px;
+            position:absolute;
+            top:100px;
+            left:500px;
+            padding:10px;
+            border-radius:15px;
+            background:-webkit-linear-gradient(top,  #028FC3 0%, #092C6C 100%);
+            color:white;
+            font-family:Calibri;
+        }
+
+         #sb-header {
+             text-align:center;
+             font-weight:bold;
+             padding:10px;
+             font-size:17px;
+        }
+
+        .players{
+            border-bottom:2px solid white;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <canvas id="canvas" height="910" width="1250">
+        </canvas>
+        <button id="start-game" onclick="onStartGame()">
+            Start Game
+        </button>
+    </div>
+    <script>
+        function generateRandomPos(leftMax, topMax, leftMin, topMin) {
+            var position = {
+                Left: Math.random() * (leftMax - leftMin) + leftMin,
+                Top: Math.random() * (topMax - topMin) + topMin
+            }
+
+            return position;
+        }
+
+        var roundShape = function (x, y, w, h, fillColor, lineWidth, strokeColor) {
+            var mx = x + (w / 2);
+            var my = y + (h / 2);
+
+            ctx.beginPath();
+            ctx.lineWidth = lineWidth;
+            ctx.fillStyle = fillColor;
+            ctx.strokeStyle = strokeColor;
+
+            ctx.moveTo(x, my);
+            ctx.quadraticCurveTo(x, y, mx, y);
+            ctx.quadraticCurveTo(x + w, y, x + w, my);
+            ctx.quadraticCurveTo(x + w, y + h, mx, y + h);
+            ctx.quadraticCurveTo(x, y + h, x, my);
+
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        function drawBin() {
+            ctx.beginPath();
+            ctx.lineWidth = 7;
+            ctx.moveTo(200, 600);
+            ctx.lineTo(170, 350);
+            ctx.moveTo(325, 600);
+            ctx.lineTo(360, 350);
+            ctx.moveTo(197, 600);
+            ctx.lineTo(328, 600);
+            ctx.font = "30px calibri";
+            ctx.fillText("The trash", 205, 420);
+            ctx.fillText("is", 250, 470);
+            ctx.fillText("here", 230, 520);
+            ctx.stroke();
+            roundShape(160, 315, 210, 50, "black", 3, "black");
+        }
+
+        function createTrashElement() {
+            var trash = document.createElement("div");
+            trash.className = "trash";
+            trash.innerHTML = "T";
+
+            var randomPos = generateRandomPos(1000, 800, 400, 10);
+            trash.style.top = randomPos.Top + "px";
+            trash.style.left = randomPos.Left + "px";
+
+            trash.draggable = "true";
+            trash.ondragstart = drag;
+            return trash;
+        }
+
+        function generateTrash() {
+            var trash;
+            for (var i = 0; i < 5; i++) {
+                trash = createTrashElement();
+                trash.id = "trash" + i.toString();
+
+                trashContainer.push(trash);
+                wrapper.appendChild(trash);
+            }
+        }
+
+        function closeCap() {
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.clearRect(145, 225, 210, 125);
+            roundShape(160, 315, 210, 50, "black", 3, "black");
+            firstTimeDraggedOver = true;
+        }
+
+        function openCap() {
+            roundShape(160, 315, 210, 50, "white", 3, "black");
+            ctx.rotate(330 * Math.PI / 180);
+            roundShape(-35, 350, 210, 50, "black", 3, "black");
+        }
+
+        function onDragOver(ev) {
+            if (firstTimeDraggedOver) {
+                openCap();
+            }
+
+            ev.preventDefault();
+            firstTimeDraggedOver = false;
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("dragged-id", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("dragged-id");
+            var trash = document.getElementById(data);
+
+            trash.parentNode.removeChild(trash);
+            trashContainer.pop();
+            closeCap();
+            if (trashContainer.length == 0) {
+                onFinishGame();
+            }
+        }
+
+        function sortScoreBoard() {
+            var player;
+            var players = [];
+            for (var i = 0; i < localStorage.length; i++) {
+                player = {
+                    Name: localStorage.key(i),
+                    Score: localStorage.getItem(localStorage.key(i))
+                }
+
+                players.push(player);
+            }
+
+            players = players.sort(sortByScore);
+            return players;
+        }
+
+        function sortByScore(playerOne, playerTwo) {;
+            return parseFloat(playerOne.Score) - parseFloat(playerTwo.Score);
+        }
+
+        function resetScoreBoard() {
+            while (scoreBoard.firstChild) {
+                scoreBoard.removeChild(scoreBoard.firstChild);
+            }
+        }
+
+        function generateScoreBoardHeader() {
+            var header = document.createElement("div");
+            header.id = "sb-header";
+            header.innerHTML = "Champions : <br>";
+            scoreBoard.appendChild(header);
+        }
+
+        function generateScoreBoardBody() {
+            var player;
+            var players = sortScoreBoard();
+            if (localStorage.length >= 5) {
+                for (var i = 0; i < 5; i++) {
+                    player = document.createElement("div");
+                    player.className = "players";
+                    player.title = "Player";
+                    player.innerHTML = parseInt(i + 1) + ". " + players[i].Name +
+                        " - " + players[i].Score + " seconds";
+                    scoreBoard.appendChild(player);
+                }
+            }
+
+            else {
+                for (var i = 0; i < localStorage.length; i++) {
+                    player = document.createElement("div");
+                    player.className = "players";
+                    player.title = "Scoreboard";
+                    player.innerHTML = parseInt(i + 1) + ". " + players[i].Name +
+                        " - " + players[i].Score + " seconds";
+                    scoreBoard.appendChild(player);
+                }
+            }
+
+            player.style.border = "none";
+        }
+
+        function generateScoreBoard() {
+            scoreBoardVisited = true;
+            resetScoreBoard();
+            generateScoreBoardHeader();
+            generateScoreBoardBody();
+            wrapper.appendChild(scoreBoard);
+        }
+
+        function saveSession() {
+            localStorage.setItem(document.getElementById("player-name").value, score);
+            wrapper.removeChild(document.getElementById("result-menu"));
+            generateScoreBoard();
+        }
+
+        function generateInputMenu(score) {
+            var scoreMenu = document.createElement("div");
+            scoreMenu.id = "result-menu";
+            scoreMenu.innerHTML = "Your score is : " + score + "<br> Please enter your name : ";
+            scoreMenu.style.fontWeight = "bold";
+
+            var inputName = document.createElement("input");
+            inputName.id = "player-name";
+
+            var submitButton = document.createElement("button");
+            submitButton.innerHTML = "Submit";
+            submitButton.id = "submit";
+            submitButton.onclick = saveSession;
+
+            scoreMenu.appendChild(inputName);
+            scoreMenu.appendChild(submitButton);
+            wrapper.appendChild(scoreMenu);
+        }
+
+        function onFinishGame() {
+            startButton.disabled = false;
+            var difference = new Date();
+            score = parseFloat(difference.setTime(new Date().getTime() - startTime) / 1000);
+            generateInputMenu(score);
+        }
+
+        function onStartGame() {
+            if (scoreBoardVisited) {
+                wrapper.removeChild(scoreBoard);
+            }
+
+            generateTrash();
+            startButton.disabled = true;
+            startTime = new Date().getTime();
+        }
+
+        // Best use in Chrome
+        var wrapper = document.getElementById("wrapper");
+        var ctx = document.getElementById("canvas").getContext("2d");
+        var startButton = document.getElementById("start-game");
+        var trashContainer = [];
+        var scoreBoard = document.createElement("div");
+        scoreBoard.id = "scoreboard";
+
+        var bin = document.createElement("div");
+        bin.id = "bin";
+        bin.ondrop = drop;
+        bin.ondragover = onDragOver;
+        bin.ondragleave = closeCap;
+        wrapper.appendChild(bin);
+
+        var firstTimeDraggedOver = true;
+        var scoreBoardVisited = false;
+        var startTime;
+        var score;
+        drawBin();
+    </script>
+</body>
+</html>

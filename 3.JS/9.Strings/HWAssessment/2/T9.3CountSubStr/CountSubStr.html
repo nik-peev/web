@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Count Substring</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+        input[type=text] {
+            border: 1px solid black;
+            padding: 5px 15px;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: black;
+            border: 1px solid black;
+            padding: 5px 15px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 15px 0;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+    </style>
+</head>
+<body>
+    <p><em>Write function to find how many times a substring is contained in a text</em></p>
+    <p><em> (perform case insensitive search).</em></p>
+    <br />
+    <label for="tb-first"><em>Choose a substring to count its occurences: </em></label>
+    <input type="text" id="tb-first" name="bt" value="in" />
+    <br />
+    <a href="#" onclick="onCntSbStrButtonClick()">Count Substring</a>
+    <span>&nbsp Please, press F5 to refresh!</span>
+    <div id="console"> 
+        <script src="scripts/js-console.js"></script>
+        <script>
+            var str1 = "We are living in an yellow submarine. "
+            var str2 = "In the sky there are no clouds. So we are drinking all the day. "
+            var str3 = "Inside the submarine is very tight. "
+            var str4 = "We will move out of it in 5 days when clouds cover the sky."
+            var str = str1 + str2 + str3+ str4;
+            jsConsole.writeLine(str1 + '</br>' + str2 + '</br>' + str3 + '</br>'+str4);
+
+            var subStr;        // the subStr to look for
+
+
+            //  when the button is clicked on
+
+            function onCntSbStrButtonClick()
+            {
+                subStr = jsConsole.read("#tb-first");
+                jsConsole.writeLine('<br />The substring "' + subStr + '" appears ' + countSubStr(subStr) +
+                    ' times.');
+            }
+
+            //  the function to count the subStr appearance (case insensitive)
+
+            function countSubStr(subStr) {
+                var strt = 0;
+                var regExp = new RegExp(subStr, 'gi'), match = str.match(regExp);
+                var count = (match != null) ? match.length : 0;
+                return count;
+            }   
+        </script>
+    </div>
+</body>
+</html>

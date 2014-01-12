@@ -1,0 +1,10 @@
+C:\Users\Vasko\Desktop\Projects JavaScript\PartTwo\APIs\APIs\bin\APIs.dll
+C:\Users\Vasko\Desktop\Projects JavaScript\PartTwo\APIs\APIs\bin\APIs.pdb
+C:\Users\Vasko\Desktop\Projects JavaScript\PartTwo\APIs\APIs\obj\Debug\APIs.csprojResolveAssemblyReference.cache
+C:\Users\Vasko\Desktop\Projects JavaScript\PartTwo\APIs\APIs\obj\Debug\APIs.dll
+C:\Users\Vasko\Desktop\Projects JavaScript\PartTwo\APIs\APIs\obj\Debug\APIs.pdb
+C:\Telerik Software Academy\JS 2\V. Java Script - Homework - APIs\APIs\bin\APIs.dll
+C:\Telerik Software Academy\JS 2\V. Java Script - Homework - APIs\APIs\bin\APIs.pdb
+C:\Telerik Software Academy\JS 2\V. Java Script - Homework - APIs\APIs\obj\Debug\APIs.csprojResolveAssemblyReference.cache
+C:\Telerik Software Academy\JS 2\V. Java Script - Homework - APIs\APIs\obj\Debug\APIs.dll
+C:\Telerik Software Academy\JS 2\V. Java Script - Homework - APIs\APIs\obj\Debug\APIs.pdb

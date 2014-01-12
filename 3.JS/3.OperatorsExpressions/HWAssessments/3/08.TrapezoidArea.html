@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Write an expression that calculates trapezoid's area by given sides a and b and height h.</title>
+		<meta name="author" content="Petya Gergova" />
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <header>
+            <h1>
+                Calculate trapezoid's area:
+            </h1>
+            <h3>
+                Enter the needed values:
+            </h3>
+        </header>
+        <section>
+            <label for="base-one">Base one:</label>
+		    <input type="text"
+				    name="base-one"
+				    id="base-one"
+				    value=""
+				    placeholder="Enter base one" />
+		    <label for="base-two">Base two:</label>
+		    <input type="text"
+				    name="base-two"
+				    id="base-two"
+				    value=""
+				    placeholder="Enter base two" />
+		    <label for="height">Height:</label>
+		    <input type="text"
+				    name="height"
+				    id="height"
+				    value=""
+				    placeholder="Enter height" />
+		    <button type="button"
+				    id="result"
+				    onclick="trapezoid()">Calculate area</button>
+        </section>
+        <script>
+            // This functions checks the area of a trapezoid by given sides a and b and height h.
+
+            function trapezoid() {
+                var a = document.getElementById("base-one").value;
+                var baseOne = parseInt(a);
+                var b = document.getElementById("base-two").value;
+                var baseTwo = parseInt(b);
+                var h = document.getElementById("height").value;
+                var height = parseInt(h);
+                var area = ((baseOne + baseTwo) * height) / 2; // Calculates the area
+
+                if (baseOne > 0 && baseTwo > 0 && height > 0) {
+                    alert(area);
+                }
+
+                else if (baseOne <= 0 || baseTwo <= 0 || height <= 0) {
+                    alert("Enter positive values or number different from 0!");
+                }
+
+                else {
+                    alert("Enter numbers for calculation!");
+                }
+            }
+		</script>
+    </body>
+</html>
+

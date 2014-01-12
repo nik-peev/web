@@ -1,0 +1,36 @@
+﻿<html>
+<head>
+	<title>Loops</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>2.Write a script that prints all the numbers from 1 to N, that are not divisible by 3 and 7 at the same time</p>
+    </div>
+     <div>
+		<span>
+			<label for="Number">N: </label>
+			<input type="text" id="Number"/>
+		</span>
+		<a href="#" onclick="print1toNNotDivisibleBy3And7()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="1.html">Previous task</a>
+    <a href="3.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function print1toNNotDivisibleBy3And7() {
+	        var N = jsConsole.readInt("#Number");
+	        if (isNaN(N) || N == null || N == "")
+	            jsConsole.writeLine("No valid number!")
+	        var i = 0;
+	        for (; i <= N; i++) {
+                if (i % 21 != 0)
+                    jsConsole.write(i + ' ');
+                else
+                    jsConsole.write('_')
+	        }
+	    }
+	</script>
+</body>
+</html>

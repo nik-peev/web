@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+	<label for="input-number">Height: </label>
+	<input type="text" id="input-height" />
+	<br />
+
+	<label for="input-number">Width: </label>
+	<input type="text" id="input-width" />
+	<br />
+
+	<a href="#" onclick="calculateArea()">Calculate area</a>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+	    function calculateArea() {
+	        var height = jsConsole.readFloat("#input-height");
+			var width = jsConsole.readFloat("#input-width");
+			var area = height * width;
+	        jsConsole.writeLine(area);
+	    }
+	</script>
+</body>
+</html>

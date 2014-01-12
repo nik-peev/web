@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+	<title>Conditional Statements</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>3.Write a script that finds the biggest of three integers using nested if statements.</p>
+    </div>
+    <div>
+		<span>
+			<label for="a">a: </label>
+			<input type="text" id="a"/>
+            <label for="b">b: </label>
+			<input type="text" id="b"/>
+            <label for="c">c: </label>
+			<input type="text" id="c"/>
+		</span>
+		<a href="#" onclick="findBiggestOfThreeNumbers()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="2.html">Previous task</a>
+    <a href="4.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function findBiggestOfThreeNumbers() {
+	        var a = jsConsole.readFloat("#a");
+	        var b = jsConsole.readFloat("#b");
+	        var c = jsConsole.readFloat("#c");
+	        var max;
+	        if (isNaN(a) || isNaN(b) || isNaN(c))
+	            jsConsole.writeLine("no three numbers to calculate!")
+	        else {
+	            if (a >= b)
+	            {
+	                if ((b >= c) || (a >= c))
+	                {
+	                    max = a;
+	                }
+	                else //a>=b (b<c or a<c)
+	                {
+	                    max = c;
+	                }
+	            }
+	            else //a < b
+	            {
+	                if ((b >= c) || (a >= c))
+	                {
+	                    max = b;
+	                }
+	                else //b<c i a<c
+	                {
+	                    max = c;
+	                }
+	            }
+	            jsConsole.writeLine(max);
+	        }
+	    }
+	</script>
+</body>
+</html>

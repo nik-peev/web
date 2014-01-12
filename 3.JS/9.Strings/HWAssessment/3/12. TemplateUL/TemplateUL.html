@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Template &lt;ul&gt;</title>
+</head>
+<body>
+    <p>This script will format a &lt;ul&gt; tag using a template.</p>
+    <div data-type="template" id="list-item">
+        <strong>-{name}-</strong> <span>-{age}-</span>
+    </div>
+    <script type="text/javascript">
+        function testTemplate() {
+            var people = [{ name: "Peter", age: 14 }, { name: "George", age: 20 }, { name: "Michael", age: 32 }];
+            var template = document.getElementById("list-item").innerHTML;
+            document.getElementById("list-item").innerHTML = generateList(people, template);
+        }
+
+        function generateList(people, template) {
+            // Initialize an <ul>
+            var result = "<ul>"
+
+            // For each person, replace -{property}- with the actual property
+            people.forEach(function (human) {
+                result += "<li>"
+
+                result += template.replace(/-{(.*?)}-/g, function (match, g1) {
+                    return human[g1]
+                })
+
+                result += "</li>"
+            })
+
+            result += "</ul>"
+
+            return result;
+        }
+
+        testTemplate();
+    </script>
+</body>
+</html>

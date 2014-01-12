@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+    <p style="color:green">5. Sorting an array means to arrange its elements in increasing order. Write a script to sort an array.<br />
+        Use the "selection sort" algorithm: Find the smallest element, move it at the first position, find the smallest from the rest, move it at the second position, etc.<br />
+        Hint: Use a second array.</p>
+    <br />
+	<a href="#" onclick="onButtonClick()">Test Script</a>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function onButtonClick() {
+	        function printArray(myArray) {
+	            jsConsole.writeLine(myArray.join(" | "));
+	        }	        
+	        function sortArray(myArray) {
+	            var sorted = new Array();
+	            while (myArray.length > 1) {
+	                var minElementIndex = 0;
+	                for (var i = 1; i < myArray.length; i++) {
+	                    if (myArray[minElementIndex] > myArray[i]) {
+	                        minElementIndex = i;
+	                    }
+	                }
+	                sorted.push(myArray[minElementIndex]);
+	                myArray.splice(minElementIndex, 1);
+	            }
+	            sorted.push(myArray[0]);
+	            return sorted;
+	        }
+
+	        var myArray = [3, 2, 6, 4, 5, 1, 5, 8, 3];
+	        jsConsole.write("Unsort: ");
+	        printArray(myArray);
+	        var sort = sortArray(myArray);
+	        jsConsole.write("Sorted: ");
+	        printArray(sort);
+	        jsConsole.writeLine("");
+
+	        myArray = ["ego", "net", "logo", "axe", "rege", "dan"];
+	        jsConsole.write("Unsort: ");
+	        printArray(myArray);
+	        sort = sortArray(myArray);
+	        jsConsole.write("Sorted: ");
+	        printArray(sort);
+	        jsConsole.writeLine("");
+	    }
+	</script>	
+</body>
+</html>

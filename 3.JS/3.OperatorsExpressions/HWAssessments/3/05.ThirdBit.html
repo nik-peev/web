@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Write a boolean expression for finding if the bit 3 (counting from 0) of a given integer is 1 or 0.</title>
+		<meta name="author" content="Petya Gergova" />
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <header>
+            <h1>
+                Check third bit of the digit
+            </h1>
+            <h3>
+                Enter an integer for a check
+            </h3>
+        </header>
+        <section>
+            <input type="text"
+                    id="integer-input"
+                    placeholder="Enter an integer" />
+            <button type="button"
+                    onclick="checkBit()">Check integer</button>
+        </section>
+        <script>
+            function checkBit() {
+                var n = document.getElementById("integer-input").value;
+                var number = parseInt(n);
+                var p = 4;
+                var mask = 1 << p;
+                var numberAndmask = number & mask;
+                var bit = numberAndmask >> p;
+
+                alert(bit);
+            }
+		</script>
+    </body>
+</html>

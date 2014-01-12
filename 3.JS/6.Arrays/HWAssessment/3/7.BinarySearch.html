@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+    <p style="color:green">7. Write a program that finds the index of given element in a sorted array of integers<br />
+        by using the binary search algorithm (find it in Wikipedia)</p>
+    <br />
+    <label for="tb-first">Type a number to search for: </label>
+	<input type="text" id="tb-first"/>
+	<br />		
+	<a href="#" onclick="onButtonClick()">Binary Search</a>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    var myArray = [1, 3, 6, 7, 11, 14, 15, 16, 23, 26, 28, 33, 37, 38, 40, 44];
+	    function printArray(someArray) {
+	        jsConsole.writeLine(someArray.join(" | "));
+	    }
+	    jsConsole.writeLine("My array is:");
+	    window.onload = printArray(myArray);
+	    jsConsole.writeLine("");
+	    function onButtonClick() {
+	        var number = jsConsole.readInteger("#tb-first");
+	        function binarySearch(number) {
+	            var leftIndex = 0;
+	            var rightIndex = myArray.length - 1;
+	            var currentIndex = rightIndex;
+	            var previousIndex = -1;
+	            var isFound = false;
+	            while (currentIndex != previousIndex) {
+	                jsConsole.writeLine("Index " + currentIndex + " - Number " + myArray[currentIndex]);
+	                if (number == myArray[currentIndex]) {
+	                    isFound = true;
+	                    break;
+	                }
+	                else if (number < myArray[currentIndex]) {
+	                    previousIndex = currentIndex;
+	                    rightIndex = currentIndex;
+	                    currentIndex = Math.floor((leftIndex + rightIndex) / 2);
+	                }
+	                else {
+	                    previousIndex = currentIndex;
+	                    leftIndex = currentIndex;
+	                    currentIndex = Math.floor((leftIndex + rightIndex) / 2);
+	                }
+	            }
+	            if (isFound) {
+	                jsConsole.writeLine("Found!");
+	            }
+	            else {
+	                jsConsole.writeLine("Not found!");
+	            }
+	        }
+
+	        binarySearch(number);
+	        jsConsole.writeLine("");
+	    }
+	</script>	
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <a href="#" onclick="print()">Execute</a>
+    <script type="text/javascript">
+
+        function print() {
+            var params = [7, 1, 2, -3, 4, 4, 0, 1];
+            var params2 = [6, 1, 3, -5, 8, 7, -6];
+            var params3 = [9, 1, 8, 8, 7, 6, 5, 7, 7, 6];
+            console.log(Solve(params));
+        }
+
+        function Solve(params) {
+            //var params = ['6 7 3', '0 0', '2 2', '-2, 2', '3 -1'];
+            var i = 0, j = 0, count = 1, sum = 0, rowsJump = [], colsJump = [], field = [], readJump = [0];
+            var m = parseInt(params[0].split(' ')[0]);
+            var n = parseInt(params[0].split(' ')[1])
+            var jumps = parseInt(params[0].split(' ')[2]);
+            readJump = params[1].split(' ');
+            var startRow = parseInt(readJump[0]);
+            var startCol = parseInt(readJump[1]);
+            var row = startRow, col = startCol;
+            while (i < jumps) {
+                readJump = params[i + 2].split(' ');
+                rowsJump[i] = parseInt(readJump[0]);
+                colsJump[i] = parseInt(readJump[1]);
+                i++;
+            }
+            for (i = 0; i < m; i++) {
+                field[i] = [];
+                for (j = 0; j < n; j++) {
+                    field[i][j] = count++;
+                }
+            }
+            i = 0;
+            while (row < n || col < m) {
+                if (i === jumps)
+                    i = 0;
+                sum = sum + field[row][col];
+                row = row + rowsJump[i];
+                col = col + colsJump[i];
+                i++;
+            }
+            var result = 'escaped ' + sum;
+            return result;
+        }
+
+        console.log(Solve([]));
+
+    </script>
+</body>
+</html>

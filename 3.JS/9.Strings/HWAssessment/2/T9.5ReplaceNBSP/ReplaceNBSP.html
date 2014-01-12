@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Replace NBSP</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <p><em>Write a function that replaces non breaking white-spaces in a text with &amp;nbsp;</em></p>
+    <br />
+    
+    <div id="console"> 
+        <script src="scripts/js-console.js"></script>
+        <script>
+            var str = "This is the initial string where our program will replace the non breaking white-spaces with &amp;nbsp;";
+            jsConsole.writeLine("Initial string: "+"<br />"+str+"<br />");
+//  handle the test string
+            str.replace(/\s/g, '\nbsp');
+            jsConsole.writeLine("Now you can see that the word 'white' is 'broken', because there is not enough room for it:");
+            jsConsole.writeLine(str);
+        </script>
+    </div>
+</body>
+</html>

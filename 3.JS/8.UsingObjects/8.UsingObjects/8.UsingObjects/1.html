@@ -1,0 +1,83 @@
+﻿<html>
+<head>
+	<title>UsingObjects</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>1.Write functions for working with shapes in standard Planar coordinate system <br />
+            &nbsp; &nbsp; ● Points are represented by coordinates P(X, Y) <br />
+            &nbsp; &nbsp; ● Lines are represented by two points, marking their beginning and ending <br />
+            &nbsp; &nbsp; ● L(P1(X1,Y1),P2(X2,Y2)) <br />
+            &nbsp; &nbsp; ● Calculate the distance between two points <br />
+            &nbsp; &nbsp; ● Check if three segment lines can form a triangle </p>
+    </div>
+    <div>
+		<span>
+			<label for="point1">Point 1 (x,y): </label>
+			<input type="text" placeholder="2.3,4.5" id ="point1"/>
+            <label for="point2">Point 2 (x,y): </label>
+			<input type="text" placeholder="4.1,0.2" id ="point2"/>
+            <label for="point3">Point 3 (x,y): </label>
+			<input type="text" placeholder="1.5,2.0" id ="point3"/>
+		</span>
+		<a href="#" onclick="execute()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="5.html">Previous task</a>
+    <a href="2.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function Point(x,y) {
+	        this.x = x;
+	        this.y = y;
+	        this.toString = function() { return ('point(' + this.x + ', ' + this.y + ')' + '; '); }
+	    }
+
+	    function readPoint(id) {
+	        var array = jsConsole.read(id);
+	        array = array.split(',')
+	        return new Point(array[0], array[1]);
+	    }
+
+	    function Line(point1, point2){
+	        this.point1 = point1;
+	        this.point2 = point2;
+	    }
+
+	    function getLength(line) {
+	        var distance = Math.sqrt((line.point1.x - line.point2.x) * (line.point1.x - line.point2.x) +
+                                     (line.point1.y - line.point2.y) * (line.point1.y - line.point2.y));
+	        return Math.round(distance * 1000) / 1000;
+	    }
+
+	    function canFormTriangle(side1, side2, side3) {
+	        var a = getLength(side1);
+	        var b = getLength(side2);
+	        var c = getLength(side3);
+	        if ((a + b > c && a + c > b && b + c > a) == true)
+	            return 'This sides is possible to form a triangle!';
+	        else
+	            return 'This sides is not possible to form a triangle!';
+	    }
+
+	    function execute() {
+	        var p1 = readPoint('#point1');
+	        var p2 = readPoint('#point2');
+	        var p3 = readPoint('#point3');
+	        jsConsole.writeLine('The points you entered are: ');
+	        jsConsole.writeLine(p1 + p2 + p3);
+	        var a = new Line(p1, p2);
+	        var b = new Line(p1, p3);
+	        var c = new Line(p2, p3);
+	        jsConsole.writeLine();
+	        jsConsole.writeLine('The distance between point1 and point2 is: ' + getLength(a));
+	        jsConsole.writeLine('The distance between point1 and point3 is: ' + getLength(b));
+	        jsConsole.writeLine('The distance between point2 and point3 is: ' + getLength(c));
+	        jsConsole.writeLine();
+	        jsConsole.writeLine(canFormTriangle(a, b, c));
+	    }
+	</script>
+</body>
+</html>
+

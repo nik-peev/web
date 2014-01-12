@@ -1,0 +1,37 @@
+﻿<html>
+<head>
+	<title>Operators and expressions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>3.Write an expression that calculates rectangle’s area by given width and height.</p>
+    </div>
+    <div>
+		<span>
+			<label for="width">width: </label>
+			<input type="text" id="width"/>
+            <label for="height">height: </label>
+			<input type="text" id="height"/>
+		</span>
+		<a href="#" onclick="calculateRecArea()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="2.html">Previous task</a>
+    <a href="4.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function calculateRecArea() {
+	        var width = jsConsole.read("#width");
+	        var height = jsConsole.read("#height");
+	        var area;
+	        if (isNaN(width) || width == null || width == "" || isNaN(height) || height == null || height == "")
+	            jsConsole.writeLine("no two sizes to evaluate!")
+	        else {
+	            area = Math.round(width * height * 1000) / 1000;
+	            jsConsole.writeLine("The rectangle area is: " + area);
+	        }
+	    }
+	</script>
+</body>
+</html>

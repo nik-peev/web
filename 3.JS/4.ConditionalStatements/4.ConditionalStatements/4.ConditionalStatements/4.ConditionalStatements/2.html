@@ -1,0 +1,57 @@
+﻿<html>
+<head>
+	<title>Conditional Statements</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>2.Write a script that shows the sign (+ or -) of the product of three real numbers without calculating it. Use a sequence of if statements.</p>
+    </div>
+    <div>
+		<span>
+			<label for="a">a: </label>
+			<input type="text" id="a"/>
+            <label for="b">b: </label>
+			<input type="text" id="b"/>
+            <label for="c">c: </label>
+			<input type="text" id="c"/>
+		</span>
+		<a href="#" onclick="showProductSignOfThreeNumbers()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="1.html">Previous task</a>
+    <a href="3.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function showProductSignOfThreeNumbers() {
+	        var a = jsConsole.readFloat("#a");
+	        var b = jsConsole.readFloat("#b");
+	        var c = jsConsole.readFloat("#c");
+	        if (isNaN(a) || isNaN(b) || isNaN(c))
+	            jsConsole.writeLine("no three numbers to calculate!")
+	        else {
+                if (a === 0 || b === 0 || c === 0)
+	            {
+	                jsConsole.writeLine("Product has no sign (0)!");
+	            }
+	            else if (((a > 0) ^ (b > 0)) && (c > 0)) //a i b s razlichni znaci i c>0
+	            {
+	                jsConsole.writeLine("Product sign is minus!");
+	            }
+	            else if (!((a > 0) ^ (b > 0)) && (c > 0)) //a i b s ednakvi znaci i c>0
+	            {
+	                jsConsole.writeLine("Product sign is plus!");
+	            }
+	            else if (((a > 0) ^ (b > 0)) && (c < 0)) // a i b s razlichni znaci i c<0
+	            {
+	                jsConsole.writeLine("Product sign is plus!");
+	            }
+	            else if (!((a > 0) ^ (b > 0)) && (c < 0)) //a i b s ednakvi znaci i c<0
+	            {
+	                jsConsole.writeLine("Product sign is minus!");
+	            }
+	        }
+	    }
+	</script>
+</body>
+</html>

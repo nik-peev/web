@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="all"/>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+<div id="grid-view-holder">
+
+</div>
+
+<script type="text/javascript">
+    var schoolGrid = controls.getGridView("#grid-view-holder");
+    schoolGrid.addHeader("Name", "Location", "TotalStudents", "Speciality");
+    var row1 = schoolGrid.addRow("PMG","Bourgas", 400,"Math");
+	row1.addHeader("Name", "Location", "TotalStudents", "Speciality");
+    schoolGrid.render();
+    schoolGrid.addRow("TUEST","Sofia", 500,"IT");
+//    schoolGrid.render();
+    var academyRow = schoolGrid.addRow("TelerikAcademy","Sofia",5000,"IT");
+   // academyRow.add();
+    schoolGrid.render();
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿<html>
+<head>
+	<title>UsingObjects</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>3.Write a function that makes a deep copy of an object. <br />
+           &nbsp; &nbsp; ● The function should work for both primitive and reference types.</p>
+    </div>
+     <div>
+		<a href="#" onclick="execute()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="2.html">Previous task</a>
+    <a href="4.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+
+	    function deepCopy(object) {
+	        if (typeof (object) == "object"){
+	            var copiedObject = {}
+	            for (var prop in object) {
+	                copiedObject[prop] = deepCopy(object[prop]);
+	            }
+	            return copiedObject;
+	        }
+	        else 
+	            return object;
+	    }
+
+	    function execute() {
+	        var copiedObject = deepCopy(screen);
+	        jsConsole.writeLine('The properties of the deep copied object "screen" are:');
+	        for (var prop in copiedObject) {
+	            jsConsole.writeLine(prop);
+	        }
+	    }
+
+	</script>
+</body>
+</html>

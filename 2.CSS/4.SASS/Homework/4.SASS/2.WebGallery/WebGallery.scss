@@ -1,0 +1,72 @@
+
+@mixin reset {
+    margin: 0;
+    padding: 0;
+	border: 0;
+}
+
+body, header, section, footer, article, aside, h1, h2, input, label, p, button, fieldset, nav, ul, li, a, span, strong, em, div {
+    @include reset;
+}
+
+@mixin mymove {
+	animation:mymove 3s; /*W3C and Opera*/
+	animation-iteration-count:1;
+	-moz-animation:mymove 3s; /*Firefox*/
+	-moz-animation-iteration-count:1;
+	-webkit-animation:mymove 3s; /*Safari and Chrome*/
+	-webkit-animation-iteration-count:1;
+}
+
+@keyframes mymove /*W3C and Opera*/
+{
+from {right:0px;}
+to {right:150px;}
+}
+
+@-moz-keyframes mymove /*Firefox*/
+{
+from {right:0px;}
+to {right:150px;}
+}
+
+@-webkit-keyframes mymove /*Safari and Chrome*/
+{
+from {right:0px;}
+to {right:150px;}
+}
+
+
+ul {
+	width: 1428px;
+	list-style-type:none;
+	margin-top: 4px;
+	position: relative;
+	li:hover {
+		@include mymove;
+	}
+	li {
+	display: inline;
+	opacity: 0.65;
+		&:hover {
+		opacity: 1;
+		}
+	}
+	div#big {
+	margin-top: 2%;
+	margin-left: 22%;
+	width:640px;
+	height:476px;
+	}
+}
+
+body {
+	background: black;
+}
+
+@each $pic in pic1, pic2, pic3, pic4, pic5, pic6, pic7 {
+  ##{$pic} { 
+  &:target ~ #big {
+    background-image: url('images/#{$pic}.jpg');}
+  }
+}

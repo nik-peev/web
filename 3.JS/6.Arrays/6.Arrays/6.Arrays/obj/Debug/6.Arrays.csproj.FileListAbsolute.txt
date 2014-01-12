@@ -1,0 +1,5 @@
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\6.Arrays\6.Arrays\6.Arrays\bin\6.Arrays.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\6.Arrays\6.Arrays\6.Arrays\bin\6.Arrays.pdb
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\6.Arrays\6.Arrays\6.Arrays\obj\Debug\6.Arrays.csprojResolveAssemblyReference.cache
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\6.Arrays\6.Arrays\6.Arrays\obj\Debug\6.Arrays.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\6.Arrays\6.Arrays\6.Arrays\obj\Debug\6.Arrays.pdb

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Using Template</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <p><em>Write a function that creates a HTML UL using a tmpl for every HTML LI</em></p>
+    <br />
+    <div id="console">
+        <script src="scripts/js-console.js"></script>
+        <script src="scripts/string-extensions.js"></script>
+        <h3><br /><strong>MENU LIST</strong></h3><br />
+        <div data-type="tmpl" id="list-item"> <strong>-{name}-</strong> <span>-{price}-</span> </div>
+        <script>
+            function usingTemplate(menu, tmpl) {
+                var props = [];
+                var menuList = [];
+                menuList.push("<ul>");
+                for (var prop in menu[0]) {
+                    props.push(prop);
+                }
+                for (var i = 0; i < menu.length; i++) {
+                    menuList.push("<li>");
+                    var liContent = tmpl;
+
+                    for (var prop in menu[0]) {
+                        liContent = liContent.replace(new RegExp('\\{' + prop + '\\}', "g"), menu[i][prop]);
+                    }
+                    menuList.push(liContent);
+                    menuList.push("</li>");
+                }
+                menuList.push("</ul>");
+                return menuList.join('');
+            }
+            var menu = [{ name: "Giuvetch ", price: 3.56 }, { name: "Tourshia  ", price: 4.38 }, { name: "Sarmichki", price: 5.25 }, { name: "Kebapche ", price: 0.85 }];
+            var divMenu = document.getElementById("list-item");
+            var tmpl = divMenu.innerHTML;
+            var menuList = usingTemplate(menu, tmpl);
+            divMenu.innerHTML = menuList;
+        </script>
+
+    </div>
+</body>
+</html>

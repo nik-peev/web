@@ -1,0 +1,81 @@
+﻿<html>
+<head>
+	<title>Operators and expressions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>7.Write an expression that checks if given positive integer number n (n ≤ 100) is prime. E.g. 37 is prime.
+</p>
+    </div>
+    <div>
+		<span>
+			<label for="number">Please enter a number: </label>
+			<input type="text" id="number"/>
+		</span>
+		<a href="#" onclick="checkIfPrime()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="6.html">Previous task</a>
+    <a href="8.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	        function checkIfPrime()
+	        {
+	            var num = parseInt(document.getElementById("number").value);
+	            var prime = true;
+	            if (isNaN(num) || num == null || num == "" || num < 0) {
+	                jsConsole.writeLine("no (positive) number to evaluate!")
+	                return;
+	            }
+	            for (var i = 2; i <= Math.sqrt(num); i++)
+	            {
+	                if (num % i == 0)
+	                {
+	                    prime = false;
+	                    break;
+	                }
+	            }
+            
+	            if(prime)
+	            {
+	                jsConsole.writeLine("The number is prime!");
+	            }
+	            else
+	            {
+	                jsConsole.writeLine("The number is composite!");
+	            }
+	        }
+	    //    var num = jsConsole.read("#number");
+	    //    var sqrt = Math.sqrt(num);
+	    //    var prime = true;
+	    //    if (isNaN(num) || num == null || num == "" || num < 0) {
+	    //        jsConsole.writeLine("no (positive) number to evaluate!")
+	    //        return;
+	    //    }
+	    //    else {
+	    //        if (num < 2) {
+	    //            prime = false;
+	    //            return;
+	    //        }
+	    //        else {
+	    //            for (var i = 2; i <= sqrt; i++)
+	    //            {
+	    //                if (number % i == 0)
+	    //                {
+	    //                    prime = false;
+	    //                    break;
+	    //                }
+	    //            }
+	    //            prime = true;
+	    //            return;
+	    //        }
+	    //    }
+	    //    if (prime == true)
+	    //        jsConsole.writeLine("The number is prime!");
+	    //    else if (prime == false)
+	    //        jsConsole.writeLine("The number is composite!");
+	    //}
+	</script>
+</body>
+</html>

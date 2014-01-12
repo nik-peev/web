@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>04.MaxIncreasingSequence</title>
+    <link href="styles/js-console.min.css" rel="stylesheet" />
+    <script src="scripts/js-console.js"></script>
+    <style>
+		#number  {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body> 	
+    <div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+ 
+	<script>
+	    var arr = [3, 2, 3, 4, 2, 2, 4];
+
+        //usung dynamic programming
+        var len = []; // array for the length of the subsequence
+        var predecessor = []; // array for the predecessor 
+
+        var maxLength = 0;
+        var bestEnd = 0;
+
+        len[0] = 1;
+        predecessor[0] = -1; 
+
+        for (var i = 1; i < arr.length; i++)
+	    {
+            len[i] = 1;
+            predecessor[i] = -1;
+            for (var j = i - 1; j >= 0; j--)
+	    {
+                if (len[j] + 1 > len[i] && arr[j] < arr[i])
+	    {
+                    len[i] = len[j] + 1;
+                    predecessor[i] = j;
+	    }
+	    }
+            if (len[i] > maxLength)
+	    {
+                bestEnd = i;
+                maxLength = len[i];
+	    }
+	    }
+
+        jsConsole.writeLine("The maximal length is: " + maxLength);
+        jsConsole.write("Longest subsequence: ");
+
+        var ind = bestEnd;
+        var answer = [];
+
+
+        while (ind != -1)
+	    {
+            answer.push(arr[ind]);
+            ind = predecessor[ind];
+	    }
+
+        answer.reverse(0, answer.length);
+
+        for (var i = 0; i < answer.length; i++)
+	    {
+            jsConsole.write(answer[i] + " ");
+	    }
+
+	</script>
+
+</body>
+</html>

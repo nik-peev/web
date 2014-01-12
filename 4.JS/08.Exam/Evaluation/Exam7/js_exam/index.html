@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css.css" rel="stylesheet" />
+</head>
+<body>
+    <script src="ie8shim.js"></script>
+    <div id="gridHolder">
+    </div>
+    <div id="gridHolder2">
+    </div>
+    <div id="gridHolder3"></div>
+    <script src="exam.js"></script>    
+    <script>
+        //problem 1
+        var schoolsGrid = controls.getGridView("#gridHolder");
+        // <br /> replaced with "<br /> witch not start new row" !!!!!!!!!!!!!!!!!!!!!!
+        schoolsGrid.addHeader("Name <br />", "Location", "Total", "Speciality");
+        schoolsGrid.addRow("PMG", "Burgas", "400", "Math");
+        schoolsGrid.addRow("Tues", "Sofia", "500", "IT");
+        //testRow = schoolsGrid.addRow("Telerik", "Sofia", "50000", "IT");
+        //schoolsGrid.render();
+
+        //problem 2
+        var academyRow = schoolsGrid.addRow("Telerik", "Sofia", "50000", "IT");
+        var academyGrid = academyRow.getNestedGridView();
+        academyGrid.addHeader("Title", "Start", "Total");
+        academyGrid.addRow("js", "10.2", "400");
+        academyGrid.addRow("seo", "10.4", "1400");
+        academyGrid.addRow("slice", "10.5", "500");
+        schoolsGrid.render();
+
+        //problem 3
+        //can be tested by chick on page
+
+        //problem 4
+        //test school
+        var stud1 = new Student("Pesho", "Petrov", "a", "5");
+        var stud2 = new Student("Lili", "Petrova", "c", "4");
+        var setStudents = [];
+        setStudents.push(stud1);
+        setStudents.push(stud2);
+        var course1 = new Course("js", "4", 2, setStudents);
+        var courseSet = [];
+        courseSet.push(course1);
+        var telerik = new School("Tel", "here", 1, "front end", courseSet)
+        var schoolSet = [];
+        schoolSet.push(telerik);
+
+        var schoolData = schoolSet;
+        var schoolRepository = new SchoolRepository();
+        schoolRepository.save("telerikSchools", schoolData);
+
+        var testLoad = schoolRepository.load("telerikSchools");
+        console.log(testLoad);
+
+        //problem 5
+        //test get data from greed view
+        var testSchoolGrid = controls.getGridView("#gridHolder2");
+        testSchoolGrid.addHeader("name", "location", "numCourses", "speciality");
+        var telRow = testSchoolGrid.addRow("telerik", "here", "frontend", 2);
+        telView = telRow.getNestedGridView();
+        //course
+        telView.addHeader("title", "startDate", "totalStudents");
+        var courseView = telView.addRow("js", "2.5", "2");
+        var courseTable = courseView.getNestedGridView();
+        courseTable.addHeader("fisrtName", "lastName", "grade", "mark");
+        courseTable.addRow("pesho", "pet", "a", 4);
+        courseTable.addRow("pesh1", "petva", "a", 4);
+
+        testSchoolGrid.render();
+        var data = testSchoolGrid.getGridViewData();
+        console.log(data);
+        schoolRepository.save("telerik", data);
+
+
+        //problem6
+        var testData = schoolRepository.load('telerik');
+        console.log(testData);
+
+        testSchoolGrid = controls.getGridView("#gridHolder3");
+        testSchoolGrid.addHeader("name", "location", "numCourses", "speciality");
+        telRow = testSchoolGrid.addRow("telerik", "here", "frontend", 2);
+        telView = telRow.getNestedGridView();
+        telView.addHeader("title", "startDate", "totalStudents");
+        courseView = telView.addRow("js", "2.5", "2");
+        courseTable = courseView.getNestedGridView();
+        courseTable.addHeader("fisrtName", "lastName", "grade", "mark");
+        courseTable.addRow("pesho", "pet", "a", 4);
+        courseTable.addRow("pesh1", "petva", "a", 4);
+        testSchoolGrid.render();
+    </script>
+</body>
+</html>

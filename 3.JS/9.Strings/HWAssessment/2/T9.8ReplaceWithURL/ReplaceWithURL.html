@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Replace With URL</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <p><em>Write a JavaScript function that replaces in a HTML document given as string all the tags</em></p>
+    <p><em><a href="…">…</a> with corresponding tags [URL=…]…/URL]</em></p>
+    <br />
+    <div id="console"> 
+        <script src="scripts/js-console.js"></script>
+        <script src="scripts/string-extensions.js"></script>
+        <script>
+            var htmStr =
+  '<p>Please visit <a href="http://academy.telerik. com">our site</a> to choose a training course. Also visit <a href="www.devbg.org">our forum</a> to discuss the courses.</p>';
+            jsConsole.writeLine("The initial HTML document is: <br />" + htmStr.htmlEscape());
+
+            var urlStr = htmStr.replace(/<a href="/gi, "[URL="); 
+            urlStr = urlStr.replace(/">/gi, "]");
+            urlStr = urlStr.replace(/<\/a>/gi, "[/URL]");
+            
+            jsConsole.writeLine('The formatted with URL tags document is:<br />'+urlStr.htmlEscape());
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿<html>
+<head>
+	<title>Functions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>4.Write a function to count the number of divs on the web page</p>
+    </div>
+     <div>
+		<a href="#" onclick="getNumberOfDivs()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="3.html">Previous task</a>
+    <a href="5.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function getNumberOfDivs() {
+	        var array = document.getElementsByTagName('div');
+	        var numOfDivs = array.length;
+	        jsConsole.writeLine(numOfDivs);
+	    }
+	</script>
+</body>
+</html>

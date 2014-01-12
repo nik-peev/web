@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Group an array of persons!</title>
+    <link href="styles/js-console.css" rel="stylesheet" />    
+	<style>       
+	</style>
+</head>
+<body>
+	<div id="console">
+	</div>	
+    <script src="scripts/js-console.js">	  
+	</script>	
+	<script>
+	    var persons = [
+            { firstname: "Gosho", lastname: "Petrov", age: 32 },
+            { firstname: "Nikolay", lastname: "Ivanov", age: 81 },
+            { firstname: "Mitko", lastname: "Popov", age: 18 },
+            { firstname: "Gosho", lastname: "Ivanov", age: 32 },
+            { firstname: "Petar", lastname: "Todorov", age: 42 },
+            { firstname: "Stamen", lastname: "Nikolov", age: 10 },
+            { firstname: "Ilia", lastname: "Nikolov", age: 51 },
+            { firstname: "Ilia", lastname: "Dimitrov", age: 51 }
+	    ];
+
+
+	    function group(obj, prop) {
+	        var newObj = new Array();
+	        for (var i = 0; i < obj.length; i++) {
+
+	            for (var j in obj[i]) {
+
+	                if (j == prop) {
+	                    newObj.push(obj[i][j]);
+	                }
+	            }
+	        }
+
+	        var groups = {};
+	        var item = {};
+	        for (var i in newObj) {
+	            item = newObj[i];
+	            if (groups[item]) {
+	                groups[item]++;
+	            }
+	            else {
+	                groups[item] = 1;
+	            }
+	        }
+	        return groups;
+	    }
+
+	    var groupedByFname = group(persons, "firstname");
+	    var groupedByLname = group(persons, "lastname");
+	    var groupedByAge = group(persons, "age");
+
+	    jsConsole.writeLine("Grouped By Firts Name");
+	    for (var item in groupedByFname) {
+	        jsConsole.writeLine(item + " -> " + groupedByFname[item]);
+	    }
+	    jsConsole.writeLine("Grouped By Last Name");
+	    for (var item in groupedByLname) {
+	        jsConsole.writeLine(item + " -> " + groupedByLname[item]);
+	    }
+	    jsConsole.writeLine("Grouped By Age");
+	    for (var item in groupedByAge) {
+	        jsConsole.writeLine(item + " -> " + groupedByAge[item]);
+	    }
+
+	</script>		
+</body>
+</html>

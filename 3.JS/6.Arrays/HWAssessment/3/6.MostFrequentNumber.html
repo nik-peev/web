@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+    <p style="color:green">6. Write a program that finds the most frequent number in an array.<br />
+        Example: {4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3} =&gt; 4 (5 times)</p>
+    <br />
+	<a href="#" onclick="onButtonClick()">Test Script</a>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function onButtonClick() {
+	        function printArray(myArray) {
+	            jsConsole.writeLine(myArray.join(" | "));
+	        }
+	        var myArray = [4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3];
+	        var bestNumber;
+	        var bestCounter = 0;
+	        for (var i = 0; i < myArray.length; i++) {
+	            var currentNumSearch = myArray[i];
+	            var currentCounter = 0;
+	            for (var k = i; k < myArray.length; k++) {
+	                if (myArray[k] == currentNumSearch){
+	                    currentCounter++;
+	                }
+	            }
+	            if (currentCounter > bestCounter) {
+	                bestCounter = currentCounter;
+	                bestNumber = currentNumSearch;
+	            }
+	        }
+	        jsConsole.write("My array is: ");
+	        printArray(myArray);
+	        if (bestCounter > 1) {
+	            jsConsole.writeLine("Number " + bestNumber + " (" + bestCounter + " times)");
+	        }
+	        else {
+	            jsConsole.writeLine("No number presents more than one time.");
+	        }
+	    }
+	</script>	
+</body>
+</html>

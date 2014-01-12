@@ -1,0 +1,37 @@
+﻿<html>
+<head>
+	<title>Operators and expressions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>9.Write an expression that checks for given point (x, y) if it is within the circle K( (1,1), 3)
+             and out of the rectangle R(top=1, left=-1, width=6, height=2).</p>
+    </div>
+    <div>
+		<span>
+			<label for="x">x: </label>
+			<input type="text" id="x"/>
+            <label for="y">y: </label>
+			<input type="text" id="y"/>
+		</span>
+		<a href="#" onclick="checkIfInCircle()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="8.html">Previous task</a>
+    <a href="1.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function checkIfInCircle() {
+	        var x = jsConsole.read("#x");
+	        var y = jsConsole.read("#y");
+	        if (isNaN(x) || x == null || x == "" || isNaN(y) || y == null || y == "")
+	            jsConsole.writeLine("no two number to calculate!")
+	        else if ((((x - 1)*(x - 1) + (y - 1)*(y - 1)) <= 9) && ((x < -1) || ((x >= -1) && ((y <= -1) || (y >= 1)))))
+	            jsConsole.writeLine("The point is inside or on the circle and out of the rectangle!");
+            else
+	            jsConsole.writeLine("The point is NOT inside or on the circle and out of the rectangle!");
+	    }
+	</script>
+</body>
+</html>

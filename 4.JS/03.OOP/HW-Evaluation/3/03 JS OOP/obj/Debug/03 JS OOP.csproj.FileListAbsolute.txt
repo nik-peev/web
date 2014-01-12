@@ -1,0 +1,5 @@
+D:\Downloads\Dropbox\TELERIK\Projects\JavaScript Part 2\Lecture 2\03 JS OOP\03 JS OOP\bin\03 JS OOP.dll
+D:\Downloads\Dropbox\TELERIK\Projects\JavaScript Part 2\Lecture 2\03 JS OOP\03 JS OOP\bin\03 JS OOP.pdb
+D:\Downloads\Dropbox\TELERIK\Projects\JavaScript Part 2\Lecture 2\03 JS OOP\03 JS OOP\obj\Debug\03 JS OOP.csprojResolveAssemblyReference.cache
+D:\Downloads\Dropbox\TELERIK\Projects\JavaScript Part 2\Lecture 2\03 JS OOP\03 JS OOP\obj\Debug\03 JS OOP.dll
+D:\Downloads\Dropbox\TELERIK\Projects\JavaScript Part 2\Lecture 2\03 JS OOP\03 JS OOP\obj\Debug\03 JS OOP.pdb

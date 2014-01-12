@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<body>
+   Hello, Stranger!
+   <h1>Welcome to Runners Home&#153</h1>
+   <p>Runners Home&#153 is dedicated to providing you with:<br/>
+   - the most up-to-date information on running races<br/>
+   - the best resources for runners.<br/>
+   </p>
+   <hr width = "100%" size = "2px" />
+   <footer>&#169 2007 Runners Home. All rights reserved.</footer>
+</body>
+</html>

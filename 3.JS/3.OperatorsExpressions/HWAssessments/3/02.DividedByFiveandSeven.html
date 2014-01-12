@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+	    <meta name="author" content="Petya Gergova" />
+	    <meta name="description" content="On this page you can check whether a number is divided by 5 and 7 at the same time" />
+	    <meta name="keywords" content="seven, five, divided, number, check" />
+	    <title>Check if divided by 5 and 7</title>
+    </head>
+    <body>
+        <header>
+            <h1>
+                Check if number can be divided by 5 and 7 at the same time without reminder
+            </h1>
+            <h3>
+                Enter an integer for a check:
+            </h3>
+        </header>
+        <section>
+            <input type="text" id="number-input" />
+            <button type="button" onclick="multipleOf()">Check integer</button>
+        </section>
+        <script>
+            function multipleOf() {
+                var numberStr = document.getElementById("number-input").value;
+                var number = parseInt(numberStr);
+
+                if ((number % 5) == 0 && (number % 7) == 0 && numberStr != "") {
+                    alert("This number is multiple of 5 and 7!"); // Checks if the number is multiple of 5 and 7 at the same time.
+                }
+
+                else if ((number % 5) != 0 || (number % 7) != 0) {
+                    alert("This number is not multiple of 5 and 7"); // Checks if the number is not is multiple of 5 and 7 at the same time.
+                }
+
+                else {
+                    alert("You need to enter a number for a check!"); // This message is displayed when other than number is entered.
+                }
+            }
+        </script>
+    </body>
+</html>

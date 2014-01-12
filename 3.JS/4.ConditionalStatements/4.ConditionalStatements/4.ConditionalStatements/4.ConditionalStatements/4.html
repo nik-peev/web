@@ -1,0 +1,66 @@
+﻿<html>
+<head>
+	<title>Conditional Statements</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>4.Sort 3 real values in descending order using nested if statements.</p>
+    </div>
+    <div>
+		<span>
+			<label for="a">a: </label>
+			<input type="text" id="a"/>
+            <label for="b">b: </label>
+			<input type="text" id="b"/>
+            <label for="c">c: </label>
+			<input type="text" id="c"/>
+		</span>
+		<a href="#" onclick="sortThreeNumbers()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="3.html">Previous task</a>
+    <a href="5.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function sortThreeNumbers() {
+	        var a = jsConsole.readFloat("#a");
+	        var b = jsConsole.readFloat("#b");
+	        var c = jsConsole.readFloat("#c");
+	        if (isNaN(a) || isNaN(b) || isNaN(c))
+	            jsConsole.writeLine("no three numbers to calculate or some of the numbers is/are zero!")
+	        else {
+	            if (a >= b) {
+	                if (b >= c) //a>=b b>=c
+	                {
+	                    jsConsole.writeLine(a + " > "  + b + " > "  + c);
+	                }
+	                else if (a >= c) //a>=c a>=b c>b 
+	                {
+	                    jsConsole.writeLine(a + " > "  + c + " > "  + b);
+	                }
+	                else if (a < c) //a>=b c>b c>a
+	                {
+	                    jsConsole.writeLine(c + " > "  + a + " > "  + b);
+	                }
+	            }
+	            else  //b>a 
+	            {
+	                if (a >= c) //b>a a>=c
+	                {
+	                    jsConsole.writeLine(b + " > "  + a + " > "  + c);
+	                }
+	                else if (b >= c) //b>a b>=c c>a
+	                {
+	                    jsConsole.writeLine(b + " > "  + c + " > "  + a);
+	                }
+	                else if (b < c) //b>a c>a c>b
+	                {
+	                    jsConsole.writeLine(c + " > "  + b + " > "  + a);
+	                }
+	            }
+	        }
+	    }
+	</script>
+</body>
+</html>

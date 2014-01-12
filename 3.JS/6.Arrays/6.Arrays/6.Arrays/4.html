@@ -1,0 +1,49 @@
+﻿<html>
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>4.Write a script that finds the maximal increasing sequence in an array. Example: {3, 2, 3, 4, 2, 2, 4} -> {2, 3, 4}.</p>
+    </div>
+     <div>
+         <span>
+			<label for="array">array: </label>
+			<input type="text" placeholder ="1,2,3,4" id="array"/>
+		</span>
+		<a href="#" onclick="findLongestIncreasingSequence()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="3.html">Previous task</a>
+    <a href="5.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function findLongestIncreasingSequence() {
+	        var array = jsConsole.read('#array');
+	        array = array.split(',');
+	        var i, last, count = 1, maxCount = 0;
+	        var incrElements = new Array();
+	        for (i = 0; i < array.length; i++) {
+	            if (isNaN(array[i] || array[i] == "")) {
+	                jsConsole.writeLine("No valid array!")
+	                return;
+	            }
+	            if (i + 1 < array.length && parseInt(array[i]) < parseInt(array[i + 1]))
+	                count++;
+	            else {
+	                if (maxCount < count) {
+	                    maxCount = count;
+	                    last = i;
+	                }
+	                count = 1;
+	            }
+	        }
+	        jsConsole.write("Longest increasing elements' sequence: ");
+	        for (i = last - maxCount + 1; i <= last; i++) {
+	            jsConsole.write(array[i] + ' ');
+	        }
+	    }
+	</script>
+</body>
+</html>

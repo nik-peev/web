@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[JS2] APIs", "[JS2] APIs\[JS2] APIs.csproj", "{068B5F2C-66AE-4267-949F-122DAD09E40F}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://ramiamaire.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = [JS2]\u0020APIs\\[JS2]\u0020APIs.csproj
+		SccProjectName1 = [JS2]\u0020APIs
+		SccLocalPath1 = [JS2]\u0020APIs
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{068B5F2C-66AE-4267-949F-122DAD09E40F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{068B5F2C-66AE-4267-949F-122DAD09E40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{068B5F2C-66AE-4267-949F-122DAD09E40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{068B5F2C-66AE-4267-949F-122DAD09E40F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

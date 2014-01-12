@@ -1,0 +1,76 @@
+﻿<html>
+<head>
+	<title>Strings</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>4.You are given a text. Write a function that changes the text in all regions:<br />
+            &nbsp;&nbsp;&lt;upcase&gt;text&lt;/upcase&gt; to uppercase.<br/>            
+            &nbsp;&nbsp;&lt;lowcase&gt;text&lt;/lowcase&gt; to lowercase.<br/>            
+            &nbsp;&nbsp;&lt;mixcase&gt;text&lt;/mixcase&gt; to mix casing(random).
+        </p>
+    </div>
+     <div>
+         <span>
+            <label for="text">text: </label>
+			<textarea placeholder ="some text in tags upcase, lowcase, mixcase" id="text"></textarea>
+        </span>
+		<a href="#" onclick="execute()" id="Execute">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="03.html">Previous task</a>
+    <a href="05.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function read(id) {
+	        return jsConsole.read(id);
+	    }
+
+	    function changeText(text) {
+	        var i, mixedCase, toReplace = [];
+
+	        toReplace = text.match(/<upcase>.*?<\/upcase>/gi);
+	        for (i = 0; i < toReplace.length; i++) {
+	            text = text.replace(toReplace[i], toReplace[i].toUpperCase());
+	        }
+
+	        toReplace = [];
+	        toReplace = text.match(/<lowcase>.*?<\/lowcase>/gi);
+	        for (i = 0; i < toReplace.length; i++) {
+	            text = text.replace(toReplace[i], toReplace[i].toLowerCase());
+	        }
+
+	        toReplace = [];
+	        toReplace = text.match(/<mixcase>.*?<\/mixcase>/gi);
+	        for (i = 0; i < toReplace.length; i++) {
+	            mixedCase = mixCase(toReplace[i]);
+	            text = text.replace(toReplace[i], mixedCase);
+	        }
+
+	        return text;
+	    }
+
+	    function mixCase(text) {
+	        var i;
+	        var randomIndex; 
+	        for (i = 0; i < text.length; i++) {
+	            randomIndex = Math.floor(Math.random() * text.length);
+	            text = text.replace(text[randomIndex], text[randomIndex].toUpperCase());
+	            randomIndex = Math.floor(Math.random() * text.length);
+	            text = text.replace(text[randomIndex], text[randomIndex].toLowerCase());
+	        }
+	        return text;
+	    }
+
+	    function execute() { 
+	        var text = read('#text');
+	        if (text == "") {
+	            jsConsole.writeLine("Invalid text");
+	            return;
+	        }
+	        jsConsole.writeLine(changeText(text));
+	    }
+	</script>
+</body>
+</html>

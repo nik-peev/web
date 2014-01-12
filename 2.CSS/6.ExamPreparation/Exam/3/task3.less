@@ -1,0 +1,36 @@
+﻿
+.reset () {
+    margin: 0;
+    padding: 0;
+    border: none;
+	outline: none;
+}
+
+.linear-gradient(@from-col, @to-col, @from-pos, @to-pos, @repeat:no-repeat) {
+    background: @from-col;
+    background: -moz-linear-gradient(top, @from-col @from-pos, @to-col @to-pos);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@from-pos, @from-col), color-stop(@to-pos, @to-col));
+    background: -webkit-linear-gradient(top, @from-col @from-pos, @to-col @to-pos);
+    background: -o-linear-gradient(top, @from-col @from-pos, @to-col @to-pos);
+    background: -ms-linear-gradient(top, @from-col @from-pos, @to-col @to-pos);
+    background: linear-gradient(to bottom, @from-col @from-pos, @to-col @to-pos);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@{from-col}', endColorstr='@{to-col}', GradientType=0);
+}
+
+
+
+body, header, section, footer, article, aside, h1, h2, h3, input, label, p, button, fieldset, nav, ul, li, a, span, strong, em {
+    .reset;
+}
+
+body {
+    #wrapper {
+        width: 960px;
+
+        &>div {
+        display: inline;
+		.linear-gradient(#ffffff, #f1f2f3, 0%, 100%, no-repeat);
+		}
+    }
+
+}

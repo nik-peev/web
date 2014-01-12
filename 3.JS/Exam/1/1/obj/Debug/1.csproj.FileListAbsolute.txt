@@ -1,0 +1,5 @@
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\Exam\1\1\bin\1.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\Exam\1\1\bin\1.pdb
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\Exam\1\1\obj\Debug\1.csprojResolveAssemblyReference.cache
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\Exam\1\1\obj\Debug\1.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\Exam\1\1\obj\Debug\1.pdb

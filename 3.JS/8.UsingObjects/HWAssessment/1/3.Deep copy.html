@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Deep copy!</title>
+    <link href="styles/js-console.css" rel="stylesheet" />    
+	<style>       
+	</style>
+</head>
+<body>
+	<div id="console">
+	</div>	
+    <script src="scripts/js-console.js">	  
+	</script>	
+	<script>
+	    (function () {
+	        addCloneProperty();
+
+	        function Student(name, marks) {
+	            this.name = name;
+	            this.marks = marks.clone();
+	        }
+
+	        var marks = [
+                { subject: "JavaScript", score: 5.50 },
+                { subject: "OOP", score: 5.00 },
+                { subject: "Algorithms and Data Structures", score: 6.00 },
+                { subject: "Photoshop", score: 4.00 }
+	        ];
+
+	        var student1 = new Student("Petar Ivanov", marks);
+
+	        jsConsole.writeLine("Score of the: " + marks[2].subject + " is " + marks[2].score);
+	        jsConsole.writeLine("Student " + student1.name + " has score " + student1.marks[2].score);
+
+	        marks[2].score = 5.50;
+
+	        jsConsole.writeLine("Score of the: " + marks[2].subject + " is " + marks[2].score);
+	        jsConsole.writeLine("Student " + student1.name + " has score " + student1.marks[2].score);
+	    })();
+
+	    function addCloneProperty() {
+	        Object.defineProperty(Object.prototype, "clone", {
+	            value: function () {
+	                if (this.cloneNode) {
+	                    return this.cloneNode(true);
+	                }
+
+	                var copy = this instanceof Array ? [] : {};
+	                for (var attr in this) {
+	                    if (typeof this[attr] == "function" || this[attr] == null || !this[attr].clone) {
+	                        copy[attr] = this[attr];
+	                    }
+	                    else if (this[attr] == this) {
+	                        copy[attr] = copy;
+	                    }
+	                    else {
+	                        copy[attr] = this[attr].clone();
+	                    }
+	                }
+	                return copy;
+	            }
+	        });
+
+
+	        Object.defineProperty(Date.prototype, "clone", {
+	            value: function () {
+	                var copy = new Date();
+	                copy.setTime(this.getTime());
+	                return copy;
+	            }
+	        });
+
+	        Object.defineProperty(Number.prototype, "clone", { value: function () { return this; } });
+	        Object.defineProperty(Boolean.prototype, "clone", { value: function () { return this; } });
+	        Object.defineProperty(String.prototype, "clone", { value: function () { return this; } });
+	    }
+	</script>		
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿.js-console {
+  margin: 0;
+}
+body {
+  font-family: sans-serif, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans;
+  background: lightgrey;
+}
+body input[text] {
+  width: 120px;
+}
+body #text4 {
+  width: 560px;
+}
+body textarea {
+  width: 400px;
+  height: 105px;
+  margin-right: 10px;
+}
+body label {
+  display: block;
+}
+body form {
+  display: block;
+}
+body a {
+  padding: 5px;
+  border: 1px solid outset;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #007806;
+  background: #ff9c62;
+}
+body a:hover {
+  background: grey;
+  border-color: grey;
+  color: white;
+}
+body .js-console {
+  margin: 10px 0 10px 0;
+  padding: 5px 10px;
+  background-color: #007806;
+  width: 610px;
+  height: 200px;
+  font-size: 18px;
+  color: white;
+  border-radius: 10px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  -ms-word-break: break-all;
+  word-break: break-all;
+}
+body .js-console > p {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+}
+body .js-console > p > span {
+  margin: 0;
+  padding: 0;
+}
+body .js-console > p > br {
+  display: inline-block;
+  margin-bottom: 5px;
+}

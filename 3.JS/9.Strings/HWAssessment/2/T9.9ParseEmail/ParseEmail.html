@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Parse Email</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+  
+</head>
+<body>
+    <p><em>Write a function for extracting all email addresses from given text </em></p>
+    <br />
+    <div id="console"> 
+        <script src="scripts/js-console.js"></script>
+        <script src="scripts/string-extensions.js"></script>
+        <script>
+            var emailTxt = "To all participants in the social event 'Telerik Academy Hut - Reload':  humpty.dumpty@riddle.en and friends, lisko_star.forester@umbrellahill.net; bla-bla-bla and so,winnie.the_Pooh@gmail.com, CC:Pigglet and the donkey Eeyore.";
+            jsConsole.writeLine("The text with e-mail addresses is: <br /><br />" + emailTxt + '<br />');
+            jsConsole.writeLine("The e-mail addresses extracted are: <br />");
+            emails = parseEmail();
+            for (var i = 0; i < emails.length; i++) {
+                jsConsole.writeLine(emails[i]);
+            }
+
+            function parseEmail() {
+                var emailArr = emailTxt.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+                return emailArr;
+            }
+        </script>
+    </div>
+</body>
+</html>

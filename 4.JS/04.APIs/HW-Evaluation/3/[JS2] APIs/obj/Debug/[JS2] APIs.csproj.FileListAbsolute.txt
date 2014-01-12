@@ -1,0 +1,10 @@
+c:\users\ramii\documents\visual studio 2012\Projects\[JS2] APIs\[JS2] APIs\bin\[JS2] APIs.dll
+c:\users\ramii\documents\visual studio 2012\Projects\[JS2] APIs\[JS2] APIs\bin\[JS2] APIs.pdb
+c:\users\ramii\documents\visual studio 2012\Projects\[JS2] APIs\[JS2] APIs\obj\Debug\[JS2] APIs.csprojResolveAssemblyReference.cache
+c:\users\ramii\documents\visual studio 2012\Projects\[JS2] APIs\[JS2] APIs\obj\Debug\[JS2] APIs.dll
+c:\users\ramii\documents\visual studio 2012\Projects\[JS2] APIs\[JS2] APIs\obj\Debug\[JS2] APIs.pdb
+C:\Users\Ramii\Documents\Visual Studio 2012\FinalHomework\JS2\[JS2] APIs\[JS2] APIs\bin\[JS2] APIs.dll
+C:\Users\Ramii\Documents\Visual Studio 2012\FinalHomework\JS2\[JS2] APIs\[JS2] APIs\bin\[JS2] APIs.pdb
+C:\Users\Ramii\Documents\Visual Studio 2012\FinalHomework\JS2\[JS2] APIs\[JS2] APIs\obj\Debug\[JS2] APIs.csprojResolveAssemblyReference.cache
+C:\Users\Ramii\Documents\Visual Studio 2012\FinalHomework\JS2\[JS2] APIs\[JS2] APIs\obj\Debug\[JS2] APIs.dll
+C:\Users\Ramii\Documents\Visual Studio 2012\FinalHomework\JS2\[JS2] APIs\[JS2] APIs\obj\Debug\[JS2] APIs.pdb

@@ -1,0 +1,5 @@
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\8.UsingObjects\8.UsingObjects\8.UsingObjects\bin\8.UsingObjects.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\8.UsingObjects\8.UsingObjects\8.UsingObjects\bin\8.UsingObjects.pdb
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\8.UsingObjects\8.UsingObjects\8.UsingObjects\obj\Debug\8.UsingObjects.csprojResolveAssemblyReference.cache
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\8.UsingObjects\8.UsingObjects\8.UsingObjects\obj\Debug\8.UsingObjects.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\8.UsingObjects\8.UsingObjects\8.UsingObjects\obj\Debug\8.UsingObjects.pdb

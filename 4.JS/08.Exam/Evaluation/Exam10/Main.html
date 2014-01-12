@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Grid View</title>
+</head>
+<body>
+    <div id="grid"></div>
+    <script>
+        var schoolData = (function () {
+
+            function School(name, location, courseCount, spec) {
+                this.name = name;
+                this.location = location;
+                this.courseCount = courseCount;
+                this.spec = spec;
+                this.courses = [];
+            }
+            School.prototype.toString = function () {
+                var output = "";
+                output = this.name + ' ' + this.location + ' ' + this.courseCount + ' ' + this.spec;
+                return output;
+            }
+
+            function Course(title, startDate, totalStudents) {
+                this.title = title;
+                this.startDate = startDate;
+                this.studentsCount = totalStudents;
+                this.students = [];
+            }
+            Course.prototype.toString = function () {
+                var output = "";
+                output = this.title + ' ' + this.startDate + ' ' + this.studentsCount;
+                return output;
+            }
+
+            function Student(firstName, lastName, grade, mark) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.grade = grade;
+                this.mark = mark;
+            }
+            Student.prototype.toString = function () {
+                var output = "";
+                output = this.firstName + ' ' + this.lastName + ' ' + this.grade + ' ' + this.mark;
+                return output;
+            }
+
+            return {
+                School: School,
+                Course: Course,
+                Student: Student
+            }
+        }());
+
+        //DEMO SCHOOL OBJS
+        var school1 =  new schoolData.School("Telerik","Sofia","5","IT");
+        
+        var course1 = new schoolData.Course("Math","25.12.15","10");
+        var course2 = new schoolData.Course("Geo", "25.12.15", "100");
+        school1.courses.push(course1);
+        school1.courses.push(course2);
+
+        var student1 = new schoolData.Student("sasho", "ivanov", 6, 10);
+        var student2 = new schoolData.Student("sasho", "ivanov", 7, 10);
+        var student3 = new schoolData.Student("sasho", "ivanov", 8, 10);
+        course1.students.push(student1);
+        course1.students.push(student2);
+        course1.students.push(student2);
+
+        course2.students.push(student1);
+
+        var schoolRepository = (function () {
+
+            function Save(saveName, data) {
+                var codeData = "";
+
+                for (var i = 0; i < data.length; i++) {
+
+                    codeData += 'School:' + data[i].toString();
+                    for (var j = 0; j < data[i].courses.length; j++) {
+
+                        codeData += "Course:" + data[i].courses[j].toString();
+                        for (var q = 0; q < data[i].courses[j].students.length; q++) {
+
+                            codeData += "Student:" + data[i].courses[j].students[q].toString();
+                        }
+                    }
+                    codeData += ';';
+                }
+
+                localStorage.setItem(saveName, codeData);
+                //console.log(localStorage.getItem(saveName));
+            }
+
+            function Load(dataName) {
+
+                var schools = localStorage.getItem(dataName).split(';');
+                var schoolObjs = [];
+
+                for (var i = 0; i < schools.length; i++) {
+                    if (schools[i] != '') {
+                        school = schools[i].match(/School:(.*?)Course:/);
+                        school = school[1];
+                        schools[i] = schools[i].replace('School:' + school , '');
+                        school = loadSchoolObj(school);
+                        courses = loadCourses(schools[i]);
+                        school.courses = courses;
+                        schoolObjs.push(school);
+                    }
+                }
+
+                return schoolObjs;
+            }
+
+            function loadCourses(arr) {
+                var courses = arr.split('Course:');
+                var courseObjs = [];
+
+                for (var i = 0; i < courses.length; i++) {
+                    if (courses[i] != '') {
+                        var meta = courses[i].split('Student:');
+                        var course = loadCourse(meta[0]);
+                        meta.shift();
+                        course.students = loadStudents(meta);
+                        courseObjs.push(course);
+                    }
+                }
+
+                return courseObjs;
+            }
+
+            function loadStudents(arr) {
+                var students = arr;
+                var studentObjs = [];
+
+                for (var i = 0; i < students.length; i++) {
+                    if (students[i] != '') {
+                        studentObjs.push(loadStudent(students[i]));
+                    }
+                }
+
+                return students;
+            }
+
+            function loadCourse(text)
+            {
+                var values = text.split(' ');
+
+                var title = values[0];
+                var startDate = values[1];
+                var totalStudents = values[2];
+
+                return new schoolData.Course(title,startDate,totalStudents);
+            }
+
+            function loadStudent(text) {
+                var values = text.split(' ');
+
+                var fname = values[0];
+                var lname = values[1];
+                var grade = values[2];
+                var mark = values[3];
+
+                return new schoolData.Student(fname, lname, grade, mark);
+            }
+
+            function loadSchoolObj(text) {
+                var values = text.split(' ');
+
+                var name = values[0];
+                var loc = values[1];
+                var courses = values[2];
+                var spec = values[3];
+
+                return new schoolData.School(name,loc,courses,spec);
+            }
+            
+            return {
+                save: Save,
+                load : Load
+            }
+
+        }());
+
+        //DEMO LOCAL SORAGE SAVE LOAD
+        schoolRepository.save("save1", [school1]);
+        var loaded = schoolRepository.load("save1");
+        console.log(loaded);
+    </script>
+    <script>
+        var controls = (function () {
+            var mainParent;
+
+            function GetGridView(el) {
+                var mainParent;
+                if (typeof (el) === 'string') {
+                    mainParent = document.querySelector(el);
+                }
+                else {
+                    mainParent = el;
+                }
+
+                var grid = (function () {
+                    var rowLength;
+                    var rows = new Array();
+
+                    function AddHeader() {
+                        var len = handleLength(arguments);
+                        var row = new GridRow();
+                        var column;
+
+                        for (var i = 0; i < len; i++) {
+                            column = document.createElement('span');
+                            column.style.backgroundColor = 'gray';
+                            StyleColumn(column);
+                            var bold = document.createElement('strong');
+                            column.appendChild(bold);
+                            if (arguments[i]) {
+                                bold.innerHTML = arguments[i];
+                            }
+                            row.body.appendChild(column);
+                        }
+
+                        rows.unshift(row);
+                    }
+
+                    function AddRow() {
+                        var len = handleLength(arguments);
+                        var row = new GridRow();
+                        var column;
+
+                        for (var i = 0; i < len; i++) {
+                            column = document.createElement('span');
+                            StyleColumn(column);
+                            if (arguments[i]) {
+                                column.innerHTML = arguments[i];
+                            }
+                            else {
+                                column.innerHTML = "-";
+
+                            }
+                            row.body.appendChild(column);
+                        }
+
+                        rows.push(row);
+                        return row;
+                    }
+
+                    function StyleColumn(el) {
+                        el.style.width = '100px';
+                        el.style.height = '25px';
+                        el.style.display = 'inline-block';
+                        el.style.padding = '5px';
+                        el.style.border = '1px solid black';
+                        el.style.textAlign = 'center';
+                        el.style.padding = '5px';
+                        el.style.overflow = 'auto';
+                    }
+                    
+                    function handleLength(arr) {
+                        if(!rowLength)
+                        {
+                            rowLength = arr.length;
+                        }
+
+                        return rowLength;
+                    }
+
+                    function Render() {
+                        while (mainParent.firstChild) {
+                            mainParent.removeChild(mainParent.firstChild);
+                        }
+                        
+                        for (var i = 0; i < rows.length; i++) {
+                            mainParent.appendChild(rows[i].body);
+                        }
+                    }
+
+                    function GridRow() {
+                        var row = document.createElement('div');
+                        row.nested = new Array();
+                        row.clicked = false;
+
+                        this.body = row;
+
+                        this.getNestedGridView = function () {
+                            var el = document.createElement('div');
+                            el.style.padding = '20px';
+                            this.body.nested.push(el);
+
+                            var cols = this.body.getElementsByTagName('span');
+                            for (var i = 0; i < cols.length; i++) {
+                                cols[i].style.backgroundColor = 'teal';
+                            }
+                            var nestedGrid = GetGridView(el);
+                            this.childGrids.push(nestedGrid);
+
+                            return nestedGrid;
+                        }
+
+                        this.childGrids = [];
+
+                        this.body.addEventListener('click', function (evt) {
+                            evt.stopPropagation();
+                            evt.preventDefault();
+
+                            var parent = evt.target.parentElement;
+
+                            if (parent.clicked) {
+                                for (var i = 0; i < parent.nested.length; i++) {
+                                    parent.removeChild(parent.lastChild);
+                                }
+                                parent.clicked = false;
+                            }
+                            else {
+                                for (var i = 0; i < parent.nested.length; i++) {
+
+                                    parent.appendChild(parent.nested[i]);
+                                }
+                                parent.clicked = true;
+                            }
+                        }, false)
+
+                        this.GetGridData = function () {
+                            var dataAsString = [];
+
+                            var el = this.body.firstChild;
+                            dataAsString.push(el.innerHTML);
+
+                            while (el.nextElementSibling) {
+                                el = el.nextElementSibling;
+                                dataAsString.push(el.innerHTML);
+                            }
+
+                            return new schoolData.School(dataAsString[0], dataAsString[1], dataAsString[2], dataAsString[3]);
+                        }
+                    }
+
+                    function GetGridRowData () {
+                        
+                        var parent;
+                        var dataAsString = [];
+                        var el;
+                        var school = [];
+
+                        for (var i = 1; i < rows.length; i++) {
+                            dataAsString = [];
+                            parent = rows[i];
+
+                            el = parent.body.firstChild;
+
+                            dataAsString.push(el.innerHTML);
+                            while (el.nextElementSibling) {
+                                el = el.nextElementSibling;
+                                dataAsString.push(el.innerHTML);
+                            }
+
+                            school.push(new schoolData.School(dataAsString[0], dataAsString[1], dataAsString[2], dataAsString[3]));
+                        }
+
+                        return school;
+                    }
+
+                    
+                    return {
+                        addHeader: AddHeader,
+                        addRow: AddRow,
+                        render: Render,
+                        getGridRowData: GetGridRowData,
+                    }
+
+                }());
+
+                return grid;
+            }
+
+            //TO DO
+            function BuildSchoolGrid(data) {
+                var startEl = document.createElement("div");
+                startEl = GetGridView(startEl);
+                document.body.appendChild(startEl);
+
+                for (var i = 0; i < data.length; i++) {
+
+                    var school = data[i];
+
+                    startEl.addRow(school.name, school.location, school.courseCount);
+
+                    for (var j = 0; j < data[i].courses.length; j++) {
+
+
+                        for (var q = 0; q < data[i].courses[j].students.length; q++) {
+
+                        }
+                    }
+                }
+
+                startEl.render();
+                return startEl;
+            }
+
+            return {
+                getGridView: GetGridView,
+                schoolGridView: BuildSchoolGrid
+            }
+        }());
+
+        //DEMO GRID
+        var schoolsGrid = controls.getGridView('#grid');
+        schoolsGrid.addHeader("Name", "Location", "Total", "Spec");
+        
+        var academyRow = schoolsGrid.addRow("PMG", "Burgas", "Math");
+        var academyRowGrid = academyRow.getNestedGridView();
+        academyRowGrid.addHeader("Name", "Location", "Total", "Spec");
+        academyRowGrid.addRow("<br/>PMG", "Bursdfsdgas", "Math");
+        academyRowGrid.addRow("PMG", "Burgas", "Math");
+        var academyRow1 = academyRowGrid.addRow("PMG", "Burgas", "Math");
+		var academyRowGrid1 = academyRow1.getNestedGridView();
+		academyRowGrid1.addHeader("Name", "Location", "Total", "Spec");
+        academyRowGrid1.addRow("<br/>PMG", "Bursdfsdgas", "Math");
+        academyRowGrid1.addRow("PMG", "Burgas", "Math");
+		
+		
+        schoolsGrid.render();
+
+        //MAKE SCHOOL FROM ROW
+        console.log('-----------');
+        var academyRow = schoolsGrid.addRow("PMG", "Burgas", "Math");
+        var generateSchool = academyRow.GetGridData();
+        console.log(generateSchool);
+
+        academyRowGrid = academyRow.getNestedGridView();
+        academyRowGrid.addHeader("Name", "Location", "Total", "Spec");
+        academyRowGrid.addRow("PMG", "Burgas", "Math");
+        academyRowGrid.addRow("PMG", "Burgas", "Math");
+        academyRowGrid.addRow("PMG", "Burgas", "Math");
+        academyRowGrid.render();
+
+        schoolsGrid.addRow("PMG", "Burgas", "Math");
+
+        var academyRow = schoolsGrid.addRow("Telerik", "Sofia", "IT");
+        academyRowGrid = academyRow.getNestedGridView();
+        academyRowGrid.addHeader("Name", "Location", "Total", "Spec");
+
+        var academyRowGridThird = academyRowGrid.addRow("PMG", "Burgas", "Math");
+        academyRowGridThird = academyRowGridThird.getNestedGridView();
+        academyRowGridThird.addRow("PMG", "Burgas", "Math");
+        academyRowGridThird.addRow("PMG", "Burgas", "Math");
+        academyRowGridThird.render();
+
+        academyRowGrid.addRow("PMG", "Burgas", "Math");
+        academyRowGrid.addRow("PMG", "Burgas", "Math");
+        academyRowGrid.render();
+
+        schoolsGrid.render();
+
+        //GET SCHOOLS FROM ALL ROWS
+        var schools = schoolsGrid.getGridRowData();
+        console.log('-----------');
+        console.log(schools);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿<html>
+<head>
+	<title>Conditional Statements</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>6.Write a script that enters the coefficients a, b and c of a quadratic equation a.x2 + b.x + c = 0 <br />
+		and calculates and prints its real roots. Note that quadratic equations may have 0, 1 or 2 real roots.</p>
+    </div>
+    <div>
+		<span>
+			<label for="a">a: </label>
+			<input type="text" id="a"/>
+            <label for="b">b: </label>
+			<input type="text" id="b"/>
+            <label for="c">c: </label>
+			<input type="text" id="c"/>
+		</span>
+		<a href="#" onclick="solveQuadEquation()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="5.html">Previous task</a>
+    <a href="7.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function solveQuadEquation() {
+	        var a = jsConsole.readFloat("#a");
+	        var b = jsConsole.readFloat("#b");
+	        var c = jsConsole.readFloat("#c");
+	        var x1;
+	        var x2;
+	        if (isNaN(a) || isNaN(b) || isNaN(c))
+	            jsConsole.writeLine("no three valid coefficients!")
+	        else {
+	            var D = b * b - 4 * a * c;
+	            if (a == 0 && b == 0 && c == 0)
+	            {
+	                jsConsole.writeLine("The number of real roots is infinity");
+	            }
+	            else if (a == 0 && b == 0 && c != 0)
+	            {
+	                jsConsole.writeLine("There are no any real roots");
+	            }
+	            else if (a == 0 && b != 0)
+	            {
+	                x1 = -(c / b);
+	                jsConsole.writeLine("The equation is linear. The real root is: " + Math.round(x1 * 1000) / 1000);
+	            }
+	            else if (D >= 0)
+	            {
+	                x1 = (0.5 * (-b - Math.sqrt(D)) / a);
+	                x2 = (0.5 * (-b + Math.sqrt(D)) / a);
+	                jsConsole.writeLine("The real roots are: " + Math.round(x1 * 1000) / 1000 + ", " + Math.round(x2 * 1000) / 1000);
+	            }
+	            else
+	            {
+	                jsConsole.writeLine("There are no any real roots");
+	            }
+	        }
+	    }
+	</script>
+</body>
+</html>
+

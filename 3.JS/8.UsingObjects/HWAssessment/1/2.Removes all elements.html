@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Removes all elements!</title>
+    <link href="styles/js-console.css" rel="stylesheet" />    
+	<style>
+        textarea, input {
+			    border:1px solid black;
+			    padding:5px 15px;
+			    font-family:Consolas;		   
+			    margin-bottom:5px;
+        }
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<h2>Removes all elements with a given value.</h2>
+    <label>Enter sequence of numbers separate from space: </label>
+    <br />
+    <textarea id="tb-arr"></textarea>
+    <br />
+	<label for="tb-num">Enter value:</label>
+	<br />
+	<input type="text" id="tb-num"/>
+	<br />
+	<a href="#" onclick="onRemove()">Remove</a>
+	<div id="console">
+	</div>	
+    <script src="scripts/js-console.js">	  
+	</script>	
+	<script>
+	    (function () {
+	        if (!Array.prototype.remove) {
+	            Array.prototype.remove = function (value) {
+	                if (this == null) {
+	                    throw new TypeError();
+	                }
+
+	                var result = [];
+
+	                var size = this.length;
+	                for (var i = 0; i < size; i++) {
+	                    if (this[i] !== value) {
+	                        result.push(this[i]);
+	                    }
+	                }
+
+	                return result;
+	            }
+	        }
+	    })();
+	    function onRemove() {
+	        jsConsole.Clear();
+	        var text = document.getElementById("tb-arr").value;
+	        var num = jsConsole.read("#tb-num");
+	        var array = text.split(" ");
+	        var newArray = array.remove(num);
+	        jsConsole.write(newArray);
+		}
+	</script>		
+</body>
+</html>

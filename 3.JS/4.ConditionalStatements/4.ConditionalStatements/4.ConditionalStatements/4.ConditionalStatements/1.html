@@ -1,0 +1,39 @@
+﻿<html>
+<head>
+	<title>Conditional Statements</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>1.Write an if statement that examines two integer variables and exchanges their values if the first one is greater than the second one.</p>
+    </div>
+     <div>
+		<span>
+			<label for="first">first: </label>
+			<input type="text" id="first"/>
+            <label for="second">second: </label>
+			<input type="text" id="second"/>
+		</span>
+		<a href="#" onclick="exchangeValues()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="8.html">Previous task</a>
+    <a href="2.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function exchangeValues() {
+	        var first = parseFloat(document.getElementById("first").value);
+	        var second = parseFloat(document.getElementById("second").value);
+	        if (isNaN(first) || first == null || first == "" || isNaN(second) || second == null || second == "")
+	            jsConsole.writeLine("no two numbers to exchange!")
+	        else if (first > second) {
+	                first = first - second;
+	                second = first + second; //second = first - second + second = first
+	                first = second - first; //first = first + second - first = second
+	        }
+	        jsConsole.writeLine(first);
+	        jsConsole.writeLine(second);
+	    }
+	</script>
+</body>
+</html>

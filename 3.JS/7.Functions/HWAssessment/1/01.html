@@ -1,0 +1,37 @@
+﻿<!--01.Write a function that returns the last digit of given integer as an English word. 
+    Examples: 512  "two", 1024  "four", 12309 -> "nine"-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Homework</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        var num = 1000;
+        var numStr = num.toString();
+        
+        function getLastDigit(numStr) {
+            var lastDigitStr;
+            var digit = numStr.charAt(numStr.length - 1); // gets char at position 'length of the string array - 1'
+            switch (digit) {
+                case "0": lastDigitStr = "zero"; break;
+                case "1": lastDigitStr = "one"; break;
+                case "2": lastDigitStr = "two"; break;
+                case "3": lastDigitStr = "three"; break;
+                case "4": lastDigitStr = "four"; break;
+                case "5": lastDigitStr = "five"; break;
+                case "6": lastDigitStr = "six"; break;
+                case "7": lastDigitStr = "seven"; break;
+                case "8": lastDigitStr = "eight"; break;
+                case "9": lastDigitStr = "nine"; break;
+                    default: console.log("error"); break;
+            }
+            return lastDigitStr;
+        }
+
+        console.log(getLastDigit(numStr));
+    </script>
+</body>
+</html>

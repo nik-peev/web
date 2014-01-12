@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Convert all &lt;a&gt; tags from an HTML page to [URL]</title>
+</head>
+<body>
+    <p>This script will convert all &lt;a&gt; tags from an HTML page to [URL].</p>
+    <label for="input">Please enter the HTML to get the links from: </label>
+    <textarea  rows="6", cols="50", id="Textarea1"></textarea>
+    <br />
+    <input type="submit" id="convertLinks" onclick="convertLinks()" value="Submit" />
+    <div id="Div1"></div>
+
+    <script type="text/javascript">
+        function convertLinks() {
+            var input = document.getElementById("input").value;
+
+            // The regular expression takes everything between <a href="(1)">(2)</a> and replaces it with [URL=(1)](2)[/URL]
+            var output = input.replace(/<a href=\"(.*?)\">(.*?)<\/a>/g, "[URL=$1]$2[/URL]");
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</body>
+</html>

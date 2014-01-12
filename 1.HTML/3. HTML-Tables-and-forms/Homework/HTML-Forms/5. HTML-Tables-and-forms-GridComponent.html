@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<style> 
+table
+{
+border:1px solid #D0D7E5;
+padding:0px 0px; 
+border-radius:5px;
+}
+td
+{
+border:1px solid #D0D7E5;
+}	
+</style>
+<head>
+<title>Grid component</title>
+</head>
+<body>
+<font face="segoe ui" size="1.6">
+	<table height="250px" cellspacing="0px" cellpadding="3px" >
+		<colgroup>
+			<col width="60px" />
+			<col width="240px" />
+			<col width="120px" />
+			<col width="110px" />
+			<col width="120px" />
+			<col width="60px" />
+		</colgroup>
+		<thead>
+			<tr bgcolor="#E7E8E6">
+				<td colspan="6" >Drag a column header and drop it here to group by that column</td>
+			</tr>
+			<tr bgcolor="#E7E8E6">
+				<td>ProductID</td>
+				<td>Product name</td>
+				<td>Unit price</td>
+				<td>Quantity per unit</td>
+				<td>Units in stock</td>
+				<td>Discontinued</td>
+			</tr>
+			<tr bgcolor="#E7E8E6">
+				<td><label for="ProductID"></label>
+				<input type="text" name="ProductID" id="ProductID" size="1"/></td>
+				<td><label for="Product name"></label>
+				<input type="text" name="Product name" id="Product name" size="10"/></td>
+				<td><label for="Unit price"></label>
+				<input type="text" name="Unit price" id="Unit price" size="3"/>	
+				<input type="button" name="filter" value="" style="background: url(Filter.png); border:0px; vertical-align:top; width:20px; height:20px;"/></td>
+				<td><label for="Quantity per unit"></label>
+				<input type="text" name="Quantity per unit" id="Quantity per unit" size="5"/></td>
+				<td><label for="Units in stock"></label>
+				<input type="text" name="Units in stock" id="Units in stock" size="3"/>
+				<input type="button" name="filter" value="" style="background: url(Filter.png); border:0px; vertical-align:top; width:20px; height:20px;"/></td>
+				<td><input type="checkbox" name="Discontinued" value=" " />
+				<input type="button" name="filter" value=" " style="background: url(Filter.png); border:0px; vertical-align:top; width:20px; height:20px;"/></td>
+			</tr>
+		</thead>
+		<tfoot>
+			<form>
+				<tr style="background: url(gradient.png) repeat 100% 0;">
+					<td colspan="2" style="border-right-width:0px">
+						<input type="button" name="rewind" value="" style="background: url(Rewind.png); border:0px; vertical-align:middle; width:20px; height:20px;" />
+						<input type="button" name="previous" value="" style="background: url(Previous.png); border:0px; vertical-align:middle; width:20px; height:20px;" />
+						<input type="button" name="1" value="1" style="background: url(gradient.png); border:0px; width:8px; height:20px; font-size:7pt" />
+						<input type="button" name="2" value="2" style="background: url(gradient.png); border:0px; width:8px; height:20px; font-size:7pt" />
+						<input type="button" name="3" value="3" style="background: url(gradient.png); border:0px; width:8px; height:20px; font-size:7pt" />
+						<input type="button" name="4" value="4" style="background: url(gradient.png); border:0px; width:8px; height:20px; font-size:7pt" />
+						<input type="button" name="5" value="5" style="background: url(gradient.png); border:0px; width:8px; height:20px; font-size:7pt" />
+						<input type="button" name="6" value="6" style="background: url(gradient.png); border:0px; width:8px; height:20px; font-size:7pt" />
+						<input type="button" name="7" value="7" style="background: url(gradient.png); border:0px; width:8px; height:20px; font-size:7pt" />
+						<input type="button" name="8" value="8" style="background: url(gradient.png); border:0px; width:8px; height:20px; font-size:7pt" />
+						<input type="button" name="9" value="9" style="background: url(gradient.png); border:0px; width:8px; height:20px; font-size:7pt" />
+						<input type="button" name="10" value="10" style="background: url(gradient.png); border:0px; width:18px; height:20px; font-size:7pt" />							
+						<a href="5. HTML-Tables-and-forms-GridComponent.html" style="text-decoration:none">...</a>
+						<input type="button" name="next" value="" style="background: url(Next.png); border:0px; vertical-align:middle; width:20px; height:20px;" />
+						<input type="button" name="Forward" value="" style="background: url(Forward.png); border:0px; vertical-align:middle; width:20px; height:20px;" />
+					</td>
+					<td colspan="2" style="border-left-width:0px; border-right-width:0px">
+						<label for="page size">Page size</label>
+						<select select="10" id="page size" style="font-size:7pt">
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="40">40</option>
+						</select>
+					</td>
+					<td colspan="2" align="right" border="0px" style="border-left-width:0px">335104 items in 33511 pages</td>
+				</tr>
+			</form>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>1</td><td>Chai</td> <td>$18.00</td> <td>10 boxes x 20 bags</td> <td>39</td> <td ><input type="checkbox" name="Discontinued" value=" " /></td>
+			</tr>
+			<tr>
+				<td>2</td><td>Chang</td> <td>$19.00</td> <td>24 - 12 oz bottles</td> <td>17</td> <td><input type="checkbox" name="Discontinued" value=" " /></td> 
+			</tr>
+			<tr>
+				<td>3</td><td>Aniseed Syrup</td> <td>$10.00</td> <td>12 - 550 ml bottles</td> <td>13</td> <td><input type="checkbox" name="Discontinued" value=" " /></td>
+			</tr>
+			<tr>
+				<td>4</td><td>Chef Anton's Cajun Seasoning</td> <td>$22.00</td> <td>48 - 6 oz jars</td> <td>53</td> <td><input type="checkbox" name="Discontinued" value=" " /></td> 
+			</tr>
+			<tr>
+				<td>5</td><td>Chef Anton's Gumbo Mix</td> <td>$21.35</td> <td>36 boxes</td> <td>0</td> <td><input type="checkbox" name="Discontinued" value=" " /></td>
+			</tr>
+			<tr>
+				<td>6</td><td>Grandma's Boysenberry Spread</td> <td>$25.00</td> <td>12 - 8 oz jars</td> <td>120</td> <td><input type="checkbox" name="Discontinued" value=" " /></td>
+			</tr>
+			<tr>
+				<td>7</td><td>Uncle Bob's Organic Dried Pears</td> <td>$30.00</td> <td>12 - 1 lb plgs.</td> <td>15</td> <td><input type="checkbox" name="Discontinued" value=" " /></td> 
+			</tr>
+			<tr>
+				<td>8</td><td>Northwood Cranberry Sauce</td> <td>$40.00</td> <td>12 - 12 oz jars</td> <td>6</td> <td><input type="checkbox" name="Discontinued" value=" " /></td>
+			</tr>
+			<tr>
+				<td>9</td><td>Mishi Kobe Niku</td> <td>$97.00</td> <td>18 - 500 g pkgs.</td> <td>29</td> <td><input type="checkbox" name="Discontinued" value=" " /></td> 
+			</tr>
+			<tr>
+				<td>10</td><td>Ikura</td> <td>$31.00</td> <td>12 - 200 ml jars</td> <td>31</td> <td><input type="checkbox" name="Discontinued" value=" " /></td> 
+			</tr>
+		</tbody>
+	</table>
+</font>
+</body>
+</html>

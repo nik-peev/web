@@ -1,0 +1,33 @@
+﻿<!--03. Write a function that finds all the occurrences of a word in a text
+            The search can be case sensitive or case insensitive -> Use function overloading
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Homework</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        function indexes(source, find) {
+            var result = new Array();
+
+            for (i = 0; i < source.length; ++i) {
+                // If you want to search case insensitive use 
+                // if (source.substring(i, i + find.length).toLowerCase() == find) {
+                if (source.substring(i, i + find.length) == find) {
+                    result.push(i);
+                }
+            }
+            return result;
+        }
+
+        var positions = new Array();
+        positions = indexes("Write a function that finds all the occurrences of a word in a text", "a");
+        for (var i in positions) {
+            console.log(positions[i]);
+        }
+    </script>
+</body>
+</html>

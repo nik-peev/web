@@ -1,0 +1,10 @@
+c:\users\student\documents\visual studio 2012\Projects\js_exam\js_exam\bin\js_exam.dll
+c:\users\student\documents\visual studio 2012\Projects\js_exam\js_exam\bin\js_exam.pdb
+c:\users\student\documents\visual studio 2012\Projects\js_exam\js_exam\obj\Debug\js_exam.csprojResolveAssemblyReference.cache
+c:\users\student\documents\visual studio 2012\Projects\js_exam\js_exam\obj\Debug\js_exam.dll
+c:\users\student\documents\visual studio 2012\Projects\js_exam\js_exam\obj\Debug\js_exam.pdb
+C:\Users\student\Desktop\js_exam\js_exam\js_exam\bin\js_exam.dll
+C:\Users\student\Desktop\js_exam\js_exam\js_exam\bin\js_exam.pdb
+C:\Users\student\Desktop\js_exam\js_exam\js_exam\obj\Debug\js_exam.csprojResolveAssemblyReference.cache
+C:\Users\student\Desktop\js_exam\js_exam\js_exam\obj\Debug\js_exam.dll
+C:\Users\student\Desktop\js_exam\js_exam\js_exam\obj\Debug\js_exam.pdb

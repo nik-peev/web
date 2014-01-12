@@ -1,0 +1,29 @@
+﻿<!--07. Write a Function that returns the index of the first element in array
+     that is bigger than its neighbors, or -1, if there’s no such element.
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Homework</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        var index = firstBiggerElem();
+        console.log(index);
+        var newArray = [2, 1, 1, 4, 6, 3, 6, 8, 6, 2];
+
+        function firstBiggerElem() {
+            for (var i = 1; i < newArray.length - 2; i++) {
+                if (newArray[i] > newArray[i - 1] && newArray[i] > newArray[i + 1]) {
+                    return i;
+                    break;
+                }
+            }
+
+            return -1;
+        }
+    </script>
+</body>
+</html>

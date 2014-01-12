@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Check if third digit is seven</title>
+        <meta charset="utf-8" />
+        <meta name="author" content="Petya Gergova" />
+    </head>
+    <body>
+        <header>
+            <h1>
+                Chekc if third digit is (right to left) is 7:
+            </h1>
+            <h3>
+                Enter an integer for a check:
+            </h3>
+        </header>
+        <section>
+            <input type="text"
+                    id="integer-input"
+                    placeholder="Enter an integer" />
+            <button type="button"
+                    onclick="checkThirdDigit()">Check integer</button>
+        </section>
+        <script>
+            // This function allows us to check whether the third digit from right to left in a number is 7.
+
+            function checkThirdDigit() {
+                var a = document.getElementById("integer-input").value;
+                var str = a + "";
+                var n = str.substr(-3, 1);
+
+                if (n == 7) {
+                    alert("Third digit right-to-left is 7."); // The message is displayed when the third digit from right-to-left is equal to 3.
+                }
+
+                else {
+                    alert("Third digit right-to-left is different from 7."); // The message is displayed when the third digit from right-o-left is equal to 3 or the entered string is different from a number.
+                }
+            }
+        </script>
+    </body>
+</html>

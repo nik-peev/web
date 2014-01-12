@@ -1,0 +1,4 @@
+C:\S\GoogleDrive\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\Exersice\bin\Exersice.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\Exersice\bin\Exersice.pdb
+C:\S\GoogleDrive\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\Exersice\obj\Debug\Exersice.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\02. CSS\4.SASS\Homework\4.SASS\Exersice\obj\Debug\Exersice.pdb

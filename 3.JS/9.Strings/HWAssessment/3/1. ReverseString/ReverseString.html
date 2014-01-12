@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Reverse a string</title>
+</head>
+<body>
+    <p>This script will reverse a given string.</p>
+    <label for="stringToReverse">Please enter the string to reverse: </label>
+    <input type="text" id="stringToReverse" />
+    <br />
+    <input type="submit" id="reverse" onclick="produceOutput()" value="Submit" />
+    <span id="result"></span>
+
+    <script type="text/javascript">
+        function produceOutput() {
+            var reversed = reverseString(document.getElementById("stringToReverse").value);
+            document.getElementById("result").innerHTML = "Reversed string: " + reversed;
+        }
+
+        function reverseString(stringToReverse) {
+            var output = "";
+            // Get each character backwards and append it to the output
+            for (var i = stringToReverse.length; i >= 0; i--) {
+                output += stringToReverse.charAt(i);
+            }
+            return output;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\3.OperatorsExpressions\3.OperatorsExpressions\3.OperatorsExpressions\bin\3.OperatorsExpressions.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\3.OperatorsExpressions\3.OperatorsExpressions\3.OperatorsExpressions\bin\3.OperatorsExpressions.pdb
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\3.OperatorsExpressions\3.OperatorsExpressions\3.OperatorsExpressions\obj\Debug\3.OperatorsExpressions.csprojResolveAssemblyReference.cache
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\3.OperatorsExpressions\3.OperatorsExpressions\3.OperatorsExpressions\obj\Debug\3.OperatorsExpressions.dll
+C:\S\GoogleDrive\TelerikAcademy\Web\3.JS\3.OperatorsExpressions\3.OperatorsExpressions\3.OperatorsExpressions\obj\Debug\3.OperatorsExpressions.pdb

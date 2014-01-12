@@ -1,0 +1,47 @@
+﻿<html>
+<head>
+	<title>Functions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>1.Write a function that returns the last digit of given integer as an English word. Examples: 512 -> "two", 1024 -> "four", 12309 -> "nine"</p>
+    </div>
+     <div>
+         <span>
+			<label for="number">number: </label>
+			<input type="text" placeholder ="345" id="number"/>
+		</span>
+		<a href="#" onclick="print()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="7.html">Previous task</a>
+    <a href="2.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function lastDigitToWord(num) {
+            var digit = num % 10;
+            switch (digit) {
+                case 0: return 'zero';
+                case 1: return 'one';
+                case 2: return 'two';
+                case 3: return 'three';
+                case 4: return 'four';
+                case 5: return 'five';
+                case 6: return 'six';
+                case 7: return 'seven';
+                case 8: return 'eight';
+                case 9: return 'nine';
+                default: return 'invalid number' + digit;
+            }
+	    }
+	    function readNumber() {
+	        var number = jsConsole.read('#number');
+	        return number;
+	    }
+	    function print() {
+	        jsConsole.writeLine(lastDigitToWord(readNumber()));
+	    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<html>
+<head>
+	<title>UsingObjects</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>4.Write a function that checks if a given object contains a given property.</p>
+    </div>
+     <div>
+		<a href="#" onclick="execute()">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="3.html">Previous task</a>
+    <a href="5.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+
+	    function containsProp(object, prop) {
+	        for (var property in object) {
+	            if (property == prop)
+	                return 'The ' + object + ' contains "' + prop + '" property!';
+	        }
+	        return 'The ' + object + ' does not contain "' + prop + '" property!';
+	    }
+
+	    function execute() {
+	        jsConsole.writeLine(containsProp(screen, 'pixelDepth'));
+	    }
+
+	</script>
+</body>
+</html>

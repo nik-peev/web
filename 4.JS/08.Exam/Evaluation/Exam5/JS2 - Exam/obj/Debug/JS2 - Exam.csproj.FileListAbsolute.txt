@@ -1,0 +1,5 @@
+D:\School\Telerik\Web\JS2 - Exam\JS2 - Exam\bin\JS2 - Exam.dll
+D:\School\Telerik\Web\JS2 - Exam\JS2 - Exam\bin\JS2 - Exam.pdb
+D:\School\Telerik\Web\JS2 - Exam\JS2 - Exam\obj\Debug\JS2 - Exam.csprojResolveAssemblyReference.cache
+D:\School\Telerik\Web\JS2 - Exam\JS2 - Exam\obj\Debug\JS2 - Exam.dll
+D:\School\Telerik\Web\JS2 - Exam\JS2 - Exam\obj\Debug\JS2 - Exam.pdb

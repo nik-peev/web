@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Vehicles</title>
+        <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body onload="testVehicle()">
+
+    <div id="js-console"></div>
+
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+    
+        Function.prototype.inherit = function (parent) {
+            this.prototype = new parent();
+            this.prototype.constructor = parent;
+        };
+
+        //Base class
+        function PropulsionUnit() {
+        }
+
+        //Class Wheel inherits PropulsionUnit
+        function Wheel(radius) {
+            this.radius = radius;
+            PropulsionUnit.apply(this, arguments);
+        }
+
+        Wheel.inherit(PropulsionUnit);
+
+        Wheel.prototype.getAcceleration = function () {
+            return 2 * Math.PI * this.radius;
+        }
+        //Class PropellingNozzle inherits PropulsionUnit
+        function PropellingNozzle(power, isAfterburnerSwitchOn) {
+            this.power = power;
+            this.isAfterburnerSwitchOn = isAfterburnerSwitchOn;
+        }
+
+        PropellingNozzle.inherit(PropulsionUnit);
+
+        PropellingNozzle.prototype.getAcceleration = function () {
+            if (this.isAfterburnerSwitchOn) {
+                return this.power * 2;
+            }
+            else {
+                return this.power;
+            }
+        }
+
+        //Class Propeler inherits PropulsionUnit
+        function Propeler(numberOfFins, isSpinDirectionClockwise) {
+            this.numberOfFins = numberOfFins;
+            this.isSpinDirectionClockwise = isSpinDirectionClockwise;
+        }
+
+        Propeler.inherit(PropulsionUnit);
+
+        Propeler.prototype.getAcceleration = function () {
+            if (this.isSpinDirectionClockwise) {
+                return this.numberOfFins;
+            }
+            else {
+                return -this.numberOfFins;
+            }
+        }
+
+        //Base class
+        function Vehicle(speed, propulsionUnits) {
+            this.speed = speed;
+            this.propulsionUnits = propulsionUnits;
+        }
+
+        Vehicle.prototype.accelerate = function () {
+            for (var i = 0; i < this.propulsionUnits.length; i++) {
+                this.speed = this.speed + this.propulsionUnits[i].getAcceleration();
+            }
+        }
+
+        //Class LandVehicle inherits Vehicle
+        function LandVehicle(speed, propulsionUnits) {
+            if (propulsionUnits.length != 4) {
+                throw Error("The propulsionUnits array must contain only 4 wheels!");
+            }
+            for (var i = 0; i < propulsionUnits.length; i++) {
+                if (!(propulsionUnits[i] instanceof Wheel)) {
+                    throw Error("The propulsionUnits array must contain only wheels!");
+                }
+            }
+            Vehicle.apply(this, arguments);
+        }
+
+        LandVehicle.inherit(Vehicle);
+
+        //Class AirVehicle inherits Vehicle
+        function AirVehicle(speed, propulsionUnits) {
+            if (propulsionUnits.length == 1 && (propulsionUnits[0] instanceof PropellingNozzle)) {
+                Vehicle.apply(this, arguments);
+            }
+            else {
+                throw Error("The propulsionUnits array must contain only 1 propelling nozzle");
+            }
+        }
+
+        AirVehicle.inherit(Vehicle);
+
+        AirVehicle.prototype.switchAfterburnerOn = function () {
+            this.propulsionUnits[0].isAfterburnerSwitchOn = true;
+        }
+
+        AirVehicle.prototype.switchAfterburnerOf = function () {
+            this.propulsionUnits[0].isAfterburnerSwitchOn = false;
+        }
+
+        //Class WaterVehicle inherits Vehicle
+        function WaterVehicle(speed, propulsionUnits, numberOfPropelers) {
+            if (propulsionUnits.length != numberOfPropelers) {
+                throw Error("The propulsionUnits array lenght doesn't correspond to the number of propelers!");
+            }
+            for (var i = 0; i < propulsionUnits.length; i++) {
+                if (!(propulsionUnits[i] instanceof Propeler)) {
+                    throw Error("The propulsionUnits array must contain only propelers!");
+                }
+            }
+            Vehicle.apply(this, arguments);
+        }
+
+        WaterVehicle.inherit(Vehicle);
+
+        WaterVehicle.prototype.setSpinDirectionToClockwise = function () {
+            for (var i = 0; i < this.propulsionUnits.length; i++) {
+                this.propulsionUnits[i].isSpinDirectionClockwise = true;
+            }
+        }
+
+        WaterVehicle.prototype.setSpinDirectionToCounterClockwise = function () {
+            for (var i = 0; i < this.propulsionUnits.length; i++) {
+                this.propulsionUnits[i].isSpinDirectionClockwise = false;
+            }
+        }
+
+        //Class AmphibiousVehicle inherits Vehicle
+        function AmphibiousVehicle(speed, propulsionUnits, isOnWater) {
+            var numberOfWheels = 0;
+            var numberOfPropelers = 0;
+            for (var i = 0; i < propulsionUnits.length; i++) {
+                if (propulsionUnits[i] instanceof Propeler) {
+                    numberOfPropelers++;
+                }
+                else if (propulsionUnits[i] instanceof Wheel) {
+                    numberOfWheels++;
+                }
+                else {
+                    throw Error("The propulsionUnits array must contain only propelers and wheels!");
+                }
+            }
+            if (numberOfPropelers >= 1 && numberOfWheels >= 3) {
+                Vehicle.apply(this, arguments);
+            }
+            else {
+                throw Error("The propulsionUnits array must contain at least 3 wheels and 1 propeler!");
+            }
+            this.isOnWater = isOnWater;
+        }
+
+        AmphibiousVehicle.inherit(Vehicle);
+
+        AmphibiousVehicle.prototype.accelerate = function () {
+            if (this.isOnWater) {
+                for (var i = 0; i < this.propulsionUnits.length; i++) {
+                    if (this.propulsionUnits[i] instanceof Propeler) {
+                        this.speed = this.speed + this.propulsionUnits[i].getAcceleration();
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < this.propulsionUnits.length; i++) {
+                    if (this.propulsionUnits[i] instanceof Wheel) {
+                        this.speed = this.speed + this.propulsionUnits[i].getAcceleration();
+                    }
+                }
+            }
+        }
+
+        AmphibiousVehicle.prototype.switchToLandMode = function () {
+            this.isOnWater = false;
+        }
+
+        AmphibiousVehicle.prototype.switchToWaterMode = function () {
+            this.isOnWater = true;
+        }
+
+        function testVehicle() {
+            //Test the exception in the LandVehicle
+            //var wheelArray = [new Wheel(20), new Wheel(20), new Wheel(20), new Propeler(10, true)];
+            var wheelArray = [new Wheel(20), new Wheel(20), new Wheel(20), new Wheel(20)];
+            jsConsole.writeLine("Wheel:");
+            jsConsole.writeLine("radius: " + wheelArray[0].radius);
+            jsConsole.writeLine("getAcceleration: " + wheelArray[0].getAcceleration());
+            jsConsole.writeLine("Check if it is a PropulsionUnit: " + (wheelArray[0] instanceof PropulsionUnit));
+
+            jsConsole.writeLine("</br>Car:");
+            var car = new LandVehicle(50, wheelArray);
+            jsConsole.writeLine("Before acceleration:");
+            jsConsole.writeLine("speed: " + car.speed);
+            car.accelerate();
+            jsConsole.writeLine("After acceleration:");
+            jsConsole.writeLine("speed: " + car.speed);
+            jsConsole.writeLine("Check if it is a Vehicle: " + (car instanceof Vehicle));
+
+            //Test the exception in the AirVehicle
+            //var propellingNozzleArray = [new PropellingNozzle(50, false), new PropellingNozzle(50, false)];
+            var propellingNozzleArray = [new PropellingNozzle(50, false)];
+            jsConsole.writeLine("</br>PropellingNozzle:");
+            jsConsole.writeLine("power: " + propellingNozzleArray[0].power);
+            jsConsole.writeLine("acceleration: " + propellingNozzleArray[0].getAcceleration());
+            jsConsole.writeLine("Check if it is a PropulsionUnit: " + (propellingNozzleArray[0] instanceof PropulsionUnit));
+
+            jsConsole.writeLine("</br>Aircraft:");
+            var aircraft = new AirVehicle(200, propellingNozzleArray);
+            jsConsole.writeLine("Before acceleration:");
+            jsConsole.writeLine("speed: " + aircraft.speed);
+            aircraft.accelerate();
+            jsConsole.writeLine("After acceleration:");
+            jsConsole.writeLine("speed: " + aircraft.speed);
+            jsConsole.writeLine("After switchAfterburnerOn and acceleration:");
+            aircraft.switchAfterburnerOn();
+            aircraft.accelerate();
+            jsConsole.writeLine("speed: " + aircraft.speed);
+            jsConsole.writeLine("Check if it is a Vehicle: " + (aircraft instanceof Vehicle));
+
+            //Test the exception in the WaterVehicle
+            //var propelerArray = [new Propeler(5, true), new Propeler(5, true), new Propeler(5, true)];
+            var propelerArray = [new Propeler(5, true), new Propeler(5, true)];
+            jsConsole.writeLine("</br>Propeler:");
+            jsConsole.writeLine("numberOfFins: " + propelerArray[0].numberOfFins);
+            jsConsole.writeLine("acceleration: " + propelerArray[0].getAcceleration());
+            jsConsole.writeLine("Check if it is a PropulsionUnit: " + (propelerArray[0] instanceof PropulsionUnit));
+
+            jsConsole.writeLine("</br>Watercraft:");
+            var watercraft = new WaterVehicle(50, propelerArray, 2);
+            jsConsole.writeLine("Before acceleration:");
+            jsConsole.writeLine("speed: " + watercraft.speed);
+            watercraft.accelerate();
+            jsConsole.writeLine("After acceleration:");
+            jsConsole.writeLine("speed: " + watercraft.speed);
+            jsConsole.writeLine("After set the spinDirection to counter-clockwise and acceleration:");
+            watercraft.setSpinDirectionToCounterClockwise();
+            watercraft.accelerate();
+            jsConsole.writeLine("speed: " + watercraft.speed);
+            jsConsole.writeLine("Check if it is a Vehicle: " + (watercraft instanceof Vehicle));
+
+            //Test the exception in the AmphibiousVehicle
+            //var amphibiaPropulsionUnits = [new PropellingNozzle(50, false), new Propeler(5, true), new Propeler(5, true)];
+            var amphibiaPropulsionUnits = [new Propeler(5, true), new Wheel(20), new Wheel(20), new Wheel(20)];
+
+            jsConsole.writeLine("</br>Ampibia:");
+            var amphibia = new AmphibiousVehicle(30, amphibiaPropulsionUnits, true);
+            jsConsole.writeLine("Is on water mode: " + amphibia.isOnWater);
+            jsConsole.writeLine("Before acceleration:");
+            jsConsole.writeLine("speed: " + amphibia.speed);
+            amphibia.accelerate();
+            jsConsole.writeLine("After acceleration:");
+            jsConsole.writeLine("speed: " + amphibia.speed);
+            jsConsole.writeLine("After switching to land mode and acceleration:");
+            amphibia.switchToLandMode();
+            amphibia.accelerate();
+            jsConsole.writeLine("Is on water mode: " + amphibia.isOnWater);
+            jsConsole.writeLine("speed: " + amphibia.speed);
+            jsConsole.writeLine("Check if it is a Vehicle: " + (amphibia instanceof Vehicle));
+        }
+    </script>
+</body>
+</html>

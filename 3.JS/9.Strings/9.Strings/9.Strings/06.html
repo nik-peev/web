@@ -1,0 +1,45 @@
+﻿<html>
+<head>
+	<title>Strings</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>6.Write a function that extracts the content of a html page given as text. 
+            The function should return anything that is in a tag, without the tags:</p>
+    </div>
+     <div>
+         <span>
+            <label for="text">text: </label>
+			<textarea placeholder ="<html> <head> <title>News</title> </head> <body> <p><a href='http://academy.telerik.com'>Telerik Academy</a>aims to provide free real-world practical training for young people who want to turn into skillful .NET software engineers.</p> </body> </html>" id="text"></textarea>
+        </span>
+		<a href="#" onclick="execute()" id="Execute">Execute</a>
+	</div>
+	<div id="js-console"></div>
+    <a href="05.html">Previous task</a>
+    <a href="07.html">Next task</a>
+    <script src="scripts/js-console.js"></script>
+	<script>
+	    function read(id) {
+	        return jsConsole.read(id);
+	    }
+
+	    function extractTextInTags(text) {
+	        var inTags = [], result;
+	        inTags = text.match(/>.*?</g);
+	        var result = inTags.join('');
+	        result = result.replace(/<|>/g, '');
+	        return result;
+	    }
+
+	    function execute() {
+	        var text = read('#text');
+	        if (text == "") {
+	            jsConsole.writeLine("Invalid text");
+	            return;
+	        }
+	        jsConsole.writeLine(extractTextInTags(text));
+	    }
+	</script>
+</body>
+</html>

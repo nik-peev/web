@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Check the brackets in an expression</title>
+</head>
+<body>
+    <p>This script will check whether the brackets in an expression are put correctly.</p>
+    <label for="expression">Please enter the expression to check: </label>
+    <input type="text" id="expression" />
+    <br />
+    <input type="submit" id="checkBrackets" onclick="produceOutput()" value="Submit" />
+    <span id="result"></span>
+
+    <script type="text/javascript">
+        function produceOutput() {
+            var expression = document.getElementById("expression").value;
+            document.getElementById("result").innerHTML = checkBrackets(expression) ? "The brackets have been put correctly." : "The brackets have not been put correctly.";
+        }
+
+        function checkBrackets(expression) {
+            var bracketCounter = 0;
+            // Scan each element of the expression. If it is an opening bracket, increase the counter, if it is a closing bracket, decrease it.
+            // If the counter becomes less than zero, there are more closing than opening brackets and the scan finishes
+            for (var i = 0; i < expression.length; i++) {
+                if (expression[i] === '(') {
+                    bracketCounter++;
+                }
+                else if (expression[i] === ')') {
+                    bracketCounter--;
+                }
+                if (bracketCounter < 0) {
+                    return false;
+                }
+            }
+            // When the scan ends, return true only if the counter is equal to zero (there are as many opening as closing brackets)
+            if (bracketCounter === 0) {
+                return true;
+            }
+            else return false;
+        }
+    </script>
+</body>
+</html>

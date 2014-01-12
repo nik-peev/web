@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Parse URL</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <p><em>Write a script that parses an URL address </em></p>
+    <br />
+    <div id="console"> 
+        <script src="scripts/js-console.js"></script>
+        <script src="scripts/string-extensions.js"></script>
+        <script>
+            var url = "http://www.devbg.org/forum/index.php";
+            jsConsole.writeLine("The URL is: " + url);
+            var protocol = url.substring(0, url.indexOf(':'));
+            var server = url.substring(url.indexOf(':') + 3, url.indexOf("/", url.indexOf(":") + 3));;
+            var resourse=url.substring(url.indexOf("/", url.indexOf(":") + 3),url.length);
+            jsonURL = {Protocol:protocol, Server:server, Resourse:resourse};
+            jsConsole.writeLine('{protocol: "'+jsonURL.Protocol+'",');
+            jsConsole.writeLine(' server: "' + jsonURL.Server + '",');
+            jsConsole.writeLine(' resourse: "' + jsonURL.Resourse + '"}');
+        </script>
+    </div>
+</body>
+</html>

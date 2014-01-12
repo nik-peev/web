@@ -1,0 +1,5 @@
+C:\Users\EnikA\Desktop\JSEventModel\JSEventModel\bin\JSEventModel.dll
+C:\Users\EnikA\Desktop\JSEventModel\JSEventModel\bin\JSEventModel.pdb
+C:\Users\EnikA\Desktop\JSEventModel\JSEventModel\obj\Debug\JSEventModel.csprojResolveAssemblyReference.cache
+C:\Users\EnikA\Desktop\JSEventModel\JSEventModel\obj\Debug\JSEventModel.dll
+C:\Users\EnikA\Desktop\JSEventModel\JSEventModel\obj\Debug\JSEventModel.pdb

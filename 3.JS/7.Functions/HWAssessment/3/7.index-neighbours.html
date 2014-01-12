@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Reverse</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<input type="text" id="tb-number" />
+	<a href="#" id="btn-check-prime" onclick="Index()">Enter Array: </a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+	<script>
+	    function Index() {
+	        var arr = jsConsole.read("#tb-number");
+	        if (arr[0] > arr[1]) {
+	            jsConsole.write('0');
+	            return;
+	        }
+	        for (var i = 1; i < arr.length-1; i++) {
+	            if (arr[i] > arr[i + 1] && arr[i] > arr[i - 1]) {
+	                jsConsole.write(i);
+	                return;
+	            }
+	        }
+	        if (arr[arr.length - 1] > arr[arr.length - 2]) {
+	            jsConsole.write(arr.length-1);
+	        }
+	    }
+	</script>
+</body>
+</html>

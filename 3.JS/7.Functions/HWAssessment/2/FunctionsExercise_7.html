@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="content">
+        <h1>Given array is { 1, 3, 5, 3, 5, 5, 5, 3, 7, 5, 7, 7, 2, 6, 6, 12, 17, 25, 55, 75 }
+        </h1>
+        <div id="button">
+            <a href="#" onclick="checkIsBiggerThanNeighbours()">Check</a>
+        </div>
+    </div>
+    
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        function checkIsBiggerThanNeighbours() {
+            var myArray = new Array(1, 3, 5, 3, 5, 5, 5, 3, 7, 5, 7, 7, 2, 6, 6, 12, 17, 25, 55, 75);
+            
+            var isBigger = false;
+            for (var index = 1; index < myArray.length - 2 index++)
+            {
+                if ((myArray[index] > myArray[index + 1]) && (myArray[index] > myArray[index - 1]))
+                {
+                    isBigger = true;
+                    jsConsole.writeLine("The first number in given array which is bigger than his neighbours is at position " + index + " and this number is " + myArray[index]);
+                    break;
+                }
+            }
+
+            if (isBigger == false)
+            {
+                jsConsole.writeLine("-1");
+            }
+        }
+        </script>
+</body>
+</html>

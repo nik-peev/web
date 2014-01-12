@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<title>Input table</title>
+</head>
+<body>
+<form method="get" action="1a.%20HTML-Tables-FreshFruits.html">
+	<table border="1px" style="border-color:lightgrey" cellspacing="0px" cellpadding="2px" >
+		<colgroup>
+		   <col width="140" />
+		</colgroup>
+		<tfoot>
+			<tr><td bgcolor="aqua" colspan="4" align="center" >
+				<input type="submit" name="submit" value="Submit"/>	
+				<input type="reset" value="Clear This Form" />	
+			</td></tr>
+		</tfoot>
+		<tr>
+			<td align="right">Last Name</td>
+			<td colspan="3">
+				<label for="LastName"></label>
+				<input type="text" name="LastName" id="LastName" 
+				required="true" 
+				pattern="[a-zA-Z]{2,30}"
+				placeholder="Nakov" />
+			</td>
+		</tr>
+		<tr>
+		<td align="right">First Name</td>
+			<td colspan="3">
+				<label for="FirstName"></label>
+				<input type="text" name="FirstName" id="FirstName"
+				required="true" 
+				pattern="[a-zA-Z]{2,30}"
+				placeholder="Svetlin" />
+			</td>
+		</tr>
+		<tr>				
+			<td align="right">Address</td>
+			<td  colspan="3">
+				<textarea name="Address" rows="4" cols="30"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">City</td>
+			<td>
+				<label for="City"></label>
+				<input type="text" name="City" id="City" size="31"
+				pattern="[a-zA-Z]{31}"
+				placeholder="Kaspichan" />
+			</td>
+			<td align="right">State</td>
+			<td>
+				<label for="State"></label>
+				<input type="text" name="State" id="State" size="4" />
+			</td>
+		</tr>
+		<tr>
+			<td align="right">Zip/Postal Code</td>
+			<td colspan="3">
+				<label for="Zip/PostalCode"></label>
+				<input type="text" name="Zip/PostalCode" id="Zip/PostalCode" size="8"
+				pattern="[0-9]{8}"
+				placeholder="00000000" />
+			</td>
+		</tr>
+		<tr>
+			<td align="right">Country</td>
+			<td colspan="3">
+				<label for="Country"></label>
+				<select name="Country" id="Country">
+					<option value="BG" selected="selected"> Bulgaria </option>
+					<option value="MAC"> Macedonia </option>
+					<option value="SER"> Serbia </option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">Phone (country code, area code, number)</td>
+			<td colspan="3">
+				<label for="CountryCode">(+</label>
+				<input type="text" name="CountryCode" id="CountryCode" size="3"
+				pattern="[0-9]{3}"
+				placeholder="359"/>
+				<label for="AreaCode">)</label>
+				<input type="text" name="AreaCode" id="AreaCode" size="4"
+				pattern="[0-9]{4}"
+				placeholder="0000"/>
+				<label for="number">-</label>
+				<input type="text" name="number" id="number" size="16"
+				pattern="[0-9]{16}"
+				placeholder="0000000000000000"/>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">E-mail</td>
+			<td colspan="3">
+				<label for="E-mail"></label>
+				<input type="text" name="E-mail" id="E-mail"
+				required="true" 
+				pattern="[a-zA-Z0-9_]{3,}@[a-zA-Z0-9_]{3,}.[a-zA-Z0-9_]{2,4}"
+				placeholder="nakov@kaspichan.org"/>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">Birth date</td>
+			<td colspan="3">
+				<label for="Month">Month</label>
+				<input type="text" name="Month" id="Month" size="2"
+				pattern="[0-9]{2}"
+				placeholder="00"/>
+				<label for="Day">Day</label>
+				<input type="text" name="Day" id="Day" size="2"
+				pattern="[0-9]{2}"
+				placeholder="00"/>
+				<label for="Year">Year (4 digit)</label>
+				<input type="text" name="Year" id="Year" size="4"
+				pattern="[0-9]{4}"
+				placeholder="0000"/>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">Gender</td>
+			<td colspan="3">
+				<label for="Gender"></label>
+				<select name="Gender" id="Gender">
+					<option value="M" selected="selected"> Male </option>
+					<option value="F"> Female </option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">Starting date</td>
+			<td colspan="3">
+				<input name="StartingDate" type="radio" id="Spring2006" value="Spring2006" />
+				<label for="StartingDate">Spring 2006</label>
+				<input name="StartingDate" type="radio" id="Summer2006" value="Summer2006" />
+				<label for="StartingDate">Summer 2006</label>
+			</td>
+		</tr>
+		<tr>				
+			<td align="right">Comments/Questions</td>
+			<td  colspan="3">
+				<textarea name="Address" rows="4" cols="35"></textarea>
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

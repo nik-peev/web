@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>03.MaximalSequenceOfEqual</title>
+    <link href="styles/js-console.min.css" rel="stylesheet" />
+    <script src="scripts/js-console.js"></script>
+    <style>
+		#number  {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body> 	
+    <div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+ 
+	<script>
+	    var arr = [2, 1, 1, 2, 3, 3, 2, 2, 2, 1, 1];
+
+	    var count = 1;
+	    var currentC = 1;
+	    var repeatedNumber = 0;
+
+	    for (var i = 0; i < arr.length-1; i++)
+	    {
+            if (parseInt(arr[i]) == parseInt(arr[i+1]))
+	        {
+                    currentC++;
+	        }
+	        else 
+	        {
+                if (currentC > count)
+	            {
+                    count = currentC;
+                    repeatedNumber = arr[i];
+	            }
+                currentC = 1;
+	        }
+	    }
+	        // check the last sequence
+        if (currentC > count)
+	    {
+            count = currentC;
+            repeatedNumber = arr[arr.Length - 1];
+	    }
+
+	    //check if there just "single" elements
+        if (parseInt(count - 1) == 0)
+	    {
+            jsConsole.writeLine("The lenght of maximal sequence of equal elements in an array is 1, so all sequence are equal");
+	    }
+
+	    // print the expected result 
+	    else
+	    {
+            jsConsole.writeLine("The maximal sequence of equal elements in an array is:");
+            for (var i = 0; i < count; i++)
+	        {
+                    jsConsole.write(repeatedNumber + " ");
+	        }
+	    }
+
+	</script>
+
+</body>
+</html>

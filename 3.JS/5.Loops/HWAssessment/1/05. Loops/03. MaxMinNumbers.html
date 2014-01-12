@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Loops - do-while loops</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	   
+	<label for="input">Enter sequence of numbers separated by interval:</label>
+	<input id="input" />
+	<button onclick="maxAndMinFromSequence()">Run</button>
+
+	<div id="js-console"></div>
+	<script src="Scripts/js-console.js"></script>
+	<script>
+		function maxAndMinFromSequence() {
+
+			var min;
+			var max;
+			var hasSolution = false;
+			var numbers = document.getElementById("input").value.split(' '); // split numbers from input text box
+
+			if (numbers.length > 0) {
+				for (var i = 0; i < numbers.length; i++) {
+					var number = parseFloat(numbers[i]); // parse element in area to number
+					if (isValidInputNumber(number)) {
+						hasSolution = true;
+					}
+					if (number > max) {
+						max = number;
+					}
+					if (number < min) {
+						min = number;
+					}
+				}
+				if (hasSolution) jsConsole.writeLine("Min = " + min + " Max = " + max);
+				else jsConsole.writeLine("Enter at least one number.");
+			}
+			else {
+				jsConsole.writeLine("Enter at least one number.");
+			}
+
+		}
+
+	</script>
+</body>
+</html>

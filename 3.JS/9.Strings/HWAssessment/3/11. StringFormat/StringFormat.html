@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>String.Format() in JavaScript</title>
+</head>
+<body>
+    <p>This script will format a string in a way similar to the C# String.Format() method.</p>
+
+    <div id="result"></div>
+
+    <script type="text/javascript">
+        function testFormat() {
+            var format = "{0}, {1}, {0} text {2}";
+            var str = stringFormat(format, 1, "Pesho", "Gosho");
+            document.getElementById("result").innerHTML = str;
+        }
+
+        function stringFormat() {
+            var functionArguments = arguments;
+            var string = arguments[0];
+            // Replace each digit N between curly brackets with the (N+1)th argument of the function
+            var formatted = string.replace(/{(\d+)}/g, function (match, g1) {
+                return functionArguments[parseInt(g1) + 1];
+            });
+            return formatted;
+        }
+
+        testFormat();
+    </script>
+</body>
+</html>
